@@ -5,8 +5,8 @@ import time
 from dataclasses import replace
 
 from PySide6.QtCore import QPointF, QRectF, Qt, QTimer
-from PySide6.QtGui import QColor, QCursor, QPainter, QPen, QPixmap
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtGui import QColor, QCursor, QPainter, QPen
+from PySide6.QtWidgets import QWidget
 
 from .assets import CharacterAssets, LayerSpec, SpriteAsset
 from .config import ConfigStore
@@ -22,12 +22,7 @@ from .model import (
 
 
 class AvatarCanvas(QWidget):
-    """Renderer for fixed outfit bases plus independent transformable sprites.
-
-    Character files describe layers and default transforms; the renderer knows
-    only generic roles (mouth, eyelid, iris). This keeps character content out
-    of the input/audio controllers and makes a second character a data change.
-    """
+    """Renderer for fixed outfit bases plus independent transformable sprites."""
 
     def __init__(self, assets: CharacterAssets, config: ConfigStore, state: AvatarState, parent=None) -> None:
         super().__init__(parent)
@@ -45,6 +40,7 @@ class AvatarCanvas(QWidget):
         self._outfit_progress = 1.0
         self.selected_layer: str | None = None
         self.selected_group: str | None = None
+        self._layers_by_id = {layer.layer_id: layer for layer in self.assets.layers}
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setAttribute(Qt.WA_NoSystemBackground, True)
         self.setAttribute(Qt.WA_TransparentForMouseEvents, True)
@@ -93,7 +89,16 @@ class AvatarCanvas(QWidget):
     def effective_group_transform(self, outfit: str, group_id: str) -> LayerTransform:
         default = self.assets.default_group_transform(outfit, group_id)
         override = self.config.group_calibration_for(outfit, group_id)
-        return default.merged(override)
+        if override:
+            return default.merged(override)
+
+        if group_id in {"eye_left", "eye_right"} and bool(self.config.data.get("eye_auto_level_defaults", True)):
+            pair_overrides = self.config.data.get("group_calibration", {}).get(outfit, {})
+            if not pair_overrides.get("eye_left") and not pair_overrides.get("eye_right"):
+                left = self.assets.default_group_transform(outfit, "eye_left")
+                right = self.assets.default_group_transform(outfit, "eye_right")
+                return replace(default, y=(left.y + right.y) * 0.5)
+        return default
 
     def save_group_transform(self, outfit: str, group_id: str, transform: LayerTransform) -> None:
         self.config.set_group_calibration(outfit, group_id, transform.to_dict())
@@ -133,16 +138,14 @@ class AvatarCanvas(QWidget):
             dx = (cursor.x() - face_global.x()) / max(180.0, self.width() * 1.2)
             dy = (cursor.y() - face_global.y()) / max(180.0, self.height() * 0.55)
             length = math.hypot(dx, dy)
-            dead_zone = 0.055
+            dead_zone = 0.075
             if length <= dead_zone:
                 dx = dy = 0.0
             else:
                 normalized = min(1.0, (length - dead_zone) / (1.0 - dead_zone))
                 dx, dy = dx / length * normalized, dy / length * normalized
             target_x, target_y = dx, dy
-        gaze_x, gaze_y = self._gaze.update(target_x, target_y, dt)
-        # Clamp spring overshoot as one vector. Independent axis clamping makes
-        # diagonal gaze exceed the socket radius.
+        gaze_x, gaze_y = self._gaze.update(target_x, target_y, dt, stiffness=38.0, damping=13.5)
         length = math.hypot(gaze_x, gaze_y)
         if length > 1.0:
             gaze_x, gaze_y = gaze_x / length, gaze_y / length
@@ -175,8 +178,6 @@ class AvatarCanvas(QWidget):
         painter.scale(1.0 + wave * 0.0018, 1.0 + wave * 0.0042)
         painter.translate(-cw * 0.5, -ch * 0.62 - wave * 1.4)
 
-        # Keep the old outfit fully present while the new one eases on top.
-        # This avoids the 50%-alpha dip that caused transparent-window flashes.
         if self._outfit_progress < 1.0 and self._previous_outfit in self.assets.bases:
             self._draw_scene(painter, self._previous_outfit, self._previous_expression, 1.0)
             self._draw_scene(painter, self.state.outfit, self.state.expression, smootherstep(self._outfit_progress))
@@ -257,12 +258,7 @@ class AvatarCanvas(QWidget):
         for _, layer, transform in sorted(prepared, key=lambda item: item[0]):
             self._draw_layer(painter, outfit, layer, transform, expression, scene_opacity, calibration)
 
-    def _motion_transform(
-        self,
-        transform: LayerTransform,
-        layer: LayerSpec,
-        sprite: SpriteAsset,
-    ) -> LayerTransform:
+    def _motion_transform(self, transform: LayerTransform, layer: LayerSpec, sprite: SpriteAsset) -> LayerTransform:
         blink = smootherstep(self._blink_amount)
         mouth = smootherstep(self._mouth_amount)
         size = (sprite.width, sprite.height)
@@ -277,6 +273,24 @@ class AvatarCanvas(QWidget):
         if layer.role == "mouth_closed":
             return scale_transform_about_center(transform, size, 1.0, 1.0 - mouth * 0.08)
         return transform
+
+    def _iris_socket_target(self, outfit: str, expression: str, layer: LayerSpec) -> tuple[float, float] | None:
+        side = "left" if layer.layer_id.endswith("_left") else "right" if layer.layer_id.endswith("_right") else ""
+        if not side:
+            return None
+        white_layer = self._layers_by_id.get(f"eye_white_{side}")
+        if white_layer is None:
+            return None
+        white_sprite = self.assets.sprite_for(outfit, expression, white_layer)
+        if white_sprite is None:
+            return None
+        white_transform = self._transform_for_draw(outfit, white_layer, expression)
+        white_transform = self._motion_transform(white_transform, white_layer, white_sprite)
+        cx = white_transform.x + white_sprite.width * white_transform.scale_x * 0.5
+        cy = white_transform.y + white_sprite.height * white_transform.scale_y * 0.5
+        outward = float(self.config.data.get("iris_outward_px", 1.2))
+        cx += -outward if side == "left" else outward
+        return cx, cy
 
     def _draw_layer(
         self,
@@ -296,12 +310,22 @@ class AvatarCanvas(QWidget):
         opacity = transform.opacity * role_opacity * scene_opacity
         if opacity <= 0.001:
             return
+
+        width, height = sprite.width, sprite.height
         x, y = transform.x, transform.y
         if layer.role == "iris":
+            target = self._iris_socket_target(outfit, expression, layer)
+            lock = max(0.0, min(1.0, float(self.config.data.get("iris_socket_lock", 0.86))))
+            if target is not None and lock > 0.0:
+                current_cx = x + width * transform.scale_x * 0.5
+                current_cy = y + height * transform.scale_y * 0.5
+                x += (target[0] - current_cx) * lock
+                y += (target[1] - current_cy) * lock
             gaze_visibility = 1.0 - smootherstep(self._blink_amount)
-            x += self._gaze_x * layer.eye_limit_x * gaze_visibility
-            y += self._gaze_y * layer.eye_limit_y * gaze_visibility
-        width, height = sprite.width, sprite.height
+            strength = max(0.0, min(1.0, float(self.config.data.get("eye_tracking_strength", 0.62))))
+            x += self._gaze_x * layer.eye_limit_x * gaze_visibility * strength
+            y += self._gaze_y * layer.eye_limit_y * gaze_visibility * strength
+
         painter.save()
         painter.setOpacity(opacity)
         painter.translate(x + width * transform.scale_x * 0.5, y + height * transform.scale_y * 0.5)
