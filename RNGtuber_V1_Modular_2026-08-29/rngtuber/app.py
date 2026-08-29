@@ -14,6 +14,7 @@ from .assets import CharacterAssets
 from .audio import MicLevel
 from .config import APP_NAME, APP_VERSION, ConfigStore, app_data_dir
 from .control_panel import ControlPanel
+from .eye_rig_v2 import install_eye_rig_v2
 from .input import GlobalInput
 from .model import AvatarState, BlinkController, MouthController
 from .window import AvatarWindow
@@ -99,6 +100,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     avatar = AvatarWindow(config, assets, state, inputs)
     panel = ControlPanel(config, assets, state, avatar, mic)
+    install_eye_rig_v2(panel, avatar, config, assets)
 
     tray: QSystemTrayIcon | None = None
     if QSystemTrayIcon.isSystemTrayAvailable():
