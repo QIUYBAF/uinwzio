@@ -1,0 +1,2352 @@
+{
+  "revision": "custom_refined_2026-08-29",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "registered_files": 130,
+  "files": {
+    "runtime/casual_base.png": {
+      "mode": "RGBA",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        183,
+        9,
+        852,
+        1526
+      ],
+      "bytes": 1397565
+    },
+    "runtime/cos_base.png": {
+      "mode": "RGBA",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        125,
+        4,
+        934,
+        1528
+      ],
+      "bytes": 1992834
+    },
+    "runtime/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        35,
+        12
+      ],
+      "bytes": 895
+    },
+    "runtime/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        34,
+        14
+      ],
+      "bytes": 917
+    },
+    "runtime/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 810
+    },
+    "runtime/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 808
+    },
+    "runtime/eye_glow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_extrema": [
+        0,
+        251
+      ],
+      "alpha_bbox": [
+        401,
+        263,
+        468,
+        297
+      ],
+      "bytes": 19357
+    },
+    "runtime/eye_glow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha_extrema": [
+        0,
+        252
+      ],
+      "alpha_bbox": [
+        561,
+        229,
+        627,
+        262
+      ],
+      "bytes": 19289
+    },
+    "runtime/eyeliner_open_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        34,
+        13
+      ],
+      "bytes": 1057
+    },
+    "runtime/eyeliner_open_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        35,
+        13
+      ],
+      "bytes": 1048
+    },
+    "runtime/eyelid_closed_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        33,
+        10
+      ],
+      "bytes": 756
+    },
+    "runtime/eyelid_closed_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        34,
+        10
+      ],
+      "bytes": 788
+    },
+    "runtime/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        36,
+        7
+      ],
+      "bytes": 569
+    },
+    "runtime/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        40,
+        7
+      ],
+      "bytes": 659
+    },
+    "runtime/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        252
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        24,
+        6
+      ],
+      "bytes": 421
+    },
+    "runtime/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        17
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        26,
+        15
+      ],
+      "bytes": 1134
+    },
+    "runtime/eyeliner_lower_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/eyeliner_lower_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        35,
+        12
+      ],
+      "bytes": 895
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        34,
+        14
+      ],
+      "bytes": 917
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 810
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 808
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        34,
+        13
+      ],
+      "bytes": 1057
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        35,
+        13
+      ],
+      "bytes": 1048
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        33,
+        10
+      ],
+      "bytes": 756
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        34,
+        10
+      ],
+      "bytes": 788
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        36,
+        7
+      ],
+      "bytes": 569
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        40,
+        7
+      ],
+      "bytes": 659
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        252
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        24,
+        6
+      ],
+      "bytes": 421
+    },
+    "runtime/custom_refined_2026-08-29/casual/neutral/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        17
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        26,
+        15
+      ],
+      "bytes": 1134
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        35,
+        12
+      ],
+      "bytes": 892
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        33,
+        13
+      ],
+      "bytes": 827
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 810
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 808
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        32,
+        12
+      ],
+      "bytes": 853
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        32,
+        12
+      ],
+      "bytes": 860
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        35,
+        10
+      ],
+      "bytes": 961
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        35,
+        10
+      ],
+      "bytes": 957
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        36,
+        8
+      ],
+      "bytes": 674
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        38,
+        8
+      ],
+      "bytes": 685
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        26,
+        6
+      ],
+      "bytes": 489
+    },
+    "runtime/custom_refined_2026-08-29/casual/happy/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        28,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        2,
+        28,
+        14
+      ],
+      "bytes": 911
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        9
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        31,
+        9
+      ],
+      "bytes": 642
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        29,
+        10
+      ],
+      "bytes": 595
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        17,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        15,
+        12
+      ],
+      "bytes": 700
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        17,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        15,
+        12
+      ],
+      "bytes": 707
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        34,
+        10
+      ],
+      "bytes": 789
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        33,
+        10
+      ],
+      "bytes": 791
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        37,
+        10
+      ],
+      "bytes": 952
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        38,
+        10
+      ],
+      "bytes": 998
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        34,
+        8
+      ],
+      "bytes": 572
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        37,
+        8
+      ],
+      "bytes": 581
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        21,
+        6
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        21,
+        5
+      ],
+      "bytes": 326
+    },
+    "runtime/custom_refined_2026-08-29/casual/unamused/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        13
+      ],
+      "bytes": 1020
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        17
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        2,
+        35,
+        14
+      ],
+      "bytes": 900
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        18
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        36,
+        16
+      ],
+      "bytes": 1002
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        20,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        18,
+        16
+      ],
+      "bytes": 979
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        20,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        18,
+        16
+      ],
+      "bytes": 964
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        39,
+        15
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        37,
+        15
+      ],
+      "bytes": 1228
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        39,
+        15
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        38,
+        15
+      ],
+      "bytes": 1192
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        33,
+        10
+      ],
+      "bytes": 756
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        34,
+        10
+      ],
+      "bytes": 788
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        33,
+        8
+      ],
+      "bytes": 612
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        36,
+        8
+      ],
+      "bytes": 619
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        18,
+        7
+      ],
+      "bytes": 431
+    },
+    "runtime/custom_refined_2026-08-29/casual/surprised/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        20
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        26,
+        16
+      ],
+      "bytes": 896
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        35,
+        12
+      ],
+      "bytes": 895
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        34,
+        14
+      ],
+      "bytes": 917
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 810
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 808
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        34,
+        13
+      ],
+      "bytes": 1057
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        35,
+        13
+      ],
+      "bytes": 1048
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        33,
+        10
+      ],
+      "bytes": 756
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        34,
+        10
+      ],
+      "bytes": 788
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        36,
+        7
+      ],
+      "bytes": 569
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        40,
+        7
+      ],
+      "bytes": 659
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        252
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        24,
+        6
+      ],
+      "bytes": 421
+    },
+    "runtime/custom_refined_2026-08-29/cos/neutral/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        17
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        26,
+        15
+      ],
+      "bytes": 1134
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        35,
+        12
+      ],
+      "bytes": 892
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        13
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        33,
+        13
+      ],
+      "bytes": 827
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 810
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        18,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        16,
+        14
+      ],
+      "bytes": 808
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        32,
+        12
+      ],
+      "bytes": 853
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        32,
+        12
+      ],
+      "bytes": 860
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        35,
+        10
+      ],
+      "bytes": 961
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        35,
+        10
+      ],
+      "bytes": 957
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        36,
+        8
+      ],
+      "bytes": 674
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        38,
+        8
+      ],
+      "bytes": 685
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        26,
+        6
+      ],
+      "bytes": 489
+    },
+    "runtime/custom_refined_2026-08-29/cos/happy/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        28,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        2,
+        28,
+        14
+      ],
+      "bytes": 911
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        9
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        31,
+        9
+      ],
+      "bytes": 642
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        29,
+        10
+      ],
+      "bytes": 595
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        17,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        15,
+        12
+      ],
+      "bytes": 700
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        17,
+        12
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        15,
+        12
+      ],
+      "bytes": 707
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        34,
+        10
+      ],
+      "bytes": 789
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        37,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        33,
+        10
+      ],
+      "bytes": 791
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        37,
+        10
+      ],
+      "bytes": 952
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        38,
+        10
+      ],
+      "bytes": 998
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        34,
+        8
+      ],
+      "bytes": 572
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        3,
+        0,
+        37,
+        8
+      ],
+      "bytes": 581
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        21,
+        6
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        21,
+        5
+      ],
+      "bytes": 326
+    },
+    "runtime/custom_refined_2026-08-29/cos/unamused/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        14
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        13
+      ],
+      "bytes": 1020
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/eye_white_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        17
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        2,
+        35,
+        14
+      ],
+      "bytes": 900
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/eye_white_right.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        18
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        1,
+        36,
+        16
+      ],
+      "bytes": 1002
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/iris_left.png": {
+      "mode": "RGBA",
+      "size": [
+        20,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        18,
+        16
+      ],
+      "bytes": 979
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/iris_right.png": {
+      "mode": "RGBA",
+      "size": [
+        20,
+        16
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        18,
+        16
+      ],
+      "bytes": 964
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/upper_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        39,
+        15
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        1,
+        0,
+        37,
+        15
+      ],
+      "bytes": 1228
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/upper_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        39,
+        15
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        0,
+        38,
+        15
+      ],
+      "bytes": 1192
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/lower_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        159
+      ],
+      "alpha_bbox": [
+        12,
+        0,
+        23,
+        5
+      ],
+      "bytes": 226
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/lower_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        35,
+        5
+      ],
+      "alpha_extrema": [
+        0,
+        146
+      ],
+      "alpha_bbox": [
+        8,
+        0,
+        27,
+        5
+      ],
+      "bytes": 295
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/closed_lid_left.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        33,
+        10
+      ],
+      "bytes": 756
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/closed_lid_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        10
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        6,
+        0,
+        34,
+        10
+      ],
+      "bytes": 788
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/eyebrow_left.png": {
+      "mode": "RGBA",
+      "size": [
+        36,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        2,
+        0,
+        33,
+        8
+      ],
+      "bytes": 612
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/eyebrow_right.png": {
+      "mode": "RGBA",
+      "size": [
+        40,
+        8
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        4,
+        0,
+        36,
+        8
+      ],
+      "bytes": 619
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/mouth_closed.png": {
+      "mode": "RGBA",
+      "size": [
+        24,
+        7
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        5,
+        0,
+        18,
+        7
+      ],
+      "bytes": 431
+    },
+    "runtime/custom_refined_2026-08-29/cos/surprised/mouth_open.png": {
+      "mode": "RGBA",
+      "size": [
+        26,
+        20
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        26,
+        16
+      ],
+      "bytes": 896
+    }
+  },
+  "issues": [],
+  "ok": true
+}

@@ -1,0 +1,26 @@
+{
+  "revision": "custom_refined_2026-08-29",
+  "active_replaced": [
+    "eye_white_left.png",
+    "eye_white_right.png",
+    "eyebrow_left.png",
+    "eyebrow_right.png",
+    "eyelid_closed_left.png",
+    "eyelid_closed_right.png",
+    "eyeliner_lower_left.png",
+    "eyeliner_lower_right.png",
+    "eyeliner_open_left.png",
+    "eyeliner_open_right.png",
+    "iris_left.png",
+    "iris_right.png",
+    "mouth_closed.png",
+    "mouth_open.png"
+  ],
+  "variant_sprite_count": 112,
+  "variant_layer_count_per_state": 14,
+  "states": 8,
+  "all_variant_files_rgba_nonempty": true,
+  "transparent_background_required": true,
+  "blink_rule": "eye_white + iris + open upper/lower lids hidden; closed_lid shown",
+  "eye_tracking_rule": "only iris moves; eye_white is fixed"
+}

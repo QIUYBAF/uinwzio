@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.venv-*/
+build/
+dist/
+release/
+qa_render/
+preview_*.png
+preview_*.jpg
+master_*_face.jpg
+*.log

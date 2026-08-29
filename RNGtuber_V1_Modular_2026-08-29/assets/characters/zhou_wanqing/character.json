@@ -1,0 +1,1605 @@
+{
+  "schema_version": 3,
+  "id": "zhou_wanqing",
+  "display_name": "周婉晴",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "outfits": {
+    "casual": {
+      "base": "runtime/casual_base.png",
+      "transforms": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 145,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 146,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_glow_left": {
+          "x": 450,
+          "y": 145,
+          "scale_x": 0.37,
+          "scale_y": 0.37,
+          "opacity": 0.0
+        },
+        "eye_glow_right": {
+          "x": 516,
+          "y": 139,
+          "scale_x": 0.37,
+          "scale_y": 0.37,
+          "opacity": 0.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 127,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 122,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 193,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 185,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 164,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 158,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      }
+    },
+    "cos": {
+      "base": "runtime/cos_base.png",
+      "transforms": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 144,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_glow_left": {
+          "x": 450,
+          "y": 143,
+          "scale_x": 0.37,
+          "scale_y": 0.37,
+          "opacity": 0.0
+        },
+        "eye_glow_right": {
+          "x": 516,
+          "y": 137,
+          "scale_x": 0.37,
+          "scale_y": 0.37,
+          "opacity": 0.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 154,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 125,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 120,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 191,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 183,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 162,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      }
+    }
+  },
+  "sprites": {
+    "eye_white_left": "runtime/eye_white_left.png",
+    "eye_white_right": "runtime/eye_white_right.png",
+    "iris_left": "runtime/iris_left.png",
+    "iris_right": "runtime/iris_right.png",
+    "eye_glow_left": "runtime/eye_glow_left.png",
+    "eye_glow_right": "runtime/eye_glow_right.png",
+    "eyeliner_open_left": "runtime/eyeliner_open_left.png",
+    "eyeliner_open_right": "runtime/eyeliner_open_right.png",
+    "eyelid_closed_left": "runtime/eyelid_closed_left.png",
+    "eyelid_closed_right": "runtime/eyelid_closed_right.png",
+    "eyebrow_left": "runtime/eyebrow_left.png",
+    "eyebrow_right": "runtime/eyebrow_right.png",
+    "mouth_closed": "runtime/mouth_closed.png",
+    "mouth_open": "runtime/mouth_open.png",
+    "eyeliner_lower_left": "runtime/eyeliner_lower_left.png",
+    "eyeliner_lower_right": "runtime/eyeliner_lower_right.png",
+    "casual_neutral_eye_white_left": "runtime/custom_refined_2026-08-29/casual/neutral/eye_white_left.png",
+    "casual_neutral_eye_white_right": "runtime/custom_refined_2026-08-29/casual/neutral/eye_white_right.png",
+    "casual_neutral_iris_left": "runtime/custom_refined_2026-08-29/casual/neutral/iris_left.png",
+    "casual_neutral_iris_right": "runtime/custom_refined_2026-08-29/casual/neutral/iris_right.png",
+    "casual_neutral_eyeliner_open_left": "runtime/custom_refined_2026-08-29/casual/neutral/upper_lid_left.png",
+    "casual_neutral_eyeliner_open_right": "runtime/custom_refined_2026-08-29/casual/neutral/upper_lid_right.png",
+    "casual_neutral_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/casual/neutral/lower_lid_left.png",
+    "casual_neutral_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/casual/neutral/lower_lid_right.png",
+    "casual_neutral_eyelid_closed_left": "runtime/custom_refined_2026-08-29/casual/neutral/closed_lid_left.png",
+    "casual_neutral_eyelid_closed_right": "runtime/custom_refined_2026-08-29/casual/neutral/closed_lid_right.png",
+    "casual_neutral_eyebrow_left": "runtime/custom_refined_2026-08-29/casual/neutral/eyebrow_left.png",
+    "casual_neutral_eyebrow_right": "runtime/custom_refined_2026-08-29/casual/neutral/eyebrow_right.png",
+    "casual_neutral_mouth_closed": "runtime/custom_refined_2026-08-29/casual/neutral/mouth_closed.png",
+    "casual_neutral_mouth_open": "runtime/custom_refined_2026-08-29/casual/neutral/mouth_open.png",
+    "casual_happy_eye_white_left": "runtime/custom_refined_2026-08-29/casual/happy/eye_white_left.png",
+    "casual_happy_eye_white_right": "runtime/custom_refined_2026-08-29/casual/happy/eye_white_right.png",
+    "casual_happy_iris_left": "runtime/custom_refined_2026-08-29/casual/happy/iris_left.png",
+    "casual_happy_iris_right": "runtime/custom_refined_2026-08-29/casual/happy/iris_right.png",
+    "casual_happy_eyeliner_open_left": "runtime/custom_refined_2026-08-29/casual/happy/upper_lid_left.png",
+    "casual_happy_eyeliner_open_right": "runtime/custom_refined_2026-08-29/casual/happy/upper_lid_right.png",
+    "casual_happy_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/casual/happy/lower_lid_left.png",
+    "casual_happy_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/casual/happy/lower_lid_right.png",
+    "casual_happy_eyelid_closed_left": "runtime/custom_refined_2026-08-29/casual/happy/closed_lid_left.png",
+    "casual_happy_eyelid_closed_right": "runtime/custom_refined_2026-08-29/casual/happy/closed_lid_right.png",
+    "casual_happy_eyebrow_left": "runtime/custom_refined_2026-08-29/casual/happy/eyebrow_left.png",
+    "casual_happy_eyebrow_right": "runtime/custom_refined_2026-08-29/casual/happy/eyebrow_right.png",
+    "casual_happy_mouth_closed": "runtime/custom_refined_2026-08-29/casual/happy/mouth_closed.png",
+    "casual_happy_mouth_open": "runtime/custom_refined_2026-08-29/casual/happy/mouth_open.png",
+    "casual_unamused_eye_white_left": "runtime/custom_refined_2026-08-29/casual/unamused/eye_white_left.png",
+    "casual_unamused_eye_white_right": "runtime/custom_refined_2026-08-29/casual/unamused/eye_white_right.png",
+    "casual_unamused_iris_left": "runtime/custom_refined_2026-08-29/casual/unamused/iris_left.png",
+    "casual_unamused_iris_right": "runtime/custom_refined_2026-08-29/casual/unamused/iris_right.png",
+    "casual_unamused_eyeliner_open_left": "runtime/custom_refined_2026-08-29/casual/unamused/upper_lid_left.png",
+    "casual_unamused_eyeliner_open_right": "runtime/custom_refined_2026-08-29/casual/unamused/upper_lid_right.png",
+    "casual_unamused_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/casual/unamused/lower_lid_left.png",
+    "casual_unamused_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/casual/unamused/lower_lid_right.png",
+    "casual_unamused_eyelid_closed_left": "runtime/custom_refined_2026-08-29/casual/unamused/closed_lid_left.png",
+    "casual_unamused_eyelid_closed_right": "runtime/custom_refined_2026-08-29/casual/unamused/closed_lid_right.png",
+    "casual_unamused_eyebrow_left": "runtime/custom_refined_2026-08-29/casual/unamused/eyebrow_left.png",
+    "casual_unamused_eyebrow_right": "runtime/custom_refined_2026-08-29/casual/unamused/eyebrow_right.png",
+    "casual_unamused_mouth_closed": "runtime/custom_refined_2026-08-29/casual/unamused/mouth_closed.png",
+    "casual_unamused_mouth_open": "runtime/custom_refined_2026-08-29/casual/unamused/mouth_open.png",
+    "casual_surprised_eye_white_left": "runtime/custom_refined_2026-08-29/casual/surprised/eye_white_left.png",
+    "casual_surprised_eye_white_right": "runtime/custom_refined_2026-08-29/casual/surprised/eye_white_right.png",
+    "casual_surprised_iris_left": "runtime/custom_refined_2026-08-29/casual/surprised/iris_left.png",
+    "casual_surprised_iris_right": "runtime/custom_refined_2026-08-29/casual/surprised/iris_right.png",
+    "casual_surprised_eyeliner_open_left": "runtime/custom_refined_2026-08-29/casual/surprised/upper_lid_left.png",
+    "casual_surprised_eyeliner_open_right": "runtime/custom_refined_2026-08-29/casual/surprised/upper_lid_right.png",
+    "casual_surprised_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/casual/surprised/lower_lid_left.png",
+    "casual_surprised_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/casual/surprised/lower_lid_right.png",
+    "casual_surprised_eyelid_closed_left": "runtime/custom_refined_2026-08-29/casual/surprised/closed_lid_left.png",
+    "casual_surprised_eyelid_closed_right": "runtime/custom_refined_2026-08-29/casual/surprised/closed_lid_right.png",
+    "casual_surprised_eyebrow_left": "runtime/custom_refined_2026-08-29/casual/surprised/eyebrow_left.png",
+    "casual_surprised_eyebrow_right": "runtime/custom_refined_2026-08-29/casual/surprised/eyebrow_right.png",
+    "casual_surprised_mouth_closed": "runtime/custom_refined_2026-08-29/casual/surprised/mouth_closed.png",
+    "casual_surprised_mouth_open": "runtime/custom_refined_2026-08-29/casual/surprised/mouth_open.png",
+    "cos_neutral_eye_white_left": "runtime/custom_refined_2026-08-29/cos/neutral/eye_white_left.png",
+    "cos_neutral_eye_white_right": "runtime/custom_refined_2026-08-29/cos/neutral/eye_white_right.png",
+    "cos_neutral_iris_left": "runtime/custom_refined_2026-08-29/cos/neutral/iris_left.png",
+    "cos_neutral_iris_right": "runtime/custom_refined_2026-08-29/cos/neutral/iris_right.png",
+    "cos_neutral_eyeliner_open_left": "runtime/custom_refined_2026-08-29/cos/neutral/upper_lid_left.png",
+    "cos_neutral_eyeliner_open_right": "runtime/custom_refined_2026-08-29/cos/neutral/upper_lid_right.png",
+    "cos_neutral_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/cos/neutral/lower_lid_left.png",
+    "cos_neutral_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/cos/neutral/lower_lid_right.png",
+    "cos_neutral_eyelid_closed_left": "runtime/custom_refined_2026-08-29/cos/neutral/closed_lid_left.png",
+    "cos_neutral_eyelid_closed_right": "runtime/custom_refined_2026-08-29/cos/neutral/closed_lid_right.png",
+    "cos_neutral_eyebrow_left": "runtime/custom_refined_2026-08-29/cos/neutral/eyebrow_left.png",
+    "cos_neutral_eyebrow_right": "runtime/custom_refined_2026-08-29/cos/neutral/eyebrow_right.png",
+    "cos_neutral_mouth_closed": "runtime/custom_refined_2026-08-29/cos/neutral/mouth_closed.png",
+    "cos_neutral_mouth_open": "runtime/custom_refined_2026-08-29/cos/neutral/mouth_open.png",
+    "cos_happy_eye_white_left": "runtime/custom_refined_2026-08-29/cos/happy/eye_white_left.png",
+    "cos_happy_eye_white_right": "runtime/custom_refined_2026-08-29/cos/happy/eye_white_right.png",
+    "cos_happy_iris_left": "runtime/custom_refined_2026-08-29/cos/happy/iris_left.png",
+    "cos_happy_iris_right": "runtime/custom_refined_2026-08-29/cos/happy/iris_right.png",
+    "cos_happy_eyeliner_open_left": "runtime/custom_refined_2026-08-29/cos/happy/upper_lid_left.png",
+    "cos_happy_eyeliner_open_right": "runtime/custom_refined_2026-08-29/cos/happy/upper_lid_right.png",
+    "cos_happy_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/cos/happy/lower_lid_left.png",
+    "cos_happy_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/cos/happy/lower_lid_right.png",
+    "cos_happy_eyelid_closed_left": "runtime/custom_refined_2026-08-29/cos/happy/closed_lid_left.png",
+    "cos_happy_eyelid_closed_right": "runtime/custom_refined_2026-08-29/cos/happy/closed_lid_right.png",
+    "cos_happy_eyebrow_left": "runtime/custom_refined_2026-08-29/cos/happy/eyebrow_left.png",
+    "cos_happy_eyebrow_right": "runtime/custom_refined_2026-08-29/cos/happy/eyebrow_right.png",
+    "cos_happy_mouth_closed": "runtime/custom_refined_2026-08-29/cos/happy/mouth_closed.png",
+    "cos_happy_mouth_open": "runtime/custom_refined_2026-08-29/cos/happy/mouth_open.png",
+    "cos_unamused_eye_white_left": "runtime/custom_refined_2026-08-29/cos/unamused/eye_white_left.png",
+    "cos_unamused_eye_white_right": "runtime/custom_refined_2026-08-29/cos/unamused/eye_white_right.png",
+    "cos_unamused_iris_left": "runtime/custom_refined_2026-08-29/cos/unamused/iris_left.png",
+    "cos_unamused_iris_right": "runtime/custom_refined_2026-08-29/cos/unamused/iris_right.png",
+    "cos_unamused_eyeliner_open_left": "runtime/custom_refined_2026-08-29/cos/unamused/upper_lid_left.png",
+    "cos_unamused_eyeliner_open_right": "runtime/custom_refined_2026-08-29/cos/unamused/upper_lid_right.png",
+    "cos_unamused_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/cos/unamused/lower_lid_left.png",
+    "cos_unamused_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/cos/unamused/lower_lid_right.png",
+    "cos_unamused_eyelid_closed_left": "runtime/custom_refined_2026-08-29/cos/unamused/closed_lid_left.png",
+    "cos_unamused_eyelid_closed_right": "runtime/custom_refined_2026-08-29/cos/unamused/closed_lid_right.png",
+    "cos_unamused_eyebrow_left": "runtime/custom_refined_2026-08-29/cos/unamused/eyebrow_left.png",
+    "cos_unamused_eyebrow_right": "runtime/custom_refined_2026-08-29/cos/unamused/eyebrow_right.png",
+    "cos_unamused_mouth_closed": "runtime/custom_refined_2026-08-29/cos/unamused/mouth_closed.png",
+    "cos_unamused_mouth_open": "runtime/custom_refined_2026-08-29/cos/unamused/mouth_open.png",
+    "cos_surprised_eye_white_left": "runtime/custom_refined_2026-08-29/cos/surprised/eye_white_left.png",
+    "cos_surprised_eye_white_right": "runtime/custom_refined_2026-08-29/cos/surprised/eye_white_right.png",
+    "cos_surprised_iris_left": "runtime/custom_refined_2026-08-29/cos/surprised/iris_left.png",
+    "cos_surprised_iris_right": "runtime/custom_refined_2026-08-29/cos/surprised/iris_right.png",
+    "cos_surprised_eyeliner_open_left": "runtime/custom_refined_2026-08-29/cos/surprised/upper_lid_left.png",
+    "cos_surprised_eyeliner_open_right": "runtime/custom_refined_2026-08-29/cos/surprised/upper_lid_right.png",
+    "cos_surprised_eyeliner_lower_left": "runtime/custom_refined_2026-08-29/cos/surprised/lower_lid_left.png",
+    "cos_surprised_eyeliner_lower_right": "runtime/custom_refined_2026-08-29/cos/surprised/lower_lid_right.png",
+    "cos_surprised_eyelid_closed_left": "runtime/custom_refined_2026-08-29/cos/surprised/closed_lid_left.png",
+    "cos_surprised_eyelid_closed_right": "runtime/custom_refined_2026-08-29/cos/surprised/closed_lid_right.png",
+    "cos_surprised_eyebrow_left": "runtime/custom_refined_2026-08-29/cos/surprised/eyebrow_left.png",
+    "cos_surprised_eyebrow_right": "runtime/custom_refined_2026-08-29/cos/surprised/eyebrow_right.png",
+    "cos_surprised_mouth_closed": "runtime/custom_refined_2026-08-29/cos/surprised/mouth_closed.png",
+    "cos_surprised_mouth_open": "runtime/custom_refined_2026-08-29/cos/surprised/mouth_open.png"
+  },
+  "layers": [
+    {
+      "id": "eye_white_left",
+      "sprite": "eye_white_left",
+      "role": "eye_white",
+      "z": 10
+    },
+    {
+      "id": "eye_white_right",
+      "sprite": "eye_white_right",
+      "role": "eye_white",
+      "z": 10
+    },
+    {
+      "id": "iris_left",
+      "sprite": "iris_left",
+      "role": "iris",
+      "z": 20,
+      "eye_limit_x": 7.0,
+      "eye_limit_y": 4.0
+    },
+    {
+      "id": "iris_right",
+      "sprite": "iris_right",
+      "role": "iris",
+      "z": 20,
+      "eye_limit_x": 7.0,
+      "eye_limit_y": 4.0
+    },
+    {
+      "id": "eye_glow_left",
+      "sprite": "eye_glow_left",
+      "role": "eye_aux",
+      "z": 25
+    },
+    {
+      "id": "eye_glow_right",
+      "sprite": "eye_glow_right",
+      "role": "eye_aux",
+      "z": 25
+    },
+    {
+      "id": "eyeliner_lower_left",
+      "sprite": "eyeliner_lower_left",
+      "role": "eyeliner_open",
+      "z": 29.0
+    },
+    {
+      "id": "eyeliner_lower_right",
+      "sprite": "eyeliner_lower_right",
+      "role": "eyeliner_open",
+      "z": 29.0
+    },
+    {
+      "id": "eyeliner_open_left",
+      "sprite": "eyeliner_open_left",
+      "role": "eyeliner_open",
+      "z": 30
+    },
+    {
+      "id": "eyeliner_open_right",
+      "sprite": "eyeliner_open_right",
+      "role": "eyeliner_open",
+      "z": 30
+    },
+    {
+      "id": "eyelid_closed_left",
+      "sprite": "eyelid_closed_left",
+      "role": "eyelid_closed",
+      "z": 31
+    },
+    {
+      "id": "eyelid_closed_right",
+      "sprite": "eyelid_closed_right",
+      "role": "eyelid_closed",
+      "z": 31
+    },
+    {
+      "id": "eyebrow_left",
+      "sprite": "eyebrow_left",
+      "role": "always",
+      "z": 40
+    },
+    {
+      "id": "eyebrow_right",
+      "sprite": "eyebrow_right",
+      "role": "always",
+      "z": 40
+    },
+    {
+      "id": "mouth_closed",
+      "sprite": "mouth_closed",
+      "role": "mouth_closed",
+      "z": 50
+    },
+    {
+      "id": "mouth_open",
+      "sprite": "mouth_open",
+      "role": "mouth_open",
+      "z": 51
+    }
+  ],
+  "expressions": {
+    "neutral": {
+      "mouth_bias": 0.0,
+      "layers": {
+        "eye_glow_left": {
+          "opacity": 0.0
+        },
+        "eye_glow_right": {
+          "opacity": 0.0
+        }
+      }
+    },
+    "happy": {
+      "mouth_bias": 0.0,
+      "layers": {
+        "eye_glow_left": {
+          "opacity": 0.22
+        },
+        "eye_glow_right": {
+          "opacity": 0.22
+        }
+      }
+    },
+    "unamused": {
+      "mouth_bias": 0.0,
+      "layers": {
+        "eye_glow_left": {
+          "opacity": 0.0
+        },
+        "eye_glow_right": {
+          "opacity": 0.0
+        }
+      }
+    },
+    "surprised": {
+      "mouth_bias": 1.0,
+      "layers": {
+        "eye_glow_left": {
+          "opacity": 0.12
+        },
+        "eye_glow_right": {
+          "opacity": 0.12
+        }
+      }
+    }
+  },
+  "asset_revision": "custom_refined_2026-08-29",
+  "asset_policy": "active runtime sprites are reference-specific modular layers; archive folder is rollback-only",
+  "sprite_variants": {
+    "casual": {
+      "neutral": {
+        "eye_white_left": "casual_neutral_eye_white_left",
+        "eye_white_right": "casual_neutral_eye_white_right",
+        "iris_left": "casual_neutral_iris_left",
+        "iris_right": "casual_neutral_iris_right",
+        "eyeliner_open_left": "casual_neutral_eyeliner_open_left",
+        "eyeliner_open_right": "casual_neutral_eyeliner_open_right",
+        "eyeliner_lower_left": "casual_neutral_eyeliner_lower_left",
+        "eyeliner_lower_right": "casual_neutral_eyeliner_lower_right",
+        "eyelid_closed_left": "casual_neutral_eyelid_closed_left",
+        "eyelid_closed_right": "casual_neutral_eyelid_closed_right",
+        "eyebrow_left": "casual_neutral_eyebrow_left",
+        "eyebrow_right": "casual_neutral_eyebrow_right",
+        "mouth_closed": "casual_neutral_mouth_closed",
+        "mouth_open": "casual_neutral_mouth_open"
+      },
+      "happy": {
+        "eye_white_left": "casual_happy_eye_white_left",
+        "eye_white_right": "casual_happy_eye_white_right",
+        "iris_left": "casual_happy_iris_left",
+        "iris_right": "casual_happy_iris_right",
+        "eyeliner_open_left": "casual_happy_eyeliner_open_left",
+        "eyeliner_open_right": "casual_happy_eyeliner_open_right",
+        "eyeliner_lower_left": "casual_happy_eyeliner_lower_left",
+        "eyeliner_lower_right": "casual_happy_eyeliner_lower_right",
+        "eyelid_closed_left": "casual_happy_eyelid_closed_left",
+        "eyelid_closed_right": "casual_happy_eyelid_closed_right",
+        "eyebrow_left": "casual_happy_eyebrow_left",
+        "eyebrow_right": "casual_happy_eyebrow_right",
+        "mouth_closed": "casual_happy_mouth_closed",
+        "mouth_open": "casual_happy_mouth_open"
+      },
+      "unamused": {
+        "eye_white_left": "casual_unamused_eye_white_left",
+        "eye_white_right": "casual_unamused_eye_white_right",
+        "iris_left": "casual_unamused_iris_left",
+        "iris_right": "casual_unamused_iris_right",
+        "eyeliner_open_left": "casual_unamused_eyeliner_open_left",
+        "eyeliner_open_right": "casual_unamused_eyeliner_open_right",
+        "eyeliner_lower_left": "casual_unamused_eyeliner_lower_left",
+        "eyeliner_lower_right": "casual_unamused_eyeliner_lower_right",
+        "eyelid_closed_left": "casual_unamused_eyelid_closed_left",
+        "eyelid_closed_right": "casual_unamused_eyelid_closed_right",
+        "eyebrow_left": "casual_unamused_eyebrow_left",
+        "eyebrow_right": "casual_unamused_eyebrow_right",
+        "mouth_closed": "casual_unamused_mouth_closed",
+        "mouth_open": "casual_unamused_mouth_open"
+      },
+      "surprised": {
+        "eye_white_left": "casual_surprised_eye_white_left",
+        "eye_white_right": "casual_surprised_eye_white_right",
+        "iris_left": "casual_surprised_iris_left",
+        "iris_right": "casual_surprised_iris_right",
+        "eyeliner_open_left": "casual_surprised_eyeliner_open_left",
+        "eyeliner_open_right": "casual_surprised_eyeliner_open_right",
+        "eyeliner_lower_left": "casual_surprised_eyeliner_lower_left",
+        "eyeliner_lower_right": "casual_surprised_eyeliner_lower_right",
+        "eyelid_closed_left": "casual_surprised_eyelid_closed_left",
+        "eyelid_closed_right": "casual_surprised_eyelid_closed_right",
+        "eyebrow_left": "casual_surprised_eyebrow_left",
+        "eyebrow_right": "casual_surprised_eyebrow_right",
+        "mouth_closed": "casual_surprised_mouth_closed",
+        "mouth_open": "casual_surprised_mouth_open"
+      }
+    },
+    "cos": {
+      "neutral": {
+        "eye_white_left": "cos_neutral_eye_white_left",
+        "eye_white_right": "cos_neutral_eye_white_right",
+        "iris_left": "cos_neutral_iris_left",
+        "iris_right": "cos_neutral_iris_right",
+        "eyeliner_open_left": "cos_neutral_eyeliner_open_left",
+        "eyeliner_open_right": "cos_neutral_eyeliner_open_right",
+        "eyeliner_lower_left": "cos_neutral_eyeliner_lower_left",
+        "eyeliner_lower_right": "cos_neutral_eyeliner_lower_right",
+        "eyelid_closed_left": "cos_neutral_eyelid_closed_left",
+        "eyelid_closed_right": "cos_neutral_eyelid_closed_right",
+        "eyebrow_left": "cos_neutral_eyebrow_left",
+        "eyebrow_right": "cos_neutral_eyebrow_right",
+        "mouth_closed": "cos_neutral_mouth_closed",
+        "mouth_open": "cos_neutral_mouth_open"
+      },
+      "happy": {
+        "eye_white_left": "cos_happy_eye_white_left",
+        "eye_white_right": "cos_happy_eye_white_right",
+        "iris_left": "cos_happy_iris_left",
+        "iris_right": "cos_happy_iris_right",
+        "eyeliner_open_left": "cos_happy_eyeliner_open_left",
+        "eyeliner_open_right": "cos_happy_eyeliner_open_right",
+        "eyeliner_lower_left": "cos_happy_eyeliner_lower_left",
+        "eyeliner_lower_right": "cos_happy_eyeliner_lower_right",
+        "eyelid_closed_left": "cos_happy_eyelid_closed_left",
+        "eyelid_closed_right": "cos_happy_eyelid_closed_right",
+        "eyebrow_left": "cos_happy_eyebrow_left",
+        "eyebrow_right": "cos_happy_eyebrow_right",
+        "mouth_closed": "cos_happy_mouth_closed",
+        "mouth_open": "cos_happy_mouth_open"
+      },
+      "unamused": {
+        "eye_white_left": "cos_unamused_eye_white_left",
+        "eye_white_right": "cos_unamused_eye_white_right",
+        "iris_left": "cos_unamused_iris_left",
+        "iris_right": "cos_unamused_iris_right",
+        "eyeliner_open_left": "cos_unamused_eyeliner_open_left",
+        "eyeliner_open_right": "cos_unamused_eyeliner_open_right",
+        "eyeliner_lower_left": "cos_unamused_eyeliner_lower_left",
+        "eyeliner_lower_right": "cos_unamused_eyeliner_lower_right",
+        "eyelid_closed_left": "cos_unamused_eyelid_closed_left",
+        "eyelid_closed_right": "cos_unamused_eyelid_closed_right",
+        "eyebrow_left": "cos_unamused_eyebrow_left",
+        "eyebrow_right": "cos_unamused_eyebrow_right",
+        "mouth_closed": "cos_unamused_mouth_closed",
+        "mouth_open": "cos_unamused_mouth_open"
+      },
+      "surprised": {
+        "eye_white_left": "cos_surprised_eye_white_left",
+        "eye_white_right": "cos_surprised_eye_white_right",
+        "iris_left": "cos_surprised_iris_left",
+        "iris_right": "cos_surprised_iris_right",
+        "eyeliner_open_left": "cos_surprised_eyeliner_open_left",
+        "eyeliner_open_right": "cos_surprised_eyeliner_open_right",
+        "eyeliner_lower_left": "cos_surprised_eyeliner_lower_left",
+        "eyeliner_lower_right": "cos_surprised_eyeliner_lower_right",
+        "eyelid_closed_left": "cos_surprised_eyelid_closed_left",
+        "eyelid_closed_right": "cos_surprised_eyelid_closed_right",
+        "eyebrow_left": "cos_surprised_eyebrow_left",
+        "eyebrow_right": "cos_surprised_eyebrow_right",
+        "mouth_closed": "cos_surprised_mouth_closed",
+        "mouth_open": "cos_surprised_mouth_open"
+      }
+    }
+  },
+  "variant_transforms": {
+    "casual": {
+      "neutral": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 145,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 146,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 164,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 158,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 127,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 122,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 193,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 185,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "happy": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 145,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 146,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 164,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 158,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 127,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 122,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 193,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 185,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "unamused": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 153,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 146,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 164,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 158,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 127,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 122,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 193,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 185,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "surprised": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 146,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 164,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 158,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 127,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 122,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 193,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 185,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      }
+    },
+    "cos": {
+      "neutral": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 144,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 162,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 154,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 125,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 120,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 191,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 183,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "happy": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 143,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 144,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 162,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 154,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 125,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 120,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 191,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 183,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "unamused": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 151,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 145,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 144,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 162,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 154,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 125,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 120,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 191,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 183,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      },
+      "surprised": {
+        "eye_white_left": {
+          "x": 450,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eye_white_right": {
+          "x": 514,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_left": {
+          "x": 466,
+          "y": 144,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "iris_right": {
+          "x": 524,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_left": {
+          "x": 447,
+          "y": 147,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_open_right": {
+          "x": 510,
+          "y": 141,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_left": {
+          "x": 448,
+          "y": 162,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyeliner_lower_right": {
+          "x": 511,
+          "y": 156,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_left": {
+          "x": 447,
+          "y": 154,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyelid_closed_right": {
+          "x": 520,
+          "y": 149,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_left": {
+          "x": 446,
+          "y": 125,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "eyebrow_right": {
+          "x": 516,
+          "y": 120,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_closed": {
+          "x": 498,
+          "y": 191,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        },
+        "mouth_open": {
+          "x": 497,
+          "y": 183,
+          "scale_x": 1.0,
+          "scale_y": 1.0,
+          "rotation": 0.0,
+          "opacity": 1.0
+        }
+      }
+    }
+  }
+}

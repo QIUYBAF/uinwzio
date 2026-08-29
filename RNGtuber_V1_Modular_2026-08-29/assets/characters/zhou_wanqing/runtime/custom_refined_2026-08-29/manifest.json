@@ -1,0 +1,596 @@
+{
+  "revision": "custom_refined_2026-08-29",
+  "source_sheets": [
+    "动漫眼睑睫毛素材表.png",
+    "六组动漫闭眼睫毛素材表.png",
+    "动漫眉毛表情素材表.png",
+    "透明背景动漫眉毛素材表.png",
+    "蓝色动漫眼睛精灵图表.png",
+    "透明背景三款动漫嘴型素材.png",
+    "透明背景动漫嘴部素材表情集.png"
+  ],
+  "outfits": {
+    "casual": {
+      "neutral": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/casual/neutral/eye_white_left.png",
+          "x": 450,
+          "y": 151
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/casual/neutral/eye_white_right.png",
+          "x": 514,
+          "y": 145
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/casual/neutral/iris_left.png",
+          "x": 466,
+          "y": 146
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/casual/neutral/iris_right.png",
+          "x": 524,
+          "y": 143
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/casual/neutral/upper_lid_left.png",
+          "x": 447,
+          "y": 149
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/casual/neutral/upper_lid_right.png",
+          "x": 510,
+          "y": 143
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/casual/neutral/lower_lid_left.png",
+          "x": 448,
+          "y": 164
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/casual/neutral/lower_lid_right.png",
+          "x": 511,
+          "y": 158
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/casual/neutral/closed_lid_left.png",
+          "x": 447,
+          "y": 156
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/casual/neutral/closed_lid_right.png",
+          "x": 520,
+          "y": 151
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/casual/neutral/eyebrow_left.png",
+          "x": 446,
+          "y": 127
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/casual/neutral/eyebrow_right.png",
+          "x": 516,
+          "y": 122
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/casual/neutral/mouth_closed.png",
+          "x": 498,
+          "y": 193
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/casual/neutral/mouth_open.png",
+          "x": 497,
+          "y": 185
+        }
+      },
+      "happy": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/casual/happy/eye_white_left.png",
+          "x": 450,
+          "y": 151
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/casual/happy/eye_white_right.png",
+          "x": 514,
+          "y": 145
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/casual/happy/iris_left.png",
+          "x": 466,
+          "y": 146
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/casual/happy/iris_right.png",
+          "x": 524,
+          "y": 143
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/casual/happy/upper_lid_left.png",
+          "x": 447,
+          "y": 149
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/casual/happy/upper_lid_right.png",
+          "x": 510,
+          "y": 143
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/casual/happy/lower_lid_left.png",
+          "x": 448,
+          "y": 164
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/casual/happy/lower_lid_right.png",
+          "x": 511,
+          "y": 158
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/casual/happy/closed_lid_left.png",
+          "x": 447,
+          "y": 156
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/casual/happy/closed_lid_right.png",
+          "x": 520,
+          "y": 151
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/casual/happy/eyebrow_left.png",
+          "x": 446,
+          "y": 127
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/casual/happy/eyebrow_right.png",
+          "x": 516,
+          "y": 122
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/casual/happy/mouth_closed.png",
+          "x": 498,
+          "y": 193
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/casual/happy/mouth_open.png",
+          "x": 497,
+          "y": 185
+        }
+      },
+      "unamused": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/casual/unamused/eye_white_left.png",
+          "x": 450,
+          "y": 153
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/casual/unamused/eye_white_right.png",
+          "x": 514,
+          "y": 147
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/casual/unamused/iris_left.png",
+          "x": 466,
+          "y": 146
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/casual/unamused/iris_right.png",
+          "x": 524,
+          "y": 143
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/casual/unamused/upper_lid_left.png",
+          "x": 447,
+          "y": 149
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/casual/unamused/upper_lid_right.png",
+          "x": 510,
+          "y": 143
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/casual/unamused/lower_lid_left.png",
+          "x": 448,
+          "y": 164
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/casual/unamused/lower_lid_right.png",
+          "x": 511,
+          "y": 158
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/casual/unamused/closed_lid_left.png",
+          "x": 447,
+          "y": 156
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/casual/unamused/closed_lid_right.png",
+          "x": 520,
+          "y": 151
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/casual/unamused/eyebrow_left.png",
+          "x": 446,
+          "y": 127
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/casual/unamused/eyebrow_right.png",
+          "x": 516,
+          "y": 122
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/casual/unamused/mouth_closed.png",
+          "x": 498,
+          "y": 193
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/casual/unamused/mouth_open.png",
+          "x": 497,
+          "y": 185
+        }
+      },
+      "surprised": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/casual/surprised/eye_white_left.png",
+          "x": 450,
+          "y": 149
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/casual/surprised/eye_white_right.png",
+          "x": 514,
+          "y": 143
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/casual/surprised/iris_left.png",
+          "x": 466,
+          "y": 146
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/casual/surprised/iris_right.png",
+          "x": 524,
+          "y": 143
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/casual/surprised/upper_lid_left.png",
+          "x": 447,
+          "y": 149
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/casual/surprised/upper_lid_right.png",
+          "x": 510,
+          "y": 143
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/casual/surprised/lower_lid_left.png",
+          "x": 448,
+          "y": 164
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/casual/surprised/lower_lid_right.png",
+          "x": 511,
+          "y": 158
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/casual/surprised/closed_lid_left.png",
+          "x": 447,
+          "y": 156
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/casual/surprised/closed_lid_right.png",
+          "x": 520,
+          "y": 151
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/casual/surprised/eyebrow_left.png",
+          "x": 446,
+          "y": 127
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/casual/surprised/eyebrow_right.png",
+          "x": 516,
+          "y": 122
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/casual/surprised/mouth_closed.png",
+          "x": 498,
+          "y": 193
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/casual/surprised/mouth_open.png",
+          "x": 497,
+          "y": 185
+        }
+      }
+    },
+    "cos": {
+      "neutral": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/cos/neutral/eye_white_left.png",
+          "x": 450,
+          "y": 149
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/cos/neutral/eye_white_right.png",
+          "x": 514,
+          "y": 143
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/cos/neutral/iris_left.png",
+          "x": 466,
+          "y": 144
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/cos/neutral/iris_right.png",
+          "x": 524,
+          "y": 141
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/cos/neutral/upper_lid_left.png",
+          "x": 447,
+          "y": 147
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/cos/neutral/upper_lid_right.png",
+          "x": 510,
+          "y": 141
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/cos/neutral/lower_lid_left.png",
+          "x": 448,
+          "y": 162
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/cos/neutral/lower_lid_right.png",
+          "x": 511,
+          "y": 156
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/cos/neutral/closed_lid_left.png",
+          "x": 447,
+          "y": 154
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/cos/neutral/closed_lid_right.png",
+          "x": 520,
+          "y": 149
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/cos/neutral/eyebrow_left.png",
+          "x": 446,
+          "y": 125
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/cos/neutral/eyebrow_right.png",
+          "x": 516,
+          "y": 120
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/cos/neutral/mouth_closed.png",
+          "x": 498,
+          "y": 191
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/cos/neutral/mouth_open.png",
+          "x": 497,
+          "y": 183
+        }
+      },
+      "happy": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/cos/happy/eye_white_left.png",
+          "x": 450,
+          "y": 149
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/cos/happy/eye_white_right.png",
+          "x": 514,
+          "y": 143
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/cos/happy/iris_left.png",
+          "x": 466,
+          "y": 144
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/cos/happy/iris_right.png",
+          "x": 524,
+          "y": 141
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/cos/happy/upper_lid_left.png",
+          "x": 447,
+          "y": 147
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/cos/happy/upper_lid_right.png",
+          "x": 510,
+          "y": 141
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/cos/happy/lower_lid_left.png",
+          "x": 448,
+          "y": 162
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/cos/happy/lower_lid_right.png",
+          "x": 511,
+          "y": 156
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/cos/happy/closed_lid_left.png",
+          "x": 447,
+          "y": 154
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/cos/happy/closed_lid_right.png",
+          "x": 520,
+          "y": 149
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/cos/happy/eyebrow_left.png",
+          "x": 446,
+          "y": 125
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/cos/happy/eyebrow_right.png",
+          "x": 516,
+          "y": 120
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/cos/happy/mouth_closed.png",
+          "x": 498,
+          "y": 191
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/cos/happy/mouth_open.png",
+          "x": 497,
+          "y": 183
+        }
+      },
+      "unamused": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/cos/unamused/eye_white_left.png",
+          "x": 450,
+          "y": 151
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/cos/unamused/eye_white_right.png",
+          "x": 514,
+          "y": 145
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/cos/unamused/iris_left.png",
+          "x": 466,
+          "y": 144
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/cos/unamused/iris_right.png",
+          "x": 524,
+          "y": 141
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/cos/unamused/upper_lid_left.png",
+          "x": 447,
+          "y": 147
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/cos/unamused/upper_lid_right.png",
+          "x": 510,
+          "y": 141
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/cos/unamused/lower_lid_left.png",
+          "x": 448,
+          "y": 162
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/cos/unamused/lower_lid_right.png",
+          "x": 511,
+          "y": 156
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/cos/unamused/closed_lid_left.png",
+          "x": 447,
+          "y": 154
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/cos/unamused/closed_lid_right.png",
+          "x": 520,
+          "y": 149
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/cos/unamused/eyebrow_left.png",
+          "x": 446,
+          "y": 125
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/cos/unamused/eyebrow_right.png",
+          "x": 516,
+          "y": 120
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/cos/unamused/mouth_closed.png",
+          "x": 498,
+          "y": 191
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/cos/unamused/mouth_open.png",
+          "x": 497,
+          "y": 183
+        }
+      },
+      "surprised": {
+        "eye_white_left": {
+          "path": "runtime/custom_v4/cos/surprised/eye_white_left.png",
+          "x": 450,
+          "y": 147
+        },
+        "eye_white_right": {
+          "path": "runtime/custom_v4/cos/surprised/eye_white_right.png",
+          "x": 514,
+          "y": 141
+        },
+        "iris_left": {
+          "path": "runtime/custom_v4/cos/surprised/iris_left.png",
+          "x": 466,
+          "y": 144
+        },
+        "iris_right": {
+          "path": "runtime/custom_v4/cos/surprised/iris_right.png",
+          "x": 524,
+          "y": 141
+        },
+        "upper_lid_left": {
+          "path": "runtime/custom_v4/cos/surprised/upper_lid_left.png",
+          "x": 447,
+          "y": 147
+        },
+        "upper_lid_right": {
+          "path": "runtime/custom_v4/cos/surprised/upper_lid_right.png",
+          "x": 510,
+          "y": 141
+        },
+        "lower_lid_left": {
+          "path": "runtime/custom_v4/cos/surprised/lower_lid_left.png",
+          "x": 448,
+          "y": 162
+        },
+        "lower_lid_right": {
+          "path": "runtime/custom_v4/cos/surprised/lower_lid_right.png",
+          "x": 511,
+          "y": 156
+        },
+        "closed_lid_left": {
+          "path": "runtime/custom_v4/cos/surprised/closed_lid_left.png",
+          "x": 447,
+          "y": 154
+        },
+        "closed_lid_right": {
+          "path": "runtime/custom_v4/cos/surprised/closed_lid_right.png",
+          "x": 520,
+          "y": 149
+        },
+        "eyebrow_left": {
+          "path": "runtime/custom_v4/cos/surprised/eyebrow_left.png",
+          "x": 446,
+          "y": 125
+        },
+        "eyebrow_right": {
+          "path": "runtime/custom_v4/cos/surprised/eyebrow_right.png",
+          "x": 516,
+          "y": 120
+        },
+        "mouth_closed": {
+          "path": "runtime/custom_v4/cos/surprised/mouth_closed.png",
+          "x": 498,
+          "y": 191
+        },
+        "mouth_open": {
+          "path": "runtime/custom_v4/cos/surprised/mouth_open.png",
+          "x": 497,
+          "y": 183
+        }
+      }
+    }
+  },
+  "status": "ACTIVE_REPLACEMENT_SET",
+  "note": "Reference-specific modular facial assets; replaces generic runtime facial sprites. Old active files are archived for rollback."
+}
