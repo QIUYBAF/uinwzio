@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 APP_NAME = "RNGtuber"
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.1.1"
 WINDOW_TITLE = "RNGtuber V1 Modular｜周婉晴"
 
 
@@ -43,6 +43,8 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "mouth_close_threshold_db": -38.0,
     "input_display": "gamepad",
     "input_auto_fade": True,
+    "auto_size_enabled": True,
+    "auto_size_fraction": 0.92,
     "window": {"x": -1, "y": -1, "width": 360},
     "calibration": {},
     "group_calibration": {},
@@ -88,8 +90,20 @@ class ConfigStore:
             self.data["render_mode"] = "transparent"
         if self.data.get("input_display") not in {"gamepad", "keyboard", "off"}:
             self.data["input_display"] = "gamepad"
-        for key in ("click_through", "breathing_enabled", "eye_tracking_enabled", "mic_enabled", "input_auto_fade"):
+        for key in (
+            "click_through",
+            "breathing_enabled",
+            "eye_tracking_enabled",
+            "mic_enabled",
+            "input_auto_fade",
+            "auto_size_enabled",
+        ):
             self.data[key] = bool(self.data.get(key, DEFAULT_CONFIG[key]))
+        try:
+            auto_fraction = float(self.data.get("auto_size_fraction", 0.92))
+        except (TypeError, ValueError):
+            auto_fraction = 0.92
+        self.data["auto_size_fraction"] = max(0.60, min(1.0, auto_fraction))
         open_db = max(-60.0, min(-18.0, float(self.data.get("mouth_open_threshold_db", -33.0))))
         close_db = max(-65.0, min(-20.0, float(self.data.get("mouth_close_threshold_db", -38.0))))
         if close_db >= open_db:
@@ -145,4 +159,3 @@ class ConfigStore:
         outfit_map = self.data.setdefault("group_calibration", {}).setdefault(outfit, {})
         outfit_map.pop(group_id, None)
         self.save()
-
