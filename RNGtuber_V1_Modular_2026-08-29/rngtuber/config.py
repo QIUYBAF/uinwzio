@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 APP_NAME = "RNGtuber"
-APP_VERSION = "1.1.1"
+APP_VERSION = "1.1.2"
 WINDOW_TITLE = "RNGtuber V1 Modular｜周婉晴"
 
 
@@ -37,6 +37,10 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "click_through": False,
     "breathing_enabled": True,
     "eye_tracking_enabled": True,
+    "eye_tracking_strength": 0.62,
+    "iris_socket_lock": 0.86,
+    "iris_outward_px": 1.2,
+    "eye_auto_level_defaults": True,
     "mic_enabled": True,
     "mic_name": "",
     "mouth_open_threshold_db": -33.0,
@@ -61,12 +65,7 @@ def _merge(base: dict[str, Any], incoming: dict[str, Any]) -> None:
 
 
 class ConfigStore:
-    """Atomic, self-healing user configuration.
-
-    Calibration overrides live under ``calibration[outfit][layer_id]``.  The
-    character JSON remains immutable, so a damaged user config can always be
-    discarded without damaging the shipped profile.
-    """
+    """Atomic, self-healing user configuration."""
 
     def __init__(self, path: Path | None = None) -> None:
         self.path = Path(path) if path else app_data_dir() / "config.json"
@@ -91,14 +90,22 @@ class ConfigStore:
         if self.data.get("input_display") not in {"gamepad", "keyboard", "off"}:
             self.data["input_display"] = "gamepad"
         for key in (
-            "click_through",
-            "breathing_enabled",
-            "eye_tracking_enabled",
-            "mic_enabled",
-            "input_auto_fade",
-            "auto_size_enabled",
+            "click_through", "breathing_enabled", "eye_tracking_enabled", "eye_auto_level_defaults",
+            "mic_enabled", "input_auto_fade", "auto_size_enabled",
         ):
             self.data[key] = bool(self.data.get(key, DEFAULT_CONFIG[key]))
+        try:
+            self.data["eye_tracking_strength"] = max(0.0, min(1.0, float(self.data.get("eye_tracking_strength", 0.62))))
+        except (TypeError, ValueError):
+            self.data["eye_tracking_strength"] = 0.62
+        try:
+            self.data["iris_socket_lock"] = max(0.0, min(1.0, float(self.data.get("iris_socket_lock", 0.86))))
+        except (TypeError, ValueError):
+            self.data["iris_socket_lock"] = 0.86
+        try:
+            self.data["iris_outward_px"] = max(0.0, min(4.0, float(self.data.get("iris_outward_px", 1.2))))
+        except (TypeError, ValueError):
+            self.data["iris_outward_px"] = 1.2
         try:
             auto_fraction = float(self.data.get("auto_size_fraction", 0.92))
         except (TypeError, ValueError):
