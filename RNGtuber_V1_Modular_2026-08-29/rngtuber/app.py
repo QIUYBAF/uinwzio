@@ -134,12 +134,31 @@ def main(argv: list[str] | None = None) -> int:
                     panel.set_outfit(outfit)
         avatar.canvas.set_state(state)
 
+    def cleanup_runtime() -> None:
+        """Release native backends before Python interpreter shutdown.
+
+        pygame/SDL can keep a frozen packaged process alive after Qt's event loop
+        has already stopped on a headless Windows runner.  Explicitly quitting it
+        here also makes normal tray/Exit shutdown deterministic for users.
+        """
+        timer.stop()
+        if tray is not None:
+            tray.hide()
+        try:
+            import pygame
+
+            pygame.quit()
+        except Exception:
+            logging.exception("pygame shutdown failed")
+
     timer.timeout.connect(tick)
     timer.start()
     app.aboutToQuit.connect(panel.shutdown)
+    app.aboutToQuit.connect(cleanup_runtime)
     avatar.show()
     panel.show()
     if args.smoke_seconds > 0:
         QTimer.singleShot(max(250, round(args.smoke_seconds * 1000)), app.quit)
-    return app.exec()
-
+    exit_code = app.exec()
+    cleanup_runtime()
+    return exit_code

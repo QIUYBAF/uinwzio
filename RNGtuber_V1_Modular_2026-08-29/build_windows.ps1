@@ -18,15 +18,28 @@ if (-not (Test-Path $Exe)) {
     throw "PyInstaller did not produce RNGtuber.exe"
 }
 
-$Diagnostics = Start-Process -FilePath $Exe -ArgumentList "--diagnostics" -PassThru -Wait
-if ($Diagnostics.ExitCode -ne 0) {
-    throw "Packaged diagnostics failed with exit code $($Diagnostics.ExitCode)"
+function Invoke-CheckedProcess {
+    param(
+        [Parameter(Mandatory=$true)][string]$FilePath,
+        [Parameter(Mandatory=$true)][string]$Arguments,
+        [Parameter(Mandatory=$true)][int]$TimeoutMs,
+        [Parameter(Mandatory=$true)][string]$Label
+    )
+
+    $Process = Start-Process -FilePath $FilePath -ArgumentList $Arguments -PassThru
+    if (-not $Process.WaitForExit($TimeoutMs)) {
+        try { Stop-Process -Id $Process.Id -Force -ErrorAction SilentlyContinue } catch {}
+        throw "$Label timed out after $([math]::Round($TimeoutMs / 1000, 1)) seconds"
+    }
+    $Process.Refresh()
+    if ($Process.ExitCode -ne 0) {
+        throw "$Label failed with exit code $($Process.ExitCode)"
+    }
 }
 
-$Smoke = Start-Process -FilePath $Exe -ArgumentList "--demo --smoke-seconds 3" -PassThru -Wait
-if ($Smoke.ExitCode -ne 0) {
-    throw "Packaged GUI smoke test failed with exit code $($Smoke.ExitCode)"
-}
+# Never allow a packaged-process regression to consume the whole Actions job.
+Invoke-CheckedProcess -FilePath $Exe -Arguments "--diagnostics" -TimeoutMs 15000 -Label "Packaged diagnostics"
+Invoke-CheckedProcess -FilePath $Exe -Arguments "--demo --smoke-seconds 3" -TimeoutMs 15000 -Label "Packaged GUI smoke test"
 
 & $VenvPython tools\package_release.py
 Write-Host "Release ready: release\RNGtuber_V1_Windows.zip"
