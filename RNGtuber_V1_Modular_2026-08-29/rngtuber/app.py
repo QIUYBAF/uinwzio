@@ -54,10 +54,6 @@ def main(argv: list[str] | None = None) -> int:
         format="%(asctime)s %(levelname)s %(message)s",
     )
 
-    # CharacterAssets uses QPixmap, so QGuiApplication must exist even for
-    # packaged diagnostics. Diagnostics intentionally never probe PortAudio:
-    # some headless Windows hosts block inside query_devices() while holding
-    # the GIL, which prevents any Python-side timeout from firing.
     app = QApplication(sys.argv[:1])
     app.setApplicationName(APP_NAME)
     app.setApplicationVersion(APP_VERSION)
@@ -100,6 +96,9 @@ def main(argv: list[str] | None = None) -> int:
     )
     avatar = AvatarWindow(config, assets, state, inputs)
     panel = ControlPanel(config, assets, state, avatar, mic)
+
+    # V1.1.2: preserve the user's existing calibration, then install the
+    # binocular eye rig + low-click Chinese calibration layer on top of it.
     install_eye_rig_v2(panel, avatar, config, assets)
 
     tray: QSystemTrayIcon | None = None
