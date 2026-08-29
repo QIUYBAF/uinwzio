@@ -10,14 +10,22 @@ from PySide6.QtWidgets import QApplication, QWidget
 
 from .assets import CharacterAssets, LayerSpec, SpriteAsset
 from .config import ConfigStore
-from .model import (\n    AvatarState,\n    LayerTransform,\n    Spring2D,\n    apply_group_transform,\n    approach,\n    scale_transform_about_center,\n    smootherstep,\n)
+from .model import (
+    AvatarState,
+    LayerTransform,
+    Spring2D,
+    apply_group_transform,
+    approach,
+    scale_transform_about_center,
+    smootherstep,
+)
 
 
 class AvatarCanvas(QWidget):
     """Renderer for fixed outfit bases plus independent transformable sprites.
 
     Character files describe layers and default transforms; the renderer knows
-    only generic roles (mouth, eyelid, iris).  This keeps character content out
+    only generic roles (mouth, eyelid, iris). This keeps character content out
     of the input/audio controllers and makes a second character a data change.
     """
 
