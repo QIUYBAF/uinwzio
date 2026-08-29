@@ -1,3 +1,0 @@
-Machine[[:space:]]Learning[[:space:]]in[[:space:]]Python.pdf filter=lfs diff=lfs merge=lfs -text
-Python[[:space:]]Machine[[:space:]]Learning.pdf filter=lfs diff=lfs merge=lfs -text
-scikit-learn-docs.pdf filter=lfs diff=lfs merge=lfs -text
