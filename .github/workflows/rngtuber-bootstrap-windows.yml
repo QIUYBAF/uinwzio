@@ -47,8 +47,11 @@ jobs:
           }
       - name: Build and smoke-test Windows release
         shell: pwsh
+        env:
+          RNGTUBER_VALIDATE_PACKAGED: "1"
         run: ./build_windows.ps1
       - name: Upload release and previews
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: RNGtuber_V1_Windows_and_previews
@@ -57,5 +60,5 @@ jobs:
             RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip.sha256
             RNGtuber_V1_Modular_2026-08-29/reports/previews/*.gif
             RNGtuber_V1_Modular_2026-08-29/reports/previews/*.png
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 14
