@@ -1,0 +1,45 @@
+name: RNGtuber V1.1.1 AutoSize Patch Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [rngtuber-v1-modular-2026-08-29]
+    paths:
+      - RNGtuber_V1_Modular_2026-08-29/rngtuber/config.py
+      - RNGtuber_V1_Modular_2026-08-29/rngtuber/window.py
+      - RNGtuber_V1_Modular_2026-08-29/RNGtuber.spec
+      - .github/workflows/rngtuber-autosize-patch.yml
+
+jobs:
+  build-only:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: RNGtuber_V1_Modular_2026-08-29
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: RNGtuber_V1_Modular_2026-08-29/requirements-dev.txt
+      - name: Install build dependencies
+        shell: pwsh
+        run: |
+          python -m pip install -r requirements-dev.txt
+      - name: Compile and build Windows release
+        shell: pwsh
+        run: |
+          python -m compileall -q rngtuber
+          python -m PyInstaller --noconfirm --clean RNGtuber.spec
+          python tools/package_release.py
+      - name: Upload AutoSize release
+        uses: actions/upload-artifact@v4
+        with:
+          name: RNGtuber_V1.1.1_AutoSize_Windows
+          path: |
+            RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip
+            RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
