@@ -52,11 +52,9 @@ def main(argv: list[str] | None = None) -> int:
         encoding="utf-8",
         format="%(asctime)s %(levelname)s %(message)s",
     )
-    app = QApplication(sys.argv[:1])
-    app.setApplicationName(APP_NAME)
-    app.setApplicationVersion(APP_VERSION)
-    app.setQuitOnLastWindowClosed(False)
 
+    # Keep packaged diagnostics headless: asset validation must not depend on a
+    # Qt event loop, tray support, controller SDL, or an available audio device.
     config = ConfigStore()
     assets = CharacterAssets()
     if args.diagnostics:
@@ -66,10 +64,16 @@ def main(argv: list[str] | None = None) -> int:
             "platform": platform.platform(),
             "python": sys.version,
             "assets": assets.diagnostics(),
-            "microphone_devices": MicLevel.devices(),
+            "microphone_devices": MicLevel.devices(timeout_seconds=1.5),
         }
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 0 if report["assets"]["ok"] else 2
+
+    app = QApplication(sys.argv[:1])
+    app.setApplicationName(APP_NAME)
+    app.setApplicationVersion(APP_VERSION)
+    app.setQuitOnLastWindowClosed(False)
+
     if not assets.diagnostics()["ok"]:
         QMessageBox.critical(None, APP_NAME, "角色资产缺失或损坏。请重新解压完整 ZIP。")
         return 2
@@ -135,21 +139,10 @@ def main(argv: list[str] | None = None) -> int:
         avatar.canvas.set_state(state)
 
     def cleanup_runtime() -> None:
-        """Release native backends before Python interpreter shutdown.
-
-        pygame/SDL can keep a frozen packaged process alive after Qt's event loop
-        has already stopped on a headless Windows runner.  Explicitly quitting it
-        here also makes normal tray/Exit shutdown deterministic for users.
-        """
         timer.stop()
         if tray is not None:
             tray.hide()
-        try:
-            import pygame
-
-            pygame.quit()
-        except Exception:
-            logging.exception("pygame shutdown failed")
+        inputs.close()
 
     timer.timeout.connect(tick)
     timer.start()

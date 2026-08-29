@@ -47,7 +47,6 @@ class _XInputState(ctypes.Structure):
 
 
 class _XInputBackend:
-
     MASKS = {
         "UP": 0x0001,
         "DOWN": 0x0002,
@@ -143,6 +142,22 @@ class _PygameBackend:
             self.joystick = None
             return None
 
+    def close(self) -> None:
+        pg, self.pg = self.pg, None
+        joystick, self.joystick = self.joystick, None
+        if pg is None:
+            return
+        try:
+            if joystick is not None:
+                joystick.quit()
+        except Exception:
+            pass
+        try:
+            pg.joystick.quit()
+            pg.quit()
+        except Exception:
+            pass
+
 
 class GlobalInput:
     """Polls global keyboard/mouse and gamepads without ever making startup fatal."""
@@ -160,7 +175,9 @@ class GlobalInput:
         self.last_activity = time.monotonic()
         self._started_at = self.last_activity
         self._xinput = _XInputBackend()
-        self._pygame = _PygameBackend()
+        # Demo/smoke mode must be hardware-free and deterministic.  In normal
+        # mode pygame remains the fallback for non-XInput controllers.
+        self._pygame: _PygameBackend | None = None if self.demo else _PygameBackend()
         self._user32 = ctypes.windll.user32 if sys.platform == "win32" else None
 
     @property
@@ -198,7 +215,8 @@ class GlobalInput:
         if self.demo:
             snap = self._demo_snapshot()
         else:
-            snap = self._xinput.poll() or self._pygame.poll() or InputSnapshot()
+            pygame_snapshot = self._pygame.poll() if self._pygame is not None else None
+            snap = self._xinput.poll() or pygame_snapshot or InputSnapshot()
             snap.keys = self._poll_keys()
         self.snapshot = snap
         active = (
@@ -210,3 +228,8 @@ class GlobalInput:
         )
         if active:
             self.last_activity = time.monotonic()
+
+    def close(self) -> None:
+        if self._pygame is not None:
+            self._pygame.close()
+            self._pygame = None

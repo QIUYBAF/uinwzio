@@ -28,17 +28,35 @@ class MicLevel:
             self.start(self.device_name)
 
     @staticmethod
-    def devices() -> list[str]:
-        try:
-            import sounddevice as sd
+    def devices(timeout_seconds: float = 2.0) -> list[str]:
+        """Enumerate input devices without allowing PortAudio to stall startup forever.
 
-            result: list[str] = []
-            for item in sd.query_devices():
-                if int(item.get("max_input_channels", 0)) > 0:
-                    result.append(str(item.get("name", "Unknown input")))
-            return result
-        except Exception:
+        Some headless Windows hosts can block inside PortAudio device discovery.  The
+        worker is daemonized so diagnostics/demo startup can safely degrade to an
+        empty device list after the bounded wait instead of hanging the process.
+        """
+        result: list[str] = []
+        done = threading.Event()
+
+        def query() -> None:
+            try:
+                import sounddevice as sd
+
+                for item in sd.query_devices():
+                    if int(item.get("max_input_channels", 0)) > 0:
+                        result.append(str(item.get("name", "Unknown input")))
+            except Exception:
+                pass
+            finally:
+                done.set()
+
+        worker = threading.Thread(target=query, name="rngtuber-audio-device-query", daemon=True)
+        worker.start()
+        done.wait(max(0.05, float(timeout_seconds)))
+        if not done.is_set():
+            logging.warning("Microphone device enumeration timed out; continuing with no listed devices")
             return []
+        return list(result)
 
     def _resolve_device(self, requested: str) -> int | None:
         if not requested:
@@ -124,12 +142,9 @@ class MicLevel:
                 self.raw_db = self._callback_db
         else:
             self.raw_db = -80.0
-        # Fast attack, slower release keeps the meter readable without adding
-        # extra mouth-state toggles (those are handled by MouthController).
         coefficient = 0.42 if self.raw_db > self.smoothed_db else 0.12
         self.smoothed_db += (self.raw_db - self.smoothed_db) * coefficient
 
     @property
     def level_01(self) -> float:
         return max(0.0, min(1.0, (self.smoothed_db + 60.0) / 50.0))
-
