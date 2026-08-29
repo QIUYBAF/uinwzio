@@ -180,7 +180,7 @@ class ControlPanel(QMainWindow):
     def _build_calibration_tab(self) -> QWidget:
         tab = QWidget()
         root = QVBoxLayout(tab)
-        intro = QLabel("选择部件后可移动、X/Y 独立缩放、旋转、调透明度与层级。每套服装独立保存，重启后自动恢复。")
+        intro = QLabel("可先整体校准左眼、右眼或嘴组，也可继续微调单个部件。支持移动、X/Y 独立缩放、旋转、透明度与层级；每套服装独立保存。")
         intro.setWordWrap(True)
         root.addWidget(intro)
         self.preview_enabled = QCheckBox("半透明 Base 校准预览")
@@ -203,10 +203,14 @@ class ControlPanel(QMainWindow):
         self.cal_outfit.currentIndexChanged.connect(self._load_calibration_controls)
         selectors.addRow("Transform profile", self.cal_outfit)
         self.cal_layer = QComboBox()
+        for group in self.assets.groups:
+            self.cal_layer.addItem(f"分组｜{group.label}  ({group.group_id})", f"group:{group.group_id}")
+        if self.assets.groups:
+            self.cal_layer.insertSeparator(self.cal_layer.count())
         for layer in self.assets.layers:
-            self.cal_layer.addItem(f"{layer.layer_id}  ({layer.role})", layer.layer_id)
+            self.cal_layer.addItem(f"部件｜{layer.layer_id}  ({layer.role})", f"layer:{layer.layer_id}")
         self.cal_layer.currentIndexChanged.connect(self._load_calibration_controls)
-        selectors.addRow("部件", self.cal_layer)
+        selectors.addRow("目标", self.cal_layer)
         root.addLayout(selectors)
         values = QFormLayout()
         self.cal_controls: dict[str, QDoubleSpinBox] = {}
@@ -229,7 +233,7 @@ class ControlPanel(QMainWindow):
             self.cal_controls[key] = control
         root.addLayout(values)
         buttons = QHBoxLayout()
-        reset = QPushButton("恢复该部件默认值")
+        reset = QPushButton("恢复当前目标默认值")
         reset.clicked.connect(self._reset_calibration)
         save = QPushButton("立即保存")
         save.clicked.connect(self.config.save)
@@ -254,10 +258,11 @@ class ControlPanel(QMainWindow):
         calibration_tab = self.tabs.tabText(index) == "Calibration"
         if calibration_tab:
             self.preview_enabled.setChecked(True)
-            self.avatar.canvas.set_selected_layer(str(self.cal_layer.currentData()))
+            self._select_calibration_target()
             self.avatar.show()
         elif not self.preview_enabled.isChecked():
             self.avatar.canvas.set_selected_layer(None)
+            self.avatar.canvas.set_selected_group(None)
         if self.tabs.tabText(index) == "诊断":
             self._refresh_diagnostics()
 
@@ -335,7 +340,11 @@ class ControlPanel(QMainWindow):
     def _preview_changed(self, enabled: bool) -> None:
         self.avatar.canvas.set_calibration_preview(enabled, self.base_opacity.value() / 100.0)
         self.config.save()
-        self.avatar.canvas.set_selected_layer(str(self.cal_layer.currentData()) if enabled else None)
+        if enabled:
+            self._select_calibration_target()
+        else:
+            self.avatar.canvas.set_selected_layer(None)
+            self.avatar.canvas.set_selected_group(None)
 
     def _preview_opacity_changed(self, value: int) -> None:
         self.avatar.canvas.set_calibration_preview(self.preview_enabled.isChecked(), value / 100.0)
@@ -345,34 +354,57 @@ class ControlPanel(QMainWindow):
         if not hasattr(self, "cal_controls") or not self.cal_controls:
             return
         outfit = str(self.cal_outfit.currentData() or "casual")
-        layer_id = str(self.cal_layer.currentData() or "")
-        if not layer_id:
+        kind, target_id = self._calibration_target()
+        if not target_id:
             return
-        transform = self.avatar.canvas.effective_transform(outfit, layer_id, "neutral")
+        if kind == "group":
+            transform = self.avatar.canvas.effective_group_transform(outfit, target_id)
+        else:
+            transform = self.avatar.canvas.effective_transform(outfit, target_id, "neutral")
         self._calibration_loading = True
         try:
             for key, value in transform.to_dict().items():
                 self.cal_controls[key].setValue(value)
         finally:
             self._calibration_loading = False
-        self.avatar.canvas.set_selected_layer(layer_id)
+        self._select_calibration_target()
 
     def _calibration_value_changed(self) -> None:
         if self._calibration_loading:
             return
         outfit = str(self.cal_outfit.currentData() or "casual")
-        layer_id = str(self.cal_layer.currentData() or "")
-        if not layer_id:
+        kind, target_id = self._calibration_target()
+        if not target_id:
             return
         transform = LayerTransform.from_mapping({key: control.value() for key, control in self.cal_controls.items()})
-        self.avatar.canvas.save_transform(outfit, layer_id, transform)
+        if kind == "group":
+            self.avatar.canvas.save_group_transform(outfit, target_id, transform)
+        else:
+            self.avatar.canvas.save_transform(outfit, target_id, transform)
 
     def _reset_calibration(self) -> None:
         outfit = str(self.cal_outfit.currentData() or "casual")
-        layer_id = str(self.cal_layer.currentData() or "")
-        if layer_id:
-            self.avatar.canvas.reset_transform(outfit, layer_id)
+        kind, target_id = self._calibration_target()
+        if target_id:
+            if kind == "group":
+                self.avatar.canvas.reset_group_transform(outfit, target_id)
+            else:
+                self.avatar.canvas.reset_transform(outfit, target_id)
             self._load_calibration_controls()
+
+    def _calibration_target(self) -> tuple[str, str]:
+        value = str(self.cal_layer.currentData() or "")
+        if ":" not in value:
+            return "layer", value
+        kind, target_id = value.split(":", 1)
+        return kind, target_id
+
+    def _select_calibration_target(self) -> None:
+        kind, target_id = self._calibration_target()
+        if kind == "group":
+            self.avatar.canvas.set_selected_group(target_id or None)
+        else:
+            self.avatar.canvas.set_selected_layer(target_id or None)
 
     def _refresh_status(self) -> None:
         self.mic_meter.setValue(round(self.mic.level_01 * 100))

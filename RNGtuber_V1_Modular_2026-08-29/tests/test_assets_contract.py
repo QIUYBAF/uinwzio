@@ -15,6 +15,7 @@ def test_character_schema_and_runtime_assets() -> None:
     assert spec["canvas"] == [1024, 1536]
     assert set(spec["outfits"]) == {"casual", "cos"}
     assert set(spec["expressions"]) == {"neutral", "happy", "unamused", "surprised"}
+    assert set(spec["groups"]) == {"eye_left", "eye_right", "mouth"}
     layer_ids = {item["id"] for item in spec["layers"]}
     assert {"iris_left", "iris_right", "mouth_open", "mouth_closed"} <= layer_ids
     for outfit in spec["outfits"].values():
@@ -34,9 +35,23 @@ def test_every_outfit_has_every_layer_transform() -> None:
     ids = {item["id"] for item in spec["layers"]}
     for outfit in spec["outfits"].values():
         assert set(outfit["transforms"]) == ids
+        assert set(outfit["group_transforms"]) == {"eye_left", "eye_right", "mouth"}
         for transform in outfit["transforms"].values():
             assert 0.02 <= transform.get("scale_x", 1.0) <= 8.0
             assert 0.02 <= transform.get("scale_y", 1.0) <= 8.0
+
+
+
+def test_every_dynamic_face_layer_has_a_valid_group() -> None:
+    spec = json.loads((CHARACTER / "character.json").read_text(encoding="utf-8"))
+    groups = set(spec["groups"])
+    for layer in spec["layers"]:
+        assert layer.get("group") in groups
+    mouth_open = next(layer for layer in spec["layers"] if layer["id"] == "mouth_open")
+    assert mouth_open["registration"]["y"] > 0
+    for iris in (layer for layer in spec["layers"] if layer["role"] == "iris"):
+        assert iris["eye_limit_x"] <= 4.5
+        assert iris["eye_limit_y"] <= 2.0
 
 
 def test_asset_qa_report_is_clean() -> None:

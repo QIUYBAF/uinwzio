@@ -8,9 +8,9 @@ from PySide6.QtCore import QPointF, QRectF, Qt, QTimer
 from PySide6.QtGui import QColor, QCursor, QPainter, QPen, QPixmap
 from PySide6.QtWidgets import QApplication, QWidget
 
-from .assets import CharacterAssets, LayerSpec
+from .assets import CharacterAssets, LayerSpec, SpriteAsset
 from .config import ConfigStore
-from .model import AvatarState, LayerTransform, Spring2D, approach, smootherstep
+from .model import (\n    AvatarState,\n    LayerTransform,\n    Spring2D,\n    apply_group_transform,\n    approach,\n    scale_transform_about_center,\n    smootherstep,\n)
 
 
 class AvatarCanvas(QWidget):
@@ -36,6 +36,7 @@ class AvatarCanvas(QWidget):
         self._previous_outfit = self.state.outfit
         self._outfit_progress = 1.0
         self.selected_layer: str | None = None
+        self.selected_group: str | None = None
         self.setAttribute(Qt.WA_TranslucentBackground, True)
         self.setAttribute(Qt.WA_NoSystemBackground, True)
         self.setAttribute(Qt.WA_TransparentForMouseEvents, True)
@@ -58,6 +59,14 @@ class AvatarCanvas(QWidget):
 
     def set_selected_layer(self, layer_id: str | None) -> None:
         self.selected_layer = layer_id
+        if layer_id is not None:
+            self.selected_group = None
+        self.update()
+
+    def set_selected_group(self, group_id: str | None) -> None:
+        self.selected_group = group_id
+        if group_id is not None:
+            self.selected_layer = None
         self.update()
 
     def set_calibration_preview(self, enabled: bool, base_opacity: float | None = None) -> None:
@@ -72,6 +81,19 @@ class AvatarCanvas(QWidget):
         default = self.assets.default_transform(outfit, layer_id, expression)
         override = self.config.calibration_for(outfit, layer_id)
         return default.merged(override)
+
+    def effective_group_transform(self, outfit: str, group_id: str) -> LayerTransform:
+        default = self.assets.default_group_transform(outfit, group_id)
+        override = self.config.group_calibration_for(outfit, group_id)
+        return default.merged(override)
+
+    def save_group_transform(self, outfit: str, group_id: str, transform: LayerTransform) -> None:
+        self.config.set_group_calibration(outfit, group_id, transform.to_dict())
+        self.update()
+
+    def reset_group_transform(self, outfit: str, group_id: str) -> None:
+        self.config.reset_group_calibration(outfit, group_id)
+        self.update()
 
     def save_transform(self, outfit: str, layer_id: str, transform: LayerTransform) -> None:
         self.config.set_calibration(outfit, layer_id, transform.to_dict())
@@ -99,19 +121,24 @@ class AvatarCanvas(QWidget):
             target_x = target_y = 0.0
         else:
             cursor = QCursor.pos()
-            face_global = self.mapToGlobal(QPointF(self.width() * 0.5, self.height() * 0.135).toPoint())
+            face_global = self.mapToGlobal(QPointF(self.width() * 0.5, self.height() * 0.105).toPoint())
             dx = (cursor.x() - face_global.x()) / max(180.0, self.width() * 1.2)
             dy = (cursor.y() - face_global.y()) / max(180.0, self.height() * 0.55)
             length = math.hypot(dx, dy)
-            if length > 1.0:
-                dx, dy = dx / length, dy / length
+            dead_zone = 0.055
+            if length <= dead_zone:
+                dx = dy = 0.0
+            else:
+                normalized = min(1.0, (length - dead_zone) / (1.0 - dead_zone))
+                dx, dy = dx / length * normalized, dy / length * normalized
             target_x, target_y = dx, dy
         gaze_x, gaze_y = self._gaze.update(target_x, target_y, dt)
-        # A spring may overshoot its target by design.  Clamp the normalized
-        # output before applying each eye's configured socket limits so even a
-        # fast cross-screen cursor movement cannot push an iris outside them.
-        self._gaze_x = max(-1.0, min(1.0, gaze_x))
-        self._gaze_y = max(-1.0, min(1.0, gaze_y))
+        # Clamp spring overshoot as one vector. Independent axis clamping makes
+        # diagonal gaze exceed the socket radius.
+        length = math.hypot(gaze_x, gaze_y)
+        if length > 1.0:
+            gaze_x, gaze_y = gaze_x / length, gaze_y / length
+        self._gaze_x, self._gaze_y = gaze_x, gaze_y
 
     def paintEvent(self, event) -> None:
         del event
@@ -165,20 +192,43 @@ class AvatarCanvas(QWidget):
         if outfit == self.state.outfit and self._expression_progress < 1.0:
             previous = self.effective_transform(outfit, layer.layer_id, self._previous_expression)
             current = LayerTransform.lerp(previous, current, self._expression_progress)
+        registration = layer.registration
+        current = replace(
+            current,
+            x=current.x + registration.x,
+            y=current.y + registration.y,
+            scale_x=current.scale_x * registration.scale_x,
+            scale_y=current.scale_y * registration.scale_y,
+            rotation=current.rotation + registration.rotation,
+            opacity=current.opacity * registration.opacity,
+            z=current.z + registration.z,
+        )
+        sprite = self.assets.sprite_for(outfit, expression, layer)
+        if sprite is not None and layer.group_id:
+            current = apply_group_transform(
+                current,
+                self.effective_group_transform(outfit, layer.group_id),
+                self.assets.group_pivot(outfit, layer.group_id),
+                (sprite.width, sprite.height),
+            )
         return replace(current, z=current.z + layer.z)
 
+    @staticmethod
+    def _ramp(value: float, start: float, end: float) -> float:
+        return smootherstep((value - start) / max(0.001, end - start))
+
     def _role_opacity(self, role: str, expression: str) -> float:
-        blink = smootherstep(self._blink_amount)
+        blink = max(0.0, min(1.0, self._blink_amount))
         mouth_bias = float(self.assets.spec.get("expressions", {}).get(expression, {}).get("mouth_bias", 0.0))
-        mouth = max(smootherstep(self._mouth_amount), mouth_bias)
-        if role in {"eye_white", "iris", "eyeliner_open", "eye_aux"}:
-            return 1.0 - blink
+        mouth = max(max(0.0, min(1.0, self._mouth_amount)), mouth_bias)
+        if role in {"eye_white", "iris", "eyelid_upper", "eyelid_lower", "eye_aux"}:
+            return 1.0 - self._ramp(blink, 0.34, 0.82)
         if role == "eyelid_closed":
-            return blink
+            return self._ramp(blink, 0.16, 0.72)
         if role == "mouth_closed":
-            return 1.0 - mouth
+            return 1.0 - self._ramp(mouth, 0.26, 0.62)
         if role == "mouth_open":
-            return mouth
+            return self._ramp(mouth, 0.38, 0.74)
         return 1.0
 
     def _draw_scene(self, painter: QPainter, outfit: str, expression: str, scene_opacity: float) -> None:
@@ -199,6 +249,27 @@ class AvatarCanvas(QWidget):
         for _, layer, transform in sorted(prepared, key=lambda item: item[0]):
             self._draw_layer(painter, outfit, layer, transform, expression, scene_opacity, calibration)
 
+    def _motion_transform(
+        self,
+        transform: LayerTransform,
+        layer: LayerSpec,
+        sprite: SpriteAsset,
+    ) -> LayerTransform:
+        blink = smootherstep(self._blink_amount)
+        mouth = smootherstep(self._mouth_amount)
+        size = (sprite.width, sprite.height)
+        if layer.role in {"eye_white", "iris"}:
+            return scale_transform_about_center(transform, size, 1.0, 1.0 - blink * 0.78)
+        if layer.role in {"eyelid_upper", "eyelid_lower"}:
+            return scale_transform_about_center(transform, size, 1.0, 1.0 - blink * 0.52)
+        if layer.role == "eyelid_closed":
+            return scale_transform_about_center(transform, size, 1.0, 0.72 + blink * 0.28)
+        if layer.role == "mouth_open":
+            return scale_transform_about_center(transform, size, 0.94 + mouth * 0.06, 0.72 + mouth * 0.28)
+        if layer.role == "mouth_closed":
+            return scale_transform_about_center(transform, size, 1.0, 1.0 - mouth * 0.08)
+        return transform
+
     def _draw_layer(
         self,
         painter: QPainter,
@@ -212,14 +283,16 @@ class AvatarCanvas(QWidget):
         sprite = self.assets.sprite_for(outfit, expression, layer)
         if sprite is None:
             return
+        transform = self._motion_transform(transform, layer, sprite)
         role_opacity = self._role_opacity(layer.role, expression)
         opacity = transform.opacity * role_opacity * scene_opacity
         if opacity <= 0.001:
             return
         x, y = transform.x, transform.y
         if layer.role == "iris":
-            x += self._gaze_x * layer.eye_limit_x
-            y += self._gaze_y * layer.eye_limit_y
+            gaze_visibility = 1.0 - smootherstep(self._blink_amount)
+            x += self._gaze_x * layer.eye_limit_x * gaze_visibility
+            y += self._gaze_y * layer.eye_limit_y * gaze_visibility
         width, height = sprite.width, sprite.height
         painter.save()
         painter.setOpacity(opacity)
@@ -227,7 +300,10 @@ class AvatarCanvas(QWidget):
         painter.rotate(transform.rotation)
         painter.scale(transform.scale_x, transform.scale_y)
         painter.drawPixmap(QPointF(-width * 0.5, -height * 0.5), sprite.pixmap)
-        if calibration and layer.layer_id == self.selected_layer:
+        selected = layer.layer_id == self.selected_layer or (
+            self.selected_group is not None and layer.group_id == self.selected_group
+        )
+        if calibration and selected:
             painter.setOpacity(1.0)
             painter.setPen(QPen(QColor(71, 232, 255, 245), max(1.2, 2.0 / max(transform.scale_x, transform.scale_y))))
             painter.setBrush(Qt.NoBrush)

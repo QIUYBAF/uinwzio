@@ -8,6 +8,8 @@ if (-not (Test-Path $VenvPython)) {
 
 & $VenvPython -m pip install --upgrade pip
 & $VenvPython -m pip install -r requirements-dev.txt
+& $VenvPython tools\render_visual_qa.py
+& $VenvPython tools\render_motion_preview.py
 & $VenvPython -m pytest -q
 & $VenvPython -m PyInstaller --noconfirm --clean RNGtuber.spec
 
@@ -28,4 +30,3 @@ if ($Smoke.ExitCode -ne 0) {
 
 & $VenvPython tools\package_release.py
 Write-Host "Release ready: release\RNGtuber_V1_Windows.zip"
-

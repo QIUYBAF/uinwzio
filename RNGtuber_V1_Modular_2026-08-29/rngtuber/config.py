@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 APP_NAME = "RNGtuber"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.1.0"
 WINDOW_TITLE = "RNGtuber V1 Modular｜周婉晴"
 
 
@@ -29,7 +29,7 @@ def app_data_dir() -> Path:
 
 
 DEFAULT_CONFIG: dict[str, Any] = {
-    "schema_version": 1,
+    "schema_version": 2,
     "character": "zhou_wanqing",
     "outfit": "casual",
     "expression": "neutral",
@@ -45,6 +45,7 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "input_auto_fade": True,
     "window": {"x": -1, "y": -1, "width": 360},
     "calibration": {},
+    "group_calibration": {},
     "calibration_preview": {"enabled": False, "base_opacity": 0.55},
 }
 
@@ -78,7 +79,7 @@ class ConfigStore:
         self.normalize()
 
     def normalize(self) -> None:
-        self.data["schema_version"] = 1
+        self.data["schema_version"] = 2
         if self.data.get("outfit") not in {"casual", "cos"}:
             self.data["outfit"] = "casual"
         if self.data.get("expression") not in {"neutral", "happy", "unamused", "surprised"}:
@@ -107,6 +108,8 @@ class ConfigStore:
         preview["base_opacity"] = max(0.05, min(1.0, float(preview.get("base_opacity", 0.55))))
         if not isinstance(self.data.get("calibration"), dict):
             self.data["calibration"] = {}
+        if not isinstance(self.data.get("group_calibration"), dict):
+            self.data["group_calibration"] = {}
 
     def save(self) -> None:
         self.normalize()
@@ -127,5 +130,19 @@ class ConfigStore:
     def reset_calibration(self, outfit: str, layer_id: str) -> None:
         outfit_map = self.data.setdefault("calibration", {}).setdefault(outfit, {})
         outfit_map.pop(layer_id, None)
+        self.save()
+
+    def group_calibration_for(self, outfit: str, group_id: str) -> dict[str, float]:
+        value = self.data.get("group_calibration", {}).get(outfit, {}).get(group_id, {})
+        return dict(value) if isinstance(value, dict) else {}
+
+    def set_group_calibration(self, outfit: str, group_id: str, values: dict[str, float]) -> None:
+        outfit_map = self.data.setdefault("group_calibration", {}).setdefault(outfit, {})
+        outfit_map[group_id] = {str(key): float(value) for key, value in values.items()}
+        self.save()
+
+    def reset_group_calibration(self, outfit: str, group_id: str) -> None:
+        outfit_map = self.data.setdefault("group_calibration", {}).setdefault(outfit, {})
+        outfit_map.pop(group_id, None)
         self.save()
 

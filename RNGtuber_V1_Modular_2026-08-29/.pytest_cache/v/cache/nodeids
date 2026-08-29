@@ -1,0 +1,15 @@
+[
+  "tests/test_assets_contract.py::test_asset_qa_report_is_clean",
+  "tests/test_assets_contract.py::test_character_schema_and_runtime_assets",
+  "tests/test_assets_contract.py::test_every_outfit_has_every_layer_transform",
+  "tests/test_assets_contract.py::test_expression_sprite_variants_are_complete",
+  "tests/test_config.py::test_calibration_persists_per_outfit_and_layer",
+  "tests/test_config.py::test_corrupt_config_recovers_to_defaults",
+  "tests/test_input_degrade.py::test_deadzone",
+  "tests/test_input_degrade.py::test_demo_exercises_controller_path",
+  "tests/test_input_degrade.py::test_no_device_poll_never_raises",
+  "tests/test_model.py::test_blink_reopens_and_reschedules",
+  "tests/test_model.py::test_mouth_hysteresis_and_hold_times",
+  "tests/test_model.py::test_spring_remains_finite_during_large_step_sequence",
+  "tests/test_model.py::test_transform_aliases_merge_and_clamp"
+]

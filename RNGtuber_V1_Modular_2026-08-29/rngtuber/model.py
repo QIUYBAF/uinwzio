@@ -91,6 +91,57 @@ class LayerTransform:
         )
 
 
+def apply_group_transform(
+    transform: LayerTransform,
+    group: LayerTransform,
+    pivot: tuple[float, float],
+    sprite_size: tuple[float, float],
+) -> LayerTransform:
+    """Compose a parent group transform around a stable canvas-space pivot."""
+    width, height = float(sprite_size[0]), float(sprite_size[1])
+    center_x = transform.x + width * transform.scale_x * 0.5
+    center_y = transform.y + height * transform.scale_y * 0.5
+    local_x = (center_x - pivot[0]) * group.scale_x
+    local_y = (center_y - pivot[1]) * group.scale_y
+    angle = math.radians(group.rotation)
+    rotated_x = local_x * math.cos(angle) - local_y * math.sin(angle)
+    rotated_y = local_x * math.sin(angle) + local_y * math.cos(angle)
+    new_scale_x = transform.scale_x * group.scale_x
+    new_scale_y = transform.scale_y * group.scale_y
+    new_center_x = pivot[0] + group.x + rotated_x
+    new_center_y = pivot[1] + group.y + rotated_y
+    return LayerTransform(
+        x=new_center_x - width * new_scale_x * 0.5,
+        y=new_center_y - height * new_scale_y * 0.5,
+        scale_x=new_scale_x,
+        scale_y=new_scale_y,
+        rotation=transform.rotation + group.rotation,
+        opacity=transform.opacity * group.opacity,
+        z=transform.z + group.z,
+    ).clamped()
+
+
+def scale_transform_about_center(
+    transform: LayerTransform,
+    sprite_size: tuple[float, float],
+    scale_x_factor: float,
+    scale_y_factor: float,
+) -> LayerTransform:
+    """Scale a sprite without moving its visual center."""
+    width, height = float(sprite_size[0]), float(sprite_size[1])
+    center_x = transform.x + width * transform.scale_x * 0.5
+    center_y = transform.y + height * transform.scale_y * 0.5
+    scale_x = transform.scale_x * max(0.02, float(scale_x_factor))
+    scale_y = transform.scale_y * max(0.02, float(scale_y_factor))
+    return replace(
+        transform,
+        x=center_x - width * scale_x * 0.5,
+        y=center_y - height * scale_y * 0.5,
+        scale_x=scale_x,
+        scale_y=scale_y,
+    ).clamped()
+
+
 def smootherstep(value: float) -> float:
     value = max(0.0, min(1.0, float(value)))
     return value * value * value * (value * (value * 6.0 - 15.0) + 10.0)

@@ -14,10 +14,10 @@
 
 - Base + 独立 Sprite 的数据驱动渲染器，角色配置与 Renderer 解耦；
 - Casual / COS 独立 transform profile，切换采用无闪烁叠加过渡；
-- Calibration：Alpha 自动提取、移动、X/Y 独立缩放、旋转、透明度、Z-order、半透明 Base 对照、自动持久化；
+- Calibration：Alpha 自动提取、眼/嘴分组与单部件两级校准、移动、X/Y 独立缩放、旋转、透明度、Z-order、半透明 Base 对照、自动持久化；
 - 麦克风 `closed ↔ open`，带 -33/-38 dB 滞回与 50 ms attack / 280 ms release；
 - 自然随机眨眼、轻微呼吸和身体摆动；
-- 左右眼球独立、弹性平滑追踪鼠标，并在眼眶配置范围内硬限制；
+- 左右眼球独立、弹性平滑追踪鼠标，使用圆形限幅与眨眼衰减，不能瞬移或越出眼眶；
 - `neutral / happy / unamused / surprised` 与 `casual / cos`；
 - XInput 四手柄轮询 + pygame-ce 通用手柄降级，实时显示双摇杆、十字键、ABXY、肩键与扳机；
 - 键鼠输入显示、自动淡出、透明/绿幕输出、窗口置顶与鼠标穿透；
@@ -34,11 +34,17 @@
 
 进入控制面板的 `Calibration`：
 
-1. 选服装 profile 与单个部件；
+1. 选服装 profile，再选“左眼整体 / 右眼整体 / 嘴巴整体”或单个部件；
 2. 开启“半透明 Base 校准预览”；
 3. 调整 X、Y、Scale X、Scale Y、Rotation、Opacity 与 Z-order；
 4. 每次调整立即原子写入用户配置，重启自动恢复；
-5. “恢复该部件默认值”只清除当前服装/部件的覆盖值。
+5. “恢复当前目标默认值”只清除当前服装/当前目标的覆盖值。
+
+建议先用分组校准完成整体注册，再对虹膜、眼睑或单个嘴型做小幅细调。张嘴采用固定上唇注册点向下展开，闭嘴与开嘴切换不会再向上跳。
+
+## 动态预览
+
+`reports/previews/` 包含 Casual/COS 的 5.4 秒循环 GIF，以及 idle / talk / blink 六状态定位对照 PNG。预览由与运行时一致的分组 transform、眨眼遮罩、嘴型插值、眼球限幅和呼吸参数生成。
 
 配置与日志保存在 `%LOCALAPPDATA%\RNGtuberV1\`，不会改写发布包中的正式角色母版。
 

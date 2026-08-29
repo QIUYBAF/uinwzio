@@ -6,6 +6,47 @@
     1024,
     1536
   ],
+  "groups": {
+    "eye_left": {
+      "label": "左眼整体",
+      "pivots": {
+        "casual": [
+          473,
+          156
+        ],
+        "cos": [
+          473,
+          154
+        ]
+      }
+    },
+    "eye_right": {
+      "label": "右眼整体",
+      "pivots": {
+        "casual": [
+          530,
+          152
+        ],
+        "cos": [
+          530,
+          150
+        ]
+      }
+    },
+    "mouth": {
+      "label": "嘴巴整体",
+      "pivots": {
+        "casual": [
+          510,
+          195
+        ],
+        "cos": [
+          510,
+          193
+        ]
+      }
+    }
+  },
   "outfits": {
     "casual": {
       "base": "runtime/casual_base.png",
@@ -13,128 +54,142 @@
         "eye_white_left": {
           "x": 450,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 145,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 146,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_glow_left": {
           "x": 450,
           "y": 145,
           "scale_x": 0.37,
           "scale_y": 0.37,
-          "opacity": 0.0
+          "opacity": 0
         },
         "eye_glow_right": {
           "x": 516,
           "y": 139,
           "scale_x": 0.37,
           "scale_y": 0.37,
-          "opacity": 0.0
+          "opacity": 0
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 127,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 122,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 193,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 185,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 164,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 158,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
+        }
+      },
+      "group_transforms": {
+        "eye_left": {
+          "x": -3,
+          "y": 10
+        },
+        "eye_right": {
+          "x": -3,
+          "y": -5
+        },
+        "mouth": {
+          "x": 0,
+          "y": -2
         }
       }
     },
@@ -144,128 +199,142 @@
         "eye_white_left": {
           "x": 450,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 144,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_glow_left": {
           "x": 450,
           "y": 143,
           "scale_x": 0.37,
           "scale_y": 0.37,
-          "opacity": 0.0
+          "opacity": 0
         },
         "eye_glow_right": {
           "x": 516,
           "y": 137,
           "scale_x": 0.37,
           "scale_y": 0.37,
-          "opacity": 0.0
+          "opacity": 0
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 154,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 125,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 120,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 191,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 183,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 162,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
+        }
+      },
+      "group_transforms": {
+        "eye_left": {
+          "x": -16,
+          "y": 13
+        },
+        "eye_right": {
+          "x": -15,
+          "y": -1
+        },
+        "mouth": {
+          "x": -13,
+          "y": 0
         }
       }
     }
@@ -405,117 +474,136 @@
       "id": "eye_white_left",
       "sprite": "eye_white_left",
       "role": "eye_white",
-      "z": 10
+      "z": 10,
+      "group": "eye_left"
     },
     {
       "id": "eye_white_right",
       "sprite": "eye_white_right",
       "role": "eye_white",
-      "z": 10
+      "z": 10,
+      "group": "eye_right"
     },
     {
       "id": "iris_left",
       "sprite": "iris_left",
       "role": "iris",
       "z": 20,
-      "eye_limit_x": 7.0,
-      "eye_limit_y": 4.0
+      "eye_limit_x": 4.5,
+      "eye_limit_y": 2,
+      "group": "eye_left"
     },
     {
       "id": "iris_right",
       "sprite": "iris_right",
       "role": "iris",
       "z": 20,
-      "eye_limit_x": 7.0,
-      "eye_limit_y": 4.0
+      "eye_limit_x": 4.5,
+      "eye_limit_y": 2,
+      "group": "eye_right"
     },
     {
       "id": "eye_glow_left",
       "sprite": "eye_glow_left",
       "role": "eye_aux",
-      "z": 25
+      "z": 25,
+      "group": "eye_left"
     },
     {
       "id": "eye_glow_right",
       "sprite": "eye_glow_right",
       "role": "eye_aux",
-      "z": 25
+      "z": 25,
+      "group": "eye_right"
     },
     {
       "id": "eyeliner_lower_left",
       "sprite": "eyeliner_lower_left",
-      "role": "eyeliner_open",
-      "z": 29.0
+      "role": "eyelid_lower",
+      "z": 29,
+      "group": "eye_left"
     },
     {
       "id": "eyeliner_lower_right",
       "sprite": "eyeliner_lower_right",
-      "role": "eyeliner_open",
-      "z": 29.0
+      "role": "eyelid_lower",
+      "z": 29,
+      "group": "eye_right"
     },
     {
       "id": "eyeliner_open_left",
       "sprite": "eyeliner_open_left",
-      "role": "eyeliner_open",
-      "z": 30
+      "role": "eyelid_upper",
+      "z": 30,
+      "group": "eye_left"
     },
     {
       "id": "eyeliner_open_right",
       "sprite": "eyeliner_open_right",
-      "role": "eyeliner_open",
-      "z": 30
+      "role": "eyelid_upper",
+      "z": 30,
+      "group": "eye_right"
     },
     {
       "id": "eyelid_closed_left",
       "sprite": "eyelid_closed_left",
       "role": "eyelid_closed",
-      "z": 31
+      "z": 31,
+      "group": "eye_left"
     },
     {
       "id": "eyelid_closed_right",
       "sprite": "eyelid_closed_right",
       "role": "eyelid_closed",
-      "z": 31
+      "z": 31,
+      "group": "eye_right"
     },
     {
       "id": "eyebrow_left",
       "sprite": "eyebrow_left",
       "role": "always",
-      "z": 40
+      "z": 40,
+      "group": "eye_left"
     },
     {
       "id": "eyebrow_right",
       "sprite": "eyebrow_right",
       "role": "always",
-      "z": 40
+      "z": 40,
+      "group": "eye_right"
     },
     {
       "id": "mouth_closed",
       "sprite": "mouth_closed",
       "role": "mouth_closed",
-      "z": 50
+      "z": 50,
+      "group": "mouth"
     },
     {
       "id": "mouth_open",
       "sprite": "mouth_open",
       "role": "mouth_open",
-      "z": 51
+      "z": 51,
+      "group": "mouth",
+      "registration": {
+        "y": 5
+      }
     }
   ],
   "expressions": {
     "neutral": {
-      "mouth_bias": 0.0,
+      "mouth_bias": 0,
       "layers": {
         "eye_glow_left": {
-          "opacity": 0.0
+          "opacity": 0
         },
         "eye_glow_right": {
-          "opacity": 0.0
+          "opacity": 0
         }
       }
     },
     "happy": {
-      "mouth_bias": 0.0,
+      "mouth_bias": 0,
       "layers": {
         "eye_glow_left": {
           "opacity": 0.22
@@ -526,18 +614,18 @@
       }
     },
     "unamused": {
-      "mouth_bias": 0.0,
+      "mouth_bias": 0,
       "layers": {
         "eye_glow_left": {
-          "opacity": 0.0
+          "opacity": 0
         },
         "eye_glow_right": {
-          "opacity": 0.0
+          "opacity": 0
         }
       }
     },
     "surprised": {
-      "mouth_bias": 1.0,
+      "mouth_bias": 1,
       "layers": {
         "eye_glow_left": {
           "opacity": 0.12
@@ -690,456 +778,456 @@
         "eye_white_left": {
           "x": 450,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 145,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 146,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 164,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 158,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 127,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 122,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 193,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 185,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "happy": {
         "eye_white_left": {
           "x": 450,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 145,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 146,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 164,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 158,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 127,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 122,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 193,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 185,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "unamused": {
         "eye_white_left": {
           "x": 450,
           "y": 153,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 146,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 164,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 158,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 127,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 122,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 193,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 185,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "surprised": {
         "eye_white_left": {
           "x": 450,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 146,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 164,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 158,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 127,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 122,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 193,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 185,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       }
     },
@@ -1148,456 +1236,456 @@
         "eye_white_left": {
           "x": 450,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 144,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 162,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 154,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 125,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 120,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 191,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 183,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "happy": {
         "eye_white_left": {
           "x": 450,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 143,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 144,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 162,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 154,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 125,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 120,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 191,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 183,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "unamused": {
         "eye_white_left": {
           "x": 450,
           "y": 151,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 145,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 144,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 162,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 154,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 125,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 120,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 191,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 183,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       },
       "surprised": {
         "eye_white_left": {
           "x": 450,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eye_white_right": {
           "x": 514,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_left": {
           "x": 466,
           "y": 144,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "iris_right": {
           "x": 524,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_left": {
           "x": 447,
           "y": 147,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_open_right": {
           "x": 510,
           "y": 141,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_left": {
           "x": 448,
           "y": 162,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyeliner_lower_right": {
           "x": 511,
           "y": 156,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_left": {
           "x": 447,
           "y": 154,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyelid_closed_right": {
           "x": 520,
           "y": 149,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_left": {
           "x": 446,
           "y": 125,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "eyebrow_right": {
           "x": 516,
           "y": 120,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_closed": {
           "x": 498,
           "y": 191,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         },
         "mouth_open": {
           "x": 497,
           "y": 183,
-          "scale_x": 1.0,
-          "scale_y": 1.0,
-          "rotation": 0.0,
-          "opacity": 1.0
+          "scale_x": 1,
+          "scale_y": 1,
+          "rotation": 0,
+          "opacity": 1
         }
       }
     }

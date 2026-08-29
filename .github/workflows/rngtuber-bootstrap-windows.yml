@@ -1,59 +1,61 @@
-name: RNGtuber bootstrap and Windows build
-# bootstrap-trigger: 2026-08-29
+name: RNGtuber V1 Modular Windows
 
 on:
   workflow_dispatch:
   push:
-    branches:
-      - rngtuber-v1-modular-2026-08-29
+    branches: [rngtuber-v1-modular-2026-08-29]
     paths:
-      - bootstrap/checkpoint_02_RNGtuber_V1_Modular_refined_assets_2026-08-29.zip
+      - RNGtuber_V1_Modular_2026-08-29/**
       - .github/workflows/rngtuber-bootstrap-windows.yml
 
 permissions:
   contents: write
 
 jobs:
-  bootstrap-and-build:
+  test-preview-build:
     runs-on: windows-latest
-    timeout-minutes: 45
+    timeout-minutes: 50
+    defaults:
+      run:
+        working-directory: RNGtuber_V1_Modular_2026-08-29
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          fetch-depth: 1
-
-      - name: Extract validated Drive checkpoint
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: RNGtuber_V1_Modular_2026-08-29/requirements-dev.txt
+      - name: Test and render previews
         shell: pwsh
         run: |
-          Expand-Archive -LiteralPath "bootstrap/checkpoint_02_RNGtuber_V1_Modular_refined_assets_2026-08-29.zip" -DestinationPath "." -Force
-          $buildPath = "RNGtuber_V1_Modular_2026-08-29/build_windows.ps1"
-          $buildText = Get-Content -LiteralPath $buildPath -Raw
-          $buildText = $buildText -replace '(?m)^& \$VenvPython tools\\prepare_assets\.py\r?\n', ''
-          Set-Content -LiteralPath $buildPath -Value $buildText -Encoding UTF8
-
-      - name: Preserve extracted source on branch
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+          python -m pytest -q
+          python tools/render_visual_qa.py
+          python tools/render_motion_preview.py
+      - name: Preserve generated previews
         shell: pwsh
+        working-directory: .
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "RNGtuber_V1_Modular_2026-08-29"
+          git add "RNGtuber_V1_Modular_2026-08-29/reports"
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
-            git commit -m "Import runnable RNGtuber checkpoint 02 source [skip ci]"
+            git commit -m "Render RNGtuber v1.1 motion previews [skip ci]"
             git push origin HEAD:rngtuber-v1-modular-2026-08-29
           }
-
       - name: Build and smoke-test Windows release
         shell: pwsh
-        working-directory: RNGtuber_V1_Modular_2026-08-29
         run: ./build_windows.ps1
-
-      - name: Upload Windows ZIP
+      - name: Upload release and previews
         uses: actions/upload-artifact@v4
         with:
-          name: RNGtuber_V1_Windows
+          name: RNGtuber_V1_Windows_and_previews
           path: |
             RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip
             RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip.sha256
+            RNGtuber_V1_Modular_2026-08-29/reports/previews/*.gif
+            RNGtuber_V1_Modular_2026-08-29/reports/previews/*.png
           if-no-files-found: error
           retention-days: 14
