@@ -54,8 +54,9 @@ def main(argv: list[str] | None = None) -> int:
     )
 
     # CharacterAssets uses QPixmap, so QGuiApplication must exist even for
-    # packaged diagnostics.  Keep diagnostics hardware-safe instead of trying
-    # to move asset loading ahead of Qt initialization.
+    # packaged diagnostics. Diagnostics intentionally never probe PortAudio:
+    # some headless Windows hosts block inside query_devices() while holding
+    # the GIL, which prevents any Python-side timeout from firing.
     app = QApplication(sys.argv[:1])
     app.setApplicationName(APP_NAME)
     app.setApplicationVersion(APP_VERSION)
@@ -70,7 +71,7 @@ def main(argv: list[str] | None = None) -> int:
             "platform": platform.platform(),
             "python": sys.version,
             "assets": assets.diagnostics(),
-            "microphone_devices": MicLevel.devices(timeout_seconds=1.5),
+            "microphone_probe": "deferred_to_interactive_runtime",
         }
         print(json.dumps(report, ensure_ascii=False, indent=2))
         app.quit()
