@@ -12,6 +12,7 @@
 - 眼球追踪增加死区、弹性插值与圆形限幅，左右眼分别受眼眶半径约束。
 - Calibration 面板同时支持“分组”与“单部件”两级编辑，配置 schema 升级并保持旧配置兼容。
 - Windows 构建改为只读验证正式素材，不再从旧输入素材重新生成运行资产。
+- 修复 Windows packaged GUI smoke test 的退出清理：Qt 退出时显式关闭 pygame/SDL，并给 diagnostics / GUI smoke test 增加 15 秒外部硬超时，避免 CI 被悬挂进程拖到 workflow 总超时。
 
 ## 本轮预览
 
