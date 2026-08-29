@@ -1,4 +1,4 @@
-name: RNGtuber V1.1.1 AutoSize Patch Build
+name: RNGtuber V1.1.2 EyeRig Patch Build
 
 on:
   workflow_dispatch:
@@ -7,6 +7,8 @@ on:
     paths:
       - RNGtuber_V1_Modular_2026-08-29/rngtuber/config.py
       - RNGtuber_V1_Modular_2026-08-29/rngtuber/window.py
+      - RNGtuber_V1_Modular_2026-08-29/rngtuber/app.py
+      - RNGtuber_V1_Modular_2026-08-29/rngtuber/eye_rig_v2.py
       - RNGtuber_V1_Modular_2026-08-29/RNGtuber.spec
       - .github/workflows/rngtuber-autosize-patch.yml
 
@@ -34,10 +36,10 @@ jobs:
           python -m compileall -q rngtuber
           python -m PyInstaller --noconfirm --clean RNGtuber.spec
           python tools/package_release.py
-      - name: Upload AutoSize release
+      - name: Upload EyeRig release
         uses: actions/upload-artifact@v4
         with:
-          name: RNGtuber_V1.1.1_AutoSize_Windows
+          name: RNGtuber_V1.1.2_EyeRig_Windows
           path: |
             RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip
             RNGtuber_V1_Modular_2026-08-29/release/RNGtuber_V1_Windows.zip.sha256
