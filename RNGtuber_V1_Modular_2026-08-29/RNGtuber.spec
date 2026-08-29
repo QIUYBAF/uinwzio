@@ -10,15 +10,14 @@ datas = [
     (str(root / "assets" / "characters" / "zhou_wanqing" / "ASSET_QA.json"), "assets/characters/zhou_wanqing"),
 ]
 
-# PyInstaller's static analysis can miss newly split package modules when an
-# older onedir artifact is reused/patched.  Force the entire local rngtuber
-# package into the build so modules such as rngtuber.renderer can never be
-# omitted from the Windows release.
 rngtuber_hiddenimports = collect_submodules("rngtuber")
 
 hiddenimports = sorted(set([
     "sounddevice",
     "pygame",
+    # Explicitly force the split renderer module. collect_submodules() omitted
+    # this file on the Windows runner even though window.py imports it.
+    "rngtuber.renderer",
     *rngtuber_hiddenimports,
 ]))
 
