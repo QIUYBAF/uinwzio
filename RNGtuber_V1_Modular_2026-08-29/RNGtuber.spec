@@ -1,28 +1,24 @@
 # -*- mode: python ; coding: utf-8 -*-
 from pathlib import Path
 
-from PyInstaller.utils.hooks import collect_all
-
 root = Path(SPECPATH).resolve()
-sounddevice_data, sounddevice_binaries, sounddevice_hidden = collect_all("sounddevice")
-pygame_data, pygame_binaries, pygame_hidden = collect_all("pygame")
 
 datas = [
     (str(root / "assets" / "characters" / "zhou_wanqing" / "runtime"), "assets/characters/zhou_wanqing/runtime"),
     (str(root / "assets" / "characters" / "zhou_wanqing" / "character.json"), "assets/characters/zhou_wanqing"),
     (str(root / "assets" / "characters" / "zhou_wanqing" / "ASSET_QA.json"), "assets/characters/zhou_wanqing"),
-] + sounddevice_data + pygame_data
+]
 
 a = Analysis(
     [str(root / "run.py")],
     pathex=[str(root)],
-    binaries=sounddevice_binaries + pygame_binaries,
+    binaries=[],
     datas=datas,
-    hiddenimports=sounddevice_hidden + pygame_hidden,
+    hiddenimports=["sounddevice", "pygame"],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=["pygame.tests", "pygame.examples", "pygame.docs"],
     noarchive=False,
     optimize=1,
 )

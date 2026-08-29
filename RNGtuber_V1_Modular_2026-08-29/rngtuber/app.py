@@ -53,8 +53,14 @@ def main(argv: list[str] | None = None) -> int:
         format="%(asctime)s %(levelname)s %(message)s",
     )
 
-    # Keep packaged diagnostics headless: asset validation must not depend on a
-    # Qt event loop, tray support, controller SDL, or an available audio device.
+    # CharacterAssets uses QPixmap, so QGuiApplication must exist even for
+    # packaged diagnostics.  Keep diagnostics hardware-safe instead of trying
+    # to move asset loading ahead of Qt initialization.
+    app = QApplication(sys.argv[:1])
+    app.setApplicationName(APP_NAME)
+    app.setApplicationVersion(APP_VERSION)
+    app.setQuitOnLastWindowClosed(False)
+
     config = ConfigStore()
     assets = CharacterAssets()
     if args.diagnostics:
@@ -67,12 +73,8 @@ def main(argv: list[str] | None = None) -> int:
             "microphone_devices": MicLevel.devices(timeout_seconds=1.5),
         }
         print(json.dumps(report, ensure_ascii=False, indent=2))
+        app.quit()
         return 0 if report["assets"]["ok"] else 2
-
-    app = QApplication(sys.argv[:1])
-    app.setApplicationName(APP_NAME)
-    app.setApplicationVersion(APP_VERSION)
-    app.setQuitOnLastWindowClosed(False)
 
     if not assets.diagnostics()["ok"]:
         QMessageBox.critical(None, APP_NAME, "角色资产缺失或损坏。请重新解压完整 ZIP。")

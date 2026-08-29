@@ -37,9 +37,11 @@ function Invoke-CheckedProcess {
     }
 }
 
-# Never allow a packaged-process regression to consume the whole Actions job.
-Invoke-CheckedProcess -FilePath $Exe -Arguments "--diagnostics" -TimeoutMs 15000 -Label "Packaged diagnostics"
-Invoke-CheckedProcess -FilePath $Exe -Arguments "--demo --smoke-seconds 3" -TimeoutMs 15000 -Label "Packaged GUI smoke test"
+# Cold-starting a Qt onedir app on a fresh Windows runner can take noticeably
+# longer than on a user's machine. Keep explicit bounds so regressions fail in
+# under a minute instead of consuming the whole workflow timeout.
+Invoke-CheckedProcess -FilePath $Exe -Arguments "--diagnostics" -TimeoutMs 45000 -Label "Packaged diagnostics"
+Invoke-CheckedProcess -FilePath $Exe -Arguments "--demo --smoke-seconds 3" -TimeoutMs 30000 -Label "Packaged GUI smoke test"
 
 & $VenvPython tools\package_release.py
 Write-Host "Release ready: release\RNGtuber_V1_Windows.zip"
