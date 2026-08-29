@@ -8,7 +8,7 @@
 - 麦克风滞回/hold、眨眼、眼球弹簧与无输入设备降级测试；
 - Windows PyInstaller onedir 构建；
 - 只读正式素材 QA 与状态矩阵渲染（构建过程禁止用旧输入覆盖正式 Sprite）；
-- 打包后 `RNGtuber.exe --diagnostics` 与 3 秒 GUI demo smoke test；
+- 打包后 `RNGtuber.exe --diagnostics` 与 3 秒 GUI demo smoke test；两项 packaged process 均有 15 秒外部硬超时，避免退出回归拖满 CI；
 - ZIP CRC、根目录 `RNGtuber.exe` 与 SHA-256 校验。
 
 ## 已知问题
@@ -22,4 +22,4 @@
 
 ## 回归重点
 
-若替换资产或角色 JSON，至少重新检查：透明边缘、眼组 pivot、虹膜圆形限幅、睁眼/闭眼交叉淡化、上唇注册点、两套服装独立 profile、损坏配置启动、无麦克风/无手柄启动和打包资源路径。
+若替换资产或角色 JSON，至少重新检查：透明边缘、眼组 pivot、虹膜圆形限幅、睁眼/闭眼交叉淡化、上唇注册点、两套服装独立 profile、损坏配置启动、无麦克风/无手柄启动、退出时 pygame/SDL 清理和打包资源路径。
