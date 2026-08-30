@@ -1,61 +1,86 @@
-# START HERE — AgentCut v0.2.0-alpha.8
+# START HERE — AgentCut v0.2.0-alpha.9
 
-> 跨对话 / Work / Codex 接管 AgentCut 时先读本文件。
+Cross-conversation / Work / Codex handoff entry.
 
-## 一句话定义
+## Definition
 
-AgentCut 不是传统 NLE GUI，而是一个 **AI-native video editing runtime**：
+AgentCut is an **AI-native video editing runtime**, not a traditional NLE GUI project.
 
 ```text
-创作意图 → 语义操作 → canonical project.json → 确定性 renderer → preview / QA / frame inspection → Agent 局部修正 / 回滚
+intent → semantic operations → canonical project.json → deterministic renderer → inspect/QA → local correction/rollback
 ```
 
-## 当前基线
+## Current baseline
 
-当前稳定开发基线：**v0.2.0-alpha.8**。
+**v0.2.0-alpha.9**
 
-完整源码 Handoff 位于 Google Drive：`AgentCut_v0.2.0-alpha.8_Handoff`。
+Validation:
+- **63 / 63 grouped tests passed**
+- `agentcut doctor`: pass
+- real moving aspect-ratio render: pass
+- real focus-aware crop zoom: pass
+- duration-preserving fragment montage: pass
+- integrated memory-shards render: pass
 
-Alpha 8 的核心是把视觉理解真正接进渲染链：
-- deterministic visual saliency analysis
-- `focus_x / focus_y` 真正驱动 FFmpeg cover crop
-- guarded dynamic `focus_path` subject tracking
-- subject crop-risk protection
-- visually safe nine-zone text placement
-- dialogue `position="auto"`
-- `auto_compose_scenes()` bulk workflow
-- composition-aware scene cache key
-- QA for stacked tracking/camera motion and text overlap risk
+Full source Handoff: Google Drive folder `AgentCut_v0.2.0-alpha.9_Handoff`.
 
-## 不可破坏的架构不变量
-
-1. `project.json` 是 canonical state。
-2. Agent-facing API 是 semantic API。
-3. Agent 不直接写 filter graph。
-4. source assets 非破坏性。
-5. random effects 有 seed。
-6. errors machine-readable。
-7. mutation versioned + undo/redo/diff。
-8. batch atomic。
-9. Agent 可随时重新查询 state。
-10. preview / final 分离。
-11. QA 报告问题，不擅自修改艺术意图。
-12. GUI 不是核心状态层。
-13. capability 声明必须与 renderer 实际能力一致。
-14. cache 必须包含所有真正影响像素/音频的语义依赖。
-15. 自动视觉决策必须可被明确艺术意图覆盖。
-
-## 推荐阅读顺序
+Read in this order:
 
 1. `README.md`
-2. `V0.2_ALPHA8_NOTES.md`
-3. `ALPHA8_PRACTICAL_WORKFLOW.md`
-4. `VALIDATION_SUMMARY_A8.md`
-5. `V0.2_ALPHA7_NOTES.md`
-6. Google Drive 中完整 Alpha 8 Handoff（需要源码/测试/范片时）
+2. `V0.2_ALPHA9_NOTES.md`
+3. `ALPHA9_CINEMATIC_WORKFLOW.md`
+4. `VALIDATION_SUMMARY_A9.md`
+5. `V0.2_ALPHA8_NOTES.md`
+6. `ALPHA8_PRACTICAL_WORKFLOW.md`
+7. `VALIDATION_SUMMARY_A8.md`
+8. `V0.2_ALPHA7_NOTES.md`
 
-## 发布前验证
+## Alpha 9 cinematic additions
 
-Alpha 8：**57/57 tests passed**（分组回归），`agentcut doctor` pass；focus-aware crop、dynamic focus path、integrated smoke render 均实际出片通过。
+- dynamic in-shot aspect ratio (`scope_lock`, `scope_reveal`, `impact_pulse`, `scope_hold`)
+- immediate focus-aware `crop_zoom` for hard-cut closeups
+- duration-preserving `impact_cluster` / `detail_burst` fragmentation
+- non-linear video `memory_shards`
+- semantic treatment planner and CLI commands
+- QA guardrails against unreadably short fragments / over-stacked motion
+- moving-bar exact-duration guard
+- fixed contact-sheet extraction on current FFmpeg
 
-最终产品判断标准：这个能力是否让 Agent 更可靠、更低成本地完成真实剪辑，而不是增加功能数量。
+## Alpha 8 practical additions
+
+- deterministic visual saliency analysis
+- focus-aware real `cover` crop
+- guarded dynamic `focus_path`
+- subject crop-risk planning
+- visual-safe caption/dialogue placement
+- `position="auto"` for dialogue
+- project/scene bulk auto composition
+- composition-aware render cache key
+- QA for stacked tracking/camera movement
+
+## Architecture invariants — do not break
+
+1. `project.json` is canonical state.
+2. Agent-facing API stays semantic.
+3. Agent does not write raw filter graphs.
+4. Source assets stay non-destructive.
+5. Random effects have explicit seeds.
+6. Errors stay machine-readable.
+7. Mutations stay versioned with rollback.
+8. Batch edits stay atomic.
+9. Agent can always re-read state.
+10. Preview/final remain separate.
+11. QA reports problems but does not silently rewrite artistic intent.
+12. GUI is not the core state layer.
+13. Capability claims must correspond to renderer behavior.
+14. Cache keys must include every semantic input that affects pixels/audio.
+15. Automatic visual decisions must remain overridable by explicit artistic intent.
+16. Cinematic discontinuity is an accent; clean continuity remains a first-class choice.
+
+## Product criterion
+
+Before adding a feature ask:
+
+> Does this make the Agent more reliably able to read, edit, verify and locally correct a real video?
+
+Prefer fewer dependable operations over decorative feature count.
