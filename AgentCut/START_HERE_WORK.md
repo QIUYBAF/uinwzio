@@ -1,42 +1,31 @@
-# START HERE — AgentCut v0.2.0-alpha.7
+# START HERE — AgentCut v0.2.0-alpha.8
 
 > 跨对话 / Work / Codex 接管 AgentCut 时先读本文件。
 
 ## 一句话定义
 
-AgentCut 不是“简化版 Premiere”，而是一个 **AI-native video editing runtime**：
+AgentCut 不是传统 NLE GUI，而是一个 **AI-native video editing runtime**：
 
 ```text
-创作意图
-  ↓
-GPT / Agent
-  ↓
-语义操作（scene / composition / camera / transition / effect / audio / caption）
-  ↓
-canonical project.json
-  ↓
-确定性 renderer
-  ↓
-preview / QA / frame inspection
-  ↓
-Agent 局部修正 / 回滚
+创作意图 → 语义操作 → canonical project.json → 确定性 renderer → preview / QA / frame inspection → Agent 局部修正 / 回滚
 ```
 
 ## 当前基线
 
-当前稳定开发基线：**v0.2.0-alpha.7**。
+当前稳定开发基线：**v0.2.0-alpha.8**。
 
-完整源码 Handoff 位于 Google Drive：`AgentCut_v0.2.0-alpha.7_Handoff`。
+完整源码 Handoff 位于 Google Drive：`AgentCut_v0.2.0-alpha.8_Handoff`。
 
-Alpha 7 在 Alpha 6 基础上新增 Cinematic Composition：
-- `cover`
-- `contain`
-- `native_window`
-- `ambient`
-- 基于素材分辨率 / 宽高比 / focus tags 的自动构图规划
-- 九宫格字幕位置建议
-
-同时已经把 Alpha 6 的 `shared_morph` 真正渲染与 rhythm analysis 恢复进完整源码树。
+Alpha 8 的核心是把视觉理解真正接进渲染链：
+- deterministic visual saliency analysis
+- `focus_x / focus_y` 真正驱动 FFmpeg cover crop
+- guarded dynamic `focus_path` subject tracking
+- subject crop-risk protection
+- visually safe nine-zone text placement
+- dialogue `position="auto"`
+- `auto_compose_scenes()` bulk workflow
+- composition-aware scene cache key
+- QA for stacked tracking/camera motion and text overlap risk
 
 ## 不可破坏的架构不变量
 
@@ -53,18 +42,20 @@ Alpha 7 在 Alpha 6 基础上新增 Cinematic Composition：
 11. QA 报告问题，不擅自修改艺术意图。
 12. GUI 不是核心状态层。
 13. capability 声明必须与 renderer 实际能力一致。
-14. cache 必须基于真实依赖。
+14. cache 必须包含所有真正影响像素/音频的语义依赖。
+15. 自动视觉决策必须可被明确艺术意图覆盖。
 
 ## 推荐阅读顺序
 
 1. `README.md`
-2. `V0.2_ALPHA7_NOTES.md`
-3. `VALIDATION_SUMMARY_A7.md`
-4. `V0.2_ALPHA6_NOTES.md`
-5. Google Drive 中完整 Alpha 7 Handoff（需要源码/测试时）
+2. `V0.2_ALPHA8_NOTES.md`
+3. `ALPHA8_PRACTICAL_WORKFLOW.md`
+4. `VALIDATION_SUMMARY_A8.md`
+5. `V0.2_ALPHA7_NOTES.md`
+6. Google Drive 中完整 Alpha 8 Handoff（需要源码/测试/范片时）
 
 ## 发布前验证
 
-Alpha 7：48/48 tests passed（分组回归），`agentcut doctor` pass。
+Alpha 8：**57/57 tests passed**（分组回归），`agentcut doctor` pass；focus-aware crop、dynamic focus path、integrated smoke render 均实际出片通过。
 
-最终判断标准仍然是：这个能力是否让 Agent 更清楚、更确定、更低成本地完成剪辑。
+最终产品判断标准：这个能力是否让 Agent 更可靠、更低成本地完成真实剪辑，而不是增加功能数量。
