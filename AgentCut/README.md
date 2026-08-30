@@ -2,18 +2,23 @@
 
 AI-native semantic video editing runtime.
 
-Current baseline: **v0.2.0-alpha.6**.
+Current baseline: **v0.2.0-alpha.7**.
 
 Highlights:
 - API-first semantic editing, deterministic FFmpeg rendering, history/checkpoints/rollback.
-- 130-entry queryable content library.
+- 130-entry queryable content library, including 40 transitions.
 - subpixel perspective+cubic camera backend.
 - object-level graphics layers and keyframes.
-- real `shared_morph` rendering for matching `shared_id` layers.
-- lightweight audio tempo/onset/beat analysis and rhythm-aware scene-duration planning.
+- rendered `shared_morph` for matching `shared_id` layers.
+- deterministic audio tempo/onset/beat analysis and rhythm-aware scene planning.
+- **Cinematic Composition**: `cover`, `contain`, `native_window`, `ambient`.
+- automatic composition planning from source geometry/resolution plus optional focus tags.
+- nine-zone composition-aware caption placement.
 - compact Agent Context Pack + Project Facts.
 - hierarchical Render DAG and QA.
 
-Validation: **45/45 tests passed**, doctor pass.
+Validation: **48/48 tests passed across grouped regression runs**, `agentcut doctor` pass.
 
-For the alpha.6 delta read `V0.2_ALPHA6_NOTES.md`. For the complete frozen source snapshot use `releases/AgentCut_v0.2.0-alpha.6_source.zip`.
+Full Alpha 7 source handoff is stored in Google Drive folder `AgentCut_v0.2.0-alpha.7_Handoff`.
+
+Read `V0.2_ALPHA7_NOTES.md` and `VALIDATION_SUMMARY_A7.md` before continuing development.
