@@ -1,13 +1,19 @@
-# AgentCut v0.2.0-alpha.5
+# AgentCut
 
-Agent-native semantic video editing runtime. This iteration emphasizes **higher editing efficiency + higher output quality by moving reusable creative vocabulary into queryable content libraries**.
+AI-native semantic video editing runtime.
 
-Current built-in library: **129 entries** across transitions, effects, filters, motions, layer motions, subtitle styles, audio cues and procedural materials. Automated validation: **42/42 tests passed**.
+Current baseline: **v0.2.0-alpha.6**.
 
-See `V0.2_ALPHA5_NOTES.md` and `LIBRARY_CATALOG.md` first.
+Highlights:
+- API-first semantic editing, deterministic FFmpeg rendering, history/checkpoints/rollback.
+- 130-entry queryable content library.
+- subpixel perspective+cubic camera backend.
+- object-level graphics layers and keyframes.
+- real `shared_morph` rendering for matching `shared_id` layers.
+- lightweight audio tempo/onset/beat analysis and rhythm-aware scene-duration planning.
+- compact Agent Context Pack + Project Facts.
+- hierarchical Render DAG and QA.
 
-## Cross-chat usage
+Validation: **45/45 tests passed**, doctor pass.
 
-In another ChatGPT conversation with GitHub connected, ask it to open `QIUYBAF/uinwzio/AgentCut/START_HERE_WORK.md` (or this README) and continue from the latest AgentCut source in this folder.
-
-The Google Drive handoff remains the canonical place for large binary artifacts, rendered videos, and full ZIP bundles.
+For the alpha.6 delta read `V0.2_ALPHA6_NOTES.md`. For the complete frozen source snapshot use `releases/AgentCut_v0.2.0-alpha.6_source.zip`.
