@@ -1,67 +1,58 @@
-# START HERE — AgentCut 3.0.1
+# START HERE — AgentCut 3.0.2
 
 Cross-conversation / Work / Codex handoff entry.
 
 ## Current stable baseline
 
-**3.0.1**.
+**3.0.2**.
 
 Validation:
-- **85 / 85 automated tests passed**
+- **96 / 96 automated tests passed**
 - `agentcut doctor`: pass
-- flexible MP4/H.264, WebM/VP9, MOV/ProRes, MKV/HEVC real exports: pass
-- generalized 3840×2160@60 path: real export pass
-- fallback frame interpolation + scaling chain: real render pass with duration invariants preserved
-- slim Real-ESRGAN executable/models are bundled for Windows/Linux and SHA-verified
-- current cloud has no usable Vulkan device, so bundled inference attempts safely fall back under `auto`
-- RIFE adapter remains optional/external
+- generalized 3840×2160@60 export: pass
+- MP4/H.264, WebM/VP9, MOV/ProRes, MKV/HEVC: pass
+- bundled slim Real-ESRGAN Windows/Linux + AnimeVideo-v3 x2/x4: packaged and SHA-verified
+- current cloud has no usable Vulkan device, so Real-ESRGAN runtime-failure → honest `auto` fallback is the executed validation path
+- RIFE remains optional/external
 
-Full source Handoff: Google Drive folder `AgentCut_v3.0.1_Handoff`.
+Full source Handoff: Google Drive folder `AgentCut_v3.0.2_Handoff`.
 
 Read in this order:
 1. `README.md`
-2. `V3.0_RELEASE_NOTES.md`
-3. `V3_EXPORT_PROTOCOL.md`
+2. `AGENT_PROTOCOL.md`
+3. `VALIDATION_SUMMARY_V3.md`
 4. `V3_AI_ENHANCEMENT.md`
-5. `VALIDATION_SUMMARY_V3.md`
+5. `V3_EXPORT_PROTOCOL.md`
 6. `ALPHA10_AGENT_RELIABILITY.md`
 7. `ALPHA9_CINEMATIC_WORKFLOW.md`
 
-## Preferred Agent workflow
+## Preferred Agent workflow — Protocol v2
 
 ```text
-read state/capabilities
-→ edit through Reliability Gateway
-→ local render / inspect / QA
-→ export-plan
-→ inspect normalized target, warnings and actual backend choices
-→ export
-→ verify .agentcut-export.json + ffprobe result
+GET /agent/context (optionally filter domains/scenes)
+→ POST /agent/preflight
+→ inspect deterministic repairs + change impact + verification plan
+→ POST /agent/apply with expected_project_hash
+→ render recommended scene/span/full scope
+→ QA + inspect relevant frames
+→ export-plan → export when delivery is requested
 ```
 
-## 3.0.1 delivery/enhancement rules
+Do not require the model to memorize the exact JSON shape. The Agent gateway accepts canonical operations plus deterministic `operation/op/tool`, `params/arguments`, flattened args, singleton/root wrappers and uniquely high-confidence syntax typos. Ambiguous creative choices remain explicit.
 
-- Export settings do not silently mutate canonical editing state.
-- Container/codec compatibility is validated before expensive work.
-- `encoder=auto` requires a real hardware-encoder runtime probe.
-- Real-ESRGAN discovery priority: explicit env path → PATH → bundled slim runtime → user backend root.
-- Bundled Real-ESRGAN contains AnimeVideo-v3 x2/x4 only; general/photo models remain external.
-- AI absence or runtime initialization failure must not break `auto` export.
-- A deterministic fallback must never be reported as AI.
-- Hard cuts are interpolation barriers.
-- Every enhancement/export stage must preserve canonical duration within tolerance.
-- Final geometry and fps must match the normalized requested spec.
-- 4K60 is the official validated ceiling; higher guarded values are experimental.
+Preflight is compact by default: full projected state is opt-in. Apply also returns a compact transaction receipt unless full project/results are explicitly requested.
 
 ## Architecture invariants
 
 1. `project.json` remains canonical.
 2. Agent operations remain semantic, versioned and reversible.
 3. Source assets remain non-destructive.
-4. Ambiguous artistic choices are never silently fuzzy-corrected.
-5. Cache keys include semantic inputs that affect pixels/audio.
+4. Syntax/naming drift may be repaired; ambiguous artistic intent may not.
+5. Preflight precedes mutation and reports impact/render scope.
 6. QA/manifests report actual results rather than intended results.
-7. Bundled third-party binaries/models retain upstream license and SHA256 manifests.
-8. Cinematic discontinuity remains an accent; continuity remains first-class.
+7. Optional AI failure must not break `auto` export.
+8. Fallback processing must never be reported as AI.
+9. Hard cuts remain interpolation barriers.
+10. Bundled third-party binaries/models retain upstream license and SHA256 manifests.
 
-Product criterion: prefer fewer dependable operations and honest fallbacks over decorative feature count.
+Product criterion: prefer dependable, low-context Agent interaction over decorative feature count.
