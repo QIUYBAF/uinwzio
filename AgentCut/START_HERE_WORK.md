@@ -1,69 +1,62 @@
-# START HERE — AgentCut v0.2.0-alpha.10
+# START HERE — AgentCut 3.0.0
 
 Cross-conversation / Work / Codex handoff entry.
 
-## Current baseline
+## Current stable baseline
 
-**v0.2.0-alpha.10**
+**3.0.0** — first non-alpha release of the current AgentCut line.
 
 Validation:
-- **71 / 71 tests passed**
+- **82 / 82 automated tests passed**
 - `agentcut doctor`: pass
-- real 3840×2160 @ 60 fps render with camera motion + cinematic frame + caption: pass
-- full Alpha 8/9 regression: pass
+- flexible MP4/H.264, WebM/VP9, MOV/ProRes, MKV/HEVC real exports: pass
+- generalized 3840×2160@60 path: real export pass
+- fallback frame interpolation + scaling chain: real render pass with duration invariants preserved
+- optional Real-ESRGAN/RIFE adapters: integration/discovery/install contracts validated; actual neural inference requires those external backends on the execution machine
 
-Full source Handoff: Google Drive folder `AgentCut_v0.2.0-alpha.10_Handoff`.
+Full source Handoff: Google Drive folder `AgentCut_v3.0.0_Handoff`.
 
 Read in this order:
 1. `README.md`
-2. `V0.2_ALPHA10_NOTES.md`
-3. `ALPHA10_AGENT_RELIABILITY.md`
-4. `VALIDATION_SUMMARY_A10.md`
-5. `V0.2_ALPHA9_NOTES.md`
-6. `ALPHA9_CINEMATIC_WORKFLOW.md`
+2. `V3.0_RELEASE_NOTES.md`
+3. `V3_EXPORT_PROTOCOL.md`
+4. `V3_AI_ENHANCEMENT.md`
+5. `VALIDATION_SUMMARY_V3.md`
+6. `ALPHA10_AGENT_RELIABILITY.md`
+7. `ALPHA9_CINEMATIC_WORKFLOW.md`
 
-## Alpha 10: preferred Agent control path
-
-Do not require the model to memorize every exact operation/parameter name. Prefer:
+## Preferred Agent workflow
 
 ```text
-read state_digest + operation_schema
-→ agent/preflight
-→ inspect repairs/warnings
-→ agent/apply with expected_project_hash
-→ render affected scene/span
-→ QA + inspect
-→ local correction / undo
+read state/capabilities
+→ edit through Reliability Gateway
+→ local render / inspect / QA
+→ export-plan
+→ inspect normalized target, warnings and actual backend choices
+→ export
+→ verify .agentcut-export.json + ffprobe result
 ```
 
-The Reliability Gateway only auto-repairs deterministic naming drift. Ambiguous creative choices stay explicit errors/suggestions.
+## 3.0 delivery rules
 
-## UHD
+- Export settings do not silently mutate canonical editing state.
+- Container/codec compatibility is validated before expensive work.
+- `encoder=auto` requires a real hardware-encoder runtime probe.
+- Optional AI absence must not break `auto` export.
+- A deterministic fallback must never be reported as AI.
+- Hard cuts are interpolation barriers.
+- Every enhancement/export stage must preserve canonical duration within tolerance.
+- Final geometry and fps must match the normalized requested spec.
+- 4K60 is the official validated ceiling; higher guarded values are experimental.
 
-Semantic canvas modes include `1080p30`, `1080p60`, `4k30`, `4k60`.
+## Architecture invariants
 
-Official render profiles include `uhd_4k30` and `uhd_4k60`. UHD camera motion uses native-resolution cubic perspective; 720p/1080p retains Alpha 9's 2× supersampled cubic path.
+1. `project.json` remains canonical.
+2. Agent operations remain semantic, versioned and reversible.
+3. Source assets remain non-destructive.
+4. Ambiguous artistic choices are never silently fuzzy-corrected.
+5. Cache keys include semantic inputs that affect pixels/audio.
+6. QA/manifests report actual results rather than intended results.
+7. Cinematic discontinuity remains an accent; continuity remains first-class.
 
-## Architecture invariants — do not break
-
-1. `project.json` is canonical state.
-2. Agent-facing API stays semantic.
-3. Agent does not write raw filter graphs.
-4. Source assets stay non-destructive.
-5. Random effects have explicit seeds.
-6. Errors stay machine-readable.
-7. Mutations stay versioned with rollback.
-8. Batch edits stay atomic.
-9. Agent can always re-read state.
-10. Preview/final remain separate.
-11. QA reports problems but does not silently rewrite artistic intent.
-12. GUI is not the core state layer.
-13. Capability claims must correspond to renderer behavior.
-14. Cache keys must include every semantic input affecting pixels/audio.
-15. Automatic visual decisions remain overridable by explicit artistic intent.
-16. Cinematic discontinuity is an accent; clean continuity remains first-class.
-17. Reliability normalization may repair syntax/naming, never ambiguous artistic intent.
-
-## Product criterion
-
-Prefer fewer dependable operations over feature count. Every change should make the Agent more reliably able to read, edit, verify and locally correct a real video.
+Product criterion: prefer fewer dependable operations and honest fallbacks over decorative feature count.
