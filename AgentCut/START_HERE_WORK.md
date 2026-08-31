@@ -1,65 +1,69 @@
-# START HERE — AgentCut 3.2.2
+# START HERE — AgentCut 3.2.3
 
 Cross-conversation / Work / Codex handoff entry.
 
-## Stable baseline
+## Current stable baseline
 
-**3.2.2** — production-friction pass after EP07 Nether practical testing.
+**3.2.3 — Editorial Coverage / Anti-Template Pass.**
 
 Validation:
-- **135 / 135 tests passed**
+- **145 / 145 automated tests passed**
+- dedicated 3.2.3 coverage tests: 10 / 10
 - `agentcut doctor`: pass
-- EP07 57.37 s bilingual diagnostic proxy: render + QA pass
+- EP07 Nether diagnostic coverage proxy: render + QA pass
 - bundled Real-ESRGAN retained
 
-## Restart / upgrade first step
+## First action on restart
 
-Do **not** reread all docs or the full operation schema.
+Do **not** reread the repository or full operation schema.
 
 ```text
 agentcut agent-start PROJECT
+# or GET /agent/bootstrap
 ```
 
-Protocol v5 modes:
-- `warm_resume`: project-local checkpoint/last receipt remain valid across normal edits;
-- `upgrade_resume`: read only `schema_delta.added/changed/removed` plus release delta;
-- `cold_resume`: request task-scoped `/agent/context`, not the whole project unless needed.
+Protocol v5 returns a bounded resume capsule containing current goal, active scenes, last receipt, key decisions and exact schema delta when needed. Normal project edits remain warm resume.
 
-Use `agent-checkpoint` to persist goals/decisions, never raw conversation history.
-
-## Practical editing loop
+## Preferred edit loop
 
 ```text
-agent-start
-→ task-scoped context
+bootstrap
+→ task-scoped context only if needed
 → preflight
-→ apply with expected_project_hash
-→ proxy scene/span/full according to verification plan
+→ apply
+→ render recommended proxy scene/span/full scope
 → QA + visual inspection
-→ final export only after proxy is stable
+→ repeat
+→ export-plan/export only at delivery
 ```
 
-## Subtitle rules
+## 3.2.3 editorial rule
 
-- Import SRT with Cast-aware speaker parsing.
-- Use structured `secondary_text` for bilingual captions.
-- Auto-fit changes layout only, not text/timing.
-- If QA emits `BILINGUAL_SPLIT_RECOMMENDED`, split/shorten the cue; do not shrink text further.
-
-## Staging rules
-
-- `suggest_scene_staging` returns anonymous anchors only.
-- `stage_scene_by_order` requires explicit Cast order before writing coordinates.
-- Never infer character identity purely from deterministic saliency.
-
-## ASR
-
-Windows x64 one-time sidecar:
+For dialogue-heavy anime/dynamic-manga scenes, do not default to one continuous push just to avoid stillness. Use semantic hierarchy only when motivated:
 
 ```text
-agentcut asr-install --accept-third-party
+establish/group
+→ speaker coverage
+→ reaction or object/action insert
+→ group reset
 ```
 
-Backend/model live outside the project and persist across AgentCut upgrades.
+Use `direct_dialogue_coverage` for Cast-aware dialogue and `direct_attention_insert` for non-Cast objects/actions. `compose_dialogue_scene(direction="auto")` may select coverage on longer multi-speaker scenes.
 
-Full source Handoff: Google Drive folder `AgentCut_v3.2.2_Handoff`. Prefer it over reconstructing from old Alpha folders.
+Important boundaries:
+- coverage does not rewrite subtitle text/timing
+- stillness remains valid on short/contemplative scenes
+- visual anchors estimate positions, never character identity without explicit order
+- editorial QA warnings are prompts, not renderer failures
+
+## EP07 asset boundary
+
+Current 3.2.3 validation visuals are marked **PROXY STORYBOARD**. They are not final generated EP07 release art. Do not publish or use them as canonical final imagery. When the prepared final images are accessible, swap scene assets and rerun staging/coverage/QA/proxy; keep the existing canonical timeline and subtitle logic unless actual art reveals a concrete reason to change it.
+
+Full source Handoff: `AgentCut_v3.2.3_Handoff`.
+
+Read next:
+1. `V3.2.3_EDITORIAL_COVERAGE.md`
+2. `V3.2.2_PRODUCTION_FRICTION.md`
+3. `AGENT_PROTOCOL.md`
+4. `VALIDATION_SUMMARY_V3.md`
