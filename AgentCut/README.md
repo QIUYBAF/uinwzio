@@ -1,100 +1,66 @@
-# AgentCut v0.2.0-alpha.10
+# AgentCut 3.0
 
 **Agent-native semantic video editing runtime.**
 
-Current baseline: **v0.2.0-alpha.10**.
+Current stable release: **3.0.0**.
 
 Validation:
-- **71 / 71 automated tests passed**
+- **82 / 82 automated tests passed**
 - `agentcut doctor`: pass
-- real **3840×2160 @ 60 fps** motion + cinematic-frame + caption render: pass
-- Alpha 8/9 visual analysis and cinematic grammar regression: pass
+- generalized **3840×2160 @ 60 fps** export: real encode pass
+- MP4/H.264, WebM/VP9, MOV/ProRes and MKV/HEVC: real encode pass
+- Alpha 8/9/10 cinematic + reliability regression: pass
 
-## Alpha 10 focus: fewer Agent failures
+## 3.0: flexible delivery
 
-Alpha 10 adds an **Agent Reliability Gateway** instead of adding more decorative editing features.
+The editing canvas no longer dictates delivery settings. The Agent can plan/export with semantic controls for width, height, fps, container, codec, encoder policy, quality and enhancement policy.
 
-Preferred loop:
+Supported containers: MP4, MOV, MKV, WebM.
 
-```text
-state_digest + operation_schema
-        ↓
-agent/preflight
-        ↓
-review normalized_operations / repairs / warnings
-        ↓
-agent/apply with expected_project_hash
-        ↓
-local render + QA + inspection
-```
-
-New entry points:
+Supported codecs: H.264, HEVC/H.265, AV1, VP9, ProRes, subject to the validated container/codec matrix and local FFmpeg encoder availability.
 
 ```python
-editor.operation_schema()
-editor.preflight_operations(operations)
-editor.apply_agent_operations(operations)
+plan = editor.plan_export(
+    width=3840,
+    height=2160,
+    fps=60,
+    container="mp4",
+    codec="hevc",
+    encoder="auto",
+    upscale="auto",
+    interpolate="auto",
+    content="anime",
+)
+result = editor.export_video(...)
 ```
 
-HTTP:
-- `GET /agent/operation-schema`
-- `POST /agent/preflight`
-- `POST /agent/apply`
+`encoder="auto"` performs a real runtime NVENC probe. Seeing `h264_nvenc` in FFmpeg's encoder list is not considered enough; unusable hardware encoding falls back to CPU before the expensive export begins.
 
-The gateway deterministically normalizes safe naming drift such as `scene -> scene_id`, `transition -> set_transition`, and `type -> transition` where the action makes the meaning unambiguous. It validates arguments against the real Python signature and surfaces nearby Library IDs for bad preset names.
+## Optional AI enhancement
 
-It **does not silently fuzzy-correct artistic intent**. If `cinematic_cool` could plausibly mean either `cool` or `cinematic_contrast`, the Agent receives suggestions and must choose.
+3.0 includes adapters for optional third-party portable backends:
+- Real-ESRGAN ncnn Vulkan for super-resolution
+- RIFE ncnn Vulkan for frame interpolation
 
-A deterministic adversarial fixture of 11 non-canonical but semantically clear LLM-style calls produced:
-- strict legacy acceptance: **0 / 11**
-- Alpha 10 gateway preflight: **11 / 11**
+They are not bundled or required. `auto` uses AI only when the backend is installed and actually runs successfully; otherwise it records the failure/fallback and uses Lanczos or FFmpeg motion interpolation. Explicit `ai`/`realesrgan`/`rife` policies fail instead of silently degrading.
 
-This is a regression fixture, not a claim about real-world model failure rate.
+RIFE interpolation is segmented at canonical hard cuts so the enhancer is never intentionally asked to invent an intermediate frame between unrelated shots.
 
-## 4K60
+## Export invariants
 
-Semantic project mode:
+Every stage is probed. AgentCut raises machine-readable errors if enhancement changes duration beyond tolerance or the final file does not match requested geometry/fps. A sidecar `.agentcut-export.json` records the actual encoder and enhancement backends used.
 
-```python
-editor.set_video_mode("4k60")
-```
+Officially validated delivery ceiling: **3840×2160 @ 60 fps**. Guarded custom values up to 7680×4320 and 120 fps are accepted as experimental.
 
-Official render profiles now include:
-- `preview` — 720p
-- `showcase` — 1080p
-- `final` — 1080p high quality
-- `uhd_4k30` — 3840×2160 @ 30 fps
-- `uhd_4k60` — 3840×2160 @ 60 fps
+## Existing editing core
 
-Direct helper:
-
-```python
-editor.render_4k60()
-```
-
-Alpha 9 used 2× supersampled cubic perspective for camera motion. Doing that unchanged at 4K60 would create an 8K60 intermediate. Alpha 10 preserves the old 2× path for 720p/1080p compatibility, but UHD profiles use **native-resolution cubic perspective**.
-
-A 0.6 s 4K60 sample with slow push + dynamic cinematic frame + subtitle rendered as **3840×2160 / 60/1 / 36 frames** in the current CPU environment.
-
-## Existing core
-
-- canonical `project.json`
-- versions / undo / redo / diff / checkpoints
-- atomic transactions, dry-run, optimistic concurrency
-- deterministic visual analysis and focus-aware reframing
-- dynamic aspect-ratio cinematic grammar
-- duration-preserving fragments / impact clusters / memory shards
-- shared-element morph
-- rhythm-aware cut planning
-- 130-entry queryable Library / 40 transitions
-- audio/caption/dialogue system
-- semantic cache + hierarchical Render DAG
-- QA + frame/contact-sheet inspection
+3.0 preserves focus-aware reframing, dynamic subject tracking, cinematic aspect-ratio changes, hard-cut close-up clusters, detail bursts, memory shards, shared-element morphs, rhythm planning, visual-safe text placement, semantic history/rollback, QA and the Alpha 10 Reliability Gateway.
 
 Read first:
-1. `V0.2_ALPHA10_NOTES.md`
-2. `ALPHA10_AGENT_RELIABILITY.md`
-3. `VALIDATION_SUMMARY_A10.md`
-4. `START_HERE_WORK.md`
+1. `V3.0_RELEASE_NOTES.md`
+2. `V3_EXPORT_PROTOCOL.md`
+3. `V3_AI_ENHANCEMENT.md`
+4. `VALIDATION_SUMMARY_V3.md`
+5. `START_HERE_WORK.md`
 
-Full frozen source and the 4K60 validation clip are stored in Google Drive folder `AgentCut_v0.2.0-alpha.10_Handoff`.
+Full frozen source, wheel and validation media are stored in Google Drive folder `AgentCut_v3.0.0_Handoff`.
