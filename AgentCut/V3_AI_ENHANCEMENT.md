@@ -1,11 +1,18 @@
-# AgentCut 3.0 — AI Enhancement
+# AgentCut 3.0.1 — AI Enhancement
 
-## Optional backends
+## Bundled offline super-resolution
 
-AgentCut integrates adapters for third-party portable backends rather than bundling them as hard dependencies:
+AgentCut 3.0.1 bundles a slim **Real-ESRGAN ncnn Vulkan** runtime for Windows x64 and Linux x64:
 
-- Real-ESRGAN ncnn Vulkan — optional super-resolution
-- RIFE ncnn Vulkan — optional frame interpolation
+- platform executable
+- AnimeVideo-v3 x2 model
+- AnimeVideo-v3 x4 model
+- upstream MIT license
+- SHA256 manifest
+
+It is intentionally optimized for anime/video. Large general-photo models and macOS binaries remain external.
+
+The executable does not require CUDA or PyTorch, but it **does require a working Vulkan-capable GPU/driver**.
 
 Check discovery/status:
 
@@ -13,34 +20,43 @@ Check discovery/status:
 agentcut enhance-status
 ```
 
-Explicit install path:
+Discovery priority for Real-ESRGAN:
+1. `AGENTCUT_REALESRGAN`
+2. PATH
+3. bundled slim runtime
+4. user backend root
+
+This allows a newer/full external runtime to override the bundled version without modifying AgentCut.
+
+## Super-resolution policy
+
+- `off`: no dedicated enhancement stage
+- `auto`: try Real-ESRGAN; if unavailable, model-incompatible, or runtime initialization/inference fails, record the reason and fall back to FFmpeg Lanczos
+- `ai` / `realesrgan`: require successful Real-ESRGAN execution; never silently degrade
+
+For anime content, ratios up to about 2.25× prefer AnimeVideo-v3 x2; larger ratios prefer x4, followed by exact resize to the requested delivery geometry.
+
+## Frame interpolation
+
+RIFE ncnn Vulkan remains optional/external because its portable bundle is much larger.
+
+- `off`: no dedicated interpolation stage
+- `auto`: use RIFE when installed and runnable, otherwise FFmpeg motion-compensated interpolation
+- `ai` / `rife`: require successful RIFE execution
+
+Optional install:
 
 ```bash
-agentcut ai-install realesrgan --accept-third-party
 agentcut ai-install rife --accept-third-party
 ```
 
-Alternative environment variables:
+Environment override:
 
 ```text
 AGENTCUT_REALESRGAN=/path/to/realesrgan-ncnn-vulkan(.exe)
 AGENTCUT_RIFE=/path/to/rife-ncnn-vulkan(.exe)
 AGENTCUT_BACKEND_ROOT=/custom/backend/root
 ```
-
-## Super-resolution policy
-
-- `off`: no dedicated enhancement stage
-- `auto`: Real-ESRGAN if discovered and runtime-successful, otherwise FFmpeg Lanczos
-- `ai` / `realesrgan`: require AI backend and fail explicitly if unavailable/broken
-
-Content hint `anime` selects the anime-oriented model; `general` selects the general model.
-
-## Frame interpolation policy
-
-- `off`: no dedicated interpolation stage
-- `auto`: RIFE if discovered and runtime-successful, otherwise FFmpeg motion-compensated interpolation
-- `ai` / `rife`: require RIFE
 
 ## Hard-cut protection
 
@@ -51,3 +67,7 @@ RIFE receives independently extracted temporal segments split at AgentCut's cano
 A fallback is never labelled as AI. If an executable is discovered but fails at runtime, `auto` records the failure reason and falls back; explicit AI policy remains a hard error.
 
 Every enhancement stage is probed for duration invariance before proceeding.
+
+## Cloud validation note
+
+The current cloud has no usable Vulkan device. The bundled Linux executable starts, but inference fails at Vulkan initialization. Therefore the 3.0.1 cloud validation verifies packaging, model integrity, runtime invocation and safe fallback behavior—not successful neural inference. A Vulkan-capable Windows/Linux environment can use the bundled runtime offline without downloading Real-ESRGAN again.
