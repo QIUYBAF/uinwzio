@@ -1,0 +1,36 @@
+{
+  "name": "AgentCut",
+  "version": "3.0.2",
+  "protocol_version": 2,
+  "canonical_state": "project.json",
+  "preferred_agent_gateway": {
+    "context": "GET /agent/context",
+    "schema": "GET /agent/operation-schema",
+    "preflight": "POST /agent/preflight",
+    "apply": "POST /agent/apply",
+    "strict_fallback": "POST /operations/transaction"
+  },
+  "reliability": {
+    "flexible_operation_shapes": true,
+    "deterministic_alias_normalization": true,
+    "unique_syntax_typo_repair": true,
+    "ambiguous_creative_autocorrection": false,
+    "compact_preflight": true,
+    "change_impact_map": true,
+    "verification_plan": true,
+    "missing_entity_recovery_hints": true,
+    "optimistic_concurrency": true
+  },
+  "render": {
+    "official_ceiling": "3840x2160@60fps",
+    "flexible_export": true,
+    "containers": ["mp4", "mov", "mkv", "webm"],
+    "video_codecs": ["h264", "hevc", "av1", "vp9", "prores"]
+  },
+  "enhancement": {
+    "bundled_realesrgan_windows_linux": true,
+    "bundled_models": ["realesr-animevideov3-x2", "realesr-animevideov3-x4"],
+    "rife_external_optional": true,
+    "fallback_never_reported_as_ai": true
+  }
+}
