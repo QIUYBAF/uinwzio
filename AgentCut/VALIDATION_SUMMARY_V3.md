@@ -1,25 +1,33 @@
-# Validation Summary — AgentCut 3.0.1
+# Validation Summary — AgentCut 3.0.2
 
-- full automated regression suite: **85 / 85 passed**
+- full automated regression suite: **96 / 96 passed**
 - legacy Alpha 8/9/10 functionality: pass
-- Agent Reliability Gateway: pass
+- Agent Reliability Gateway regression: pass
+- Agent Protocol v2 singleton/root-wrapper/params/arguments/flattened normalization: pass
+- unique high-confidence action/argument syntax typo repair: pass
+- compact Agent Context domain filtering: pass
+- preflight change-impact / render-scope / verification guidance: pass
+- transition boundary span recommendation: pass
+- missing-entity recovery hints: pass
+- compact apply transaction receipt: pass
+- wheel clean-install Agent Protocol v2 runtime test: pass
 - custom geometry/fps export: pass
 - MP4/H.264, WebM/VP9, MOV/ProRes, MKV/HEVC: real encode pass
 - generalized 3840×2160 @ 60fps export: real encode pass
 - fallback interpolation + scaling pipeline: real render pass
-- duration/spec invariants: pass
-- bundled Real-ESRGAN slim discovery: pass
-- bundled AnimeVideo-v3 x2/x4 files + SHA256 manifest: pass
-- wheel clean-install includes Windows/Linux binaries and models: pass
-- bundled Linux executable startup: pass
-- `auto` runtime-failure fallback: pass
+- bundled Real-ESRGAN slim discovery + AnimeVideo-v3 x2/x4 SHA verification: pass
 - RIFE discovery/installer + hard-cut segmentation contracts: pass
 - `agentcut doctor`: pass
 
+## Agent interaction benchmark
+
+Synthetic 20-scene project:
+- old full project + full schema + capabilities read: **33,988 compact JSON bytes**
+- task-scoped Agent Context for 3 scenes and `visual,cinematic,transition`: **12,504 bytes**
+- reduction: **63.2%**
+
+A stress fixture containing 18 mixed non-canonical LLM-style operations normalized, preflighted and applied atomically as 18/18 semantic operations. This is a deterministic regression fixture, not a claim about universal model failure rate.
+
 ## Environment-specific note
 
-The cloud validation machine has no usable NVIDIA NVENC runtime, so AgentCut correctly selects CPU fallback.
-
-It also has no usable Vulkan device. The bundled Linux Real-ESRGAN executable starts, but a real tiny inference attempt fails at Vulkan initialization with `vkCreateInstance failed` / `invalid gpu device`. Neural Real-ESRGAN inference is therefore **not claimed as passed on this cloud**. The installed-wheel test verifies the intended production behavior: `auto` records the AI runtime failure and falls back to Lanczos while preserving requested dimensions and duration; explicit AI remains a hard failure.
-
-On a Vulkan-capable Windows/Linux machine, the Real-ESRGAN executable and AnimeVideo-v3 x2/x4 models are now fully local and require no new download.
+The cloud machine has no usable NVENC runtime and no usable Vulkan device. AgentCut correctly chooses CPU/fallback paths. The bundled Linux Real-ESRGAN executable is present and starts, but actual neural inference fails at Vulkan initialization; neural inference is therefore not claimed as passed on this cloud. `auto` records the runtime failure and falls back while preserving dimensions/duration; explicit AI remains a hard failure.
