@@ -1,58 +1,65 @@
-# START HERE — AgentCut 3.0.2
+# START HERE — AgentCut 3.2.2
 
 Cross-conversation / Work / Codex handoff entry.
 
-## Current stable baseline
+## Stable baseline
 
-**3.0.2**.
+**3.2.2** — production-friction pass after EP07 Nether practical testing.
 
 Validation:
-- **96 / 96 automated tests passed**
+- **135 / 135 tests passed**
 - `agentcut doctor`: pass
-- generalized 3840×2160@60 export: pass
-- MP4/H.264, WebM/VP9, MOV/ProRes, MKV/HEVC: pass
-- bundled slim Real-ESRGAN Windows/Linux + AnimeVideo-v3 x2/x4: packaged and SHA-verified
-- current cloud has no usable Vulkan device, so Real-ESRGAN runtime-failure → honest `auto` fallback is the executed validation path
-- RIFE remains optional/external
+- EP07 57.37 s bilingual diagnostic proxy: render + QA pass
+- bundled Real-ESRGAN retained
 
-Full source Handoff: Google Drive folder `AgentCut_v3.0.2_Handoff`.
+## Restart / upgrade first step
 
-Read in this order:
-1. `README.md`
-2. `AGENT_PROTOCOL.md`
-3. `VALIDATION_SUMMARY_V3.md`
-4. `V3_AI_ENHANCEMENT.md`
-5. `V3_EXPORT_PROTOCOL.md`
-6. `ALPHA10_AGENT_RELIABILITY.md`
-7. `ALPHA9_CINEMATIC_WORKFLOW.md`
-
-## Preferred Agent workflow — Protocol v2
+Do **not** reread all docs or the full operation schema.
 
 ```text
-GET /agent/context (optionally filter domains/scenes)
-→ POST /agent/preflight
-→ inspect deterministic repairs + change impact + verification plan
-→ POST /agent/apply with expected_project_hash
-→ render recommended scene/span/full scope
-→ QA + inspect relevant frames
-→ export-plan → export when delivery is requested
+agentcut agent-start PROJECT
 ```
 
-Do not require the model to memorize the exact JSON shape. The Agent gateway accepts canonical operations plus deterministic `operation/op/tool`, `params/arguments`, flattened args, singleton/root wrappers and uniquely high-confidence syntax typos. Ambiguous creative choices remain explicit.
+Protocol v5 modes:
+- `warm_resume`: project-local checkpoint/last receipt remain valid across normal edits;
+- `upgrade_resume`: read only `schema_delta.added/changed/removed` plus release delta;
+- `cold_resume`: request task-scoped `/agent/context`, not the whole project unless needed.
 
-Preflight is compact by default: full projected state is opt-in. Apply also returns a compact transaction receipt unless full project/results are explicitly requested.
+Use `agent-checkpoint` to persist goals/decisions, never raw conversation history.
 
-## Architecture invariants
+## Practical editing loop
 
-1. `project.json` remains canonical.
-2. Agent operations remain semantic, versioned and reversible.
-3. Source assets remain non-destructive.
-4. Syntax/naming drift may be repaired; ambiguous artistic intent may not.
-5. Preflight precedes mutation and reports impact/render scope.
-6. QA/manifests report actual results rather than intended results.
-7. Optional AI failure must not break `auto` export.
-8. Fallback processing must never be reported as AI.
-9. Hard cuts remain interpolation barriers.
-10. Bundled third-party binaries/models retain upstream license and SHA256 manifests.
+```text
+agent-start
+→ task-scoped context
+→ preflight
+→ apply with expected_project_hash
+→ proxy scene/span/full according to verification plan
+→ QA + visual inspection
+→ final export only after proxy is stable
+```
 
-Product criterion: prefer dependable, low-context Agent interaction over decorative feature count.
+## Subtitle rules
+
+- Import SRT with Cast-aware speaker parsing.
+- Use structured `secondary_text` for bilingual captions.
+- Auto-fit changes layout only, not text/timing.
+- If QA emits `BILINGUAL_SPLIT_RECOMMENDED`, split/shorten the cue; do not shrink text further.
+
+## Staging rules
+
+- `suggest_scene_staging` returns anonymous anchors only.
+- `stage_scene_by_order` requires explicit Cast order before writing coordinates.
+- Never infer character identity purely from deterministic saliency.
+
+## ASR
+
+Windows x64 one-time sidecar:
+
+```text
+agentcut asr-install --accept-third-party
+```
+
+Backend/model live outside the project and persist across AgentCut upgrades.
+
+Full source Handoff: Google Drive folder `AgentCut_v3.2.2_Handoff`. Prefer it over reconstructing from old Alpha folders.
