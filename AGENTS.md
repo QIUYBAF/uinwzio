@@ -6,7 +6,8 @@ This repository is used by both ChatGPT and Codex. Before starting work on any e
 1. Read `00_ProjectOS/README.md`.
 2. Read `00_ProjectOS/ACTIVE_INDEX.md`.
 3. Read the matching `00_ProjectOS/projects/<PROJECT_ID>_*.md` PROJECT_HOME file.
-4. Do not ask the user to repeat information already written there unless it is genuinely contradictory or stale.
+4. Read the matching workflow under `00_ProjectOS/workflows/` when relevant.
+5. Do not ask the user to repeat information already written there unless it is genuinely contradictory or stale.
 
 ## Project IDs
 - `CT-*` content/video series
@@ -24,6 +25,13 @@ Use the same project ID in ChatGPT group names, Codex/local folders, Google Driv
 - Local filesystem/Codex: execution workspace and cache only unless committed/uploaded.
 
 Do not create another source of truth without explicitly recording why.
+
+## Search policy
+- Search PROJECT_HOME and known project paths first.
+- In ChatGPT Library, default to the standardized folders `00_工作台`, `10_内容项目`, `20_软件项目`, `30_运营`, `40_学习研究`, `90_归档`, `99_收件箱`.
+- Treat loose historical files in the Library root as Legacy. Do not include them in normal searches.
+- Use a broad/all-Library search only for recovery when the expected scoped locations fail.
+- Avoid repeatedly enumerating Drive/GitHub roots just to rediscover known locations.
 
 ## ACTIVE rule
 Each project has one state: `ACTIVE`, `WAITING`, `DONE`, or `ARCHIVE`.
