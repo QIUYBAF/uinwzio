@@ -1,0 +1,61 @@
+name: Build AgentCut Real-ESRGAN Slim
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-agentcut-realesrgan-slim.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download official portable packages
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p work/windows work/linux
+          curl -L --fail --retry 3 -o work/windows.zip \
+            https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-windows.zip
+          curl -L --fail --retry 3 -o work/linux.zip \
+            https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesrgan-ncnn-vulkan-20220424-ubuntu.zip
+          unzip -q work/windows.zip -d work/windows
+          unzip -q work/linux.zip -d work/linux
+
+      - name: Build slim cross-platform bundle
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p bundle/windows bundle/linux bundle/models
+          WIN_EXE=$(find work/windows -type f -name 'realesrgan-ncnn-vulkan.exe' | head -1)
+          LIN_EXE=$(find work/linux -type f -name 'realesrgan-ncnn-vulkan' | head -1)
+          test -n "$WIN_EXE" && test -n "$LIN_EXE"
+          cp "$WIN_EXE" bundle/windows/realesrgan-ncnn-vulkan.exe
+          cp "$LIN_EXE" bundle/linux/realesrgan-ncnn-vulkan
+          chmod +x bundle/linux/realesrgan-ncnn-vulkan
+          for f in realesr-animevideov3-x2.bin realesr-animevideov3-x2.param realesr-animevideov3-x4.bin realesr-animevideov3-x4.param; do
+            src=$(find work/linux work/windows -type f -name "$f" | head -1)
+            test -n "$src"
+            cp "$src" bundle/models/$f
+          done
+          lic=$(find work/linux work/windows -type f -iname 'LICENSE*' | head -1 || true)
+          if [ -n "$lic" ]; then cp "$lic" bundle/LICENSE.upstream; fi
+          cat > bundle/README_AGENTCUT.txt <<'EOF'
+          AgentCut bundled Real-ESRGAN slim backend
+          Upstream: https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan
+          Portable release source: Real-ESRGAN v0.2.5.0 / 20220424
+          Included models: AnimeVideo-v3 x2 and x4 only.
+          Runtime requires a working Vulkan-capable GPU/driver.
+          EOF
+          (cd bundle && sha256sum windows/realesrgan-ncnn-vulkan.exe linux/realesrgan-ncnn-vulkan models/* > SHA256SUMS.txt)
+          du -ah bundle | sort -h | tail -20
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: agentcut-realesrgan-slim
+          path: bundle
+          if-no-files-found: error
+          compression-level: 9
