@@ -12,6 +12,33 @@ Validation:
 - 3.2.2 subtitle/runtime, 3.1 performance, 3.0 flexible export/4K60 and Alpha cinematic regressions: pass
 - bundled slim Real-ESRGAN AnimeVideo-v3 x2/x4 on Windows/Linux
 
+## Codex / AI entry
+
+Routine SW-01 work does **not** require reading every document in this directory.
+
+Default route:
+
+```text
+00_ProjectOS/projects/SW-01_AgentCut.md
+→ task-relevant AgentCut source/test files
+→ smallest relevant test
+→ broader regression only when risk requires it
+```
+
+Use `00_ProjectOS/CODEX_ROUTER.md` when the Project ID or path is unknown.
+
+Read the documents below only when the task depends on them:
+
+- `START_HERE_WORK.md` — legacy cross-conversation resume/bootstrap reference; not routine startup.
+- `AGENT_PROTOCOL.md` — agent protocol/bootstrap/API changes.
+- `V3.2.3_EDITORIAL_COVERAGE.md` — editorial coverage behavior or regression.
+- `V3.2.2_PRODUCTION_FRICTION.md` — production-friction history/regression.
+- `VALIDATION_SUMMARY_V3.md` — release validation / broad QA.
+- `GLT_*` and cinematic playbooks — GLT-specific editing case studies, not core runtime prerequisites.
+- `ALPHA*` / `V0.2_*_NOTES.md` — historical behavior or regression archaeology only.
+
+Do not automatically read release notes just because they exist.
+
 ## 3.2.3: editorial coverage / anti-template pass
 
 EP07 practical cutting showed a remaining failure mode: speaker tracking could be technically correct while a long static-image scene still felt like a slideshow because it used one continuous push/reframe.
@@ -61,12 +88,5 @@ These are editorial signals, not mandatory rewrites. Stillness remains a valid c
 ## Important EP07 asset boundary
 
 The 3.2.3 practical validation uses images visibly marked **PROXY STORYBOARD**. They are diagnostic assets, not the user's prepared final generated EP07 art. Do not treat them as release footage. When the final image set becomes visible in the active runtime, replace scene assets while preserving the canonical subtitle/timeline/coverage logic and rerun visual staging + QA + proxy.
-
-Read first:
-1. `START_HERE_WORK.md`
-2. `V3.2.3_EDITORIAL_COVERAGE.md`
-3. `V3.2.2_PRODUCTION_FRICTION.md`
-4. `AGENT_PROTOCOL.md`
-5. `VALIDATION_SUMMARY_V3.md`
 
 Full frozen source/wheel/validation package: `AgentCut_v3.2.3_Handoff`.
