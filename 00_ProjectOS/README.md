@@ -1,6 +1,6 @@
-# Project OS v1.0 — 统一工作制度
+# Project OS v1.1 — 统一工作制度
 
-> 目标：让 ChatGPT / Codex / 本地 / Google Drive / Library / GitHub / B站之间只传递最小必要信息，避免重复搜索、重复解释、记忆断裂和版本混乱。
+> 目标：让 ChatGPT / Codex / 本地 / Google Drive / Library / GitHub / B站之间只传递最小必要信息，避免重复搜索、重复解释、记忆断裂和版本混乱。执行效率优先于“把所有资料都读一遍”的形式完整性。
 
 ## 1. 平台唯一职责
 
@@ -16,11 +16,11 @@ ChatGPT 云端项目/个人上下文与 Codex 的项目线程、repo 和本地�
 
 跨端连续性依靠显式外部记忆层：
 1. `PROJECT_HOME`：长期项目事实、固定规则与当前状态；
-2. `CODEX_HANDOFF`：ChatGPT → Codex 的本轮自包含交接；
+2. 本轮 `DELTA + TASK + acceptance criteria`：执行增量；
 3. `SYNC_BACK`：Codex → ChatGPT 的结果增量；
 4. Git / Drive：代码与大型文件的实际真源。
 
-第一次把成熟的云端项目转到 Codex 时使用完整 HANDOFF；之后只传 `PROJECT_HOME + 本轮 DELTA + TASK + 验收标准`，不要重复整个聊天历史。
+只有 PROJECT_HOME 缺失、不可访问或首次建立项目时才需要较完整 HANDOFF。正常后续会话不要重复整个聊天历史。
 
 ## 3. 项目编号与跨端命名
 
@@ -42,11 +42,11 @@ ChatGPT group、Codex 本地目录、Drive 文件夹、GitHub 项目卡都以同
 - DONE：已完成，等待发布/复盘/收尾。
 - ARCHIVE：停止搜索，除非明确恢复。
 
-任何项目不得用版本号代替 ACTIVE，例如禁止 `AgentCut_v3.2.3_ACTIVE`；活动入口固定为 `SW-01_AgentCut_ACTIVE`，版本进入 Git 历史或归档。
+任何项目不得用版本号代替 ACTIVE；版本进入 Git 历史或归档。
 
 ## 5. 项目入口文件
 
-每个项目必须有且只有一个权威 `PROJECT_HOME`（目前集中在 `00_ProjectOS/projects/`）。新 ChatGPT 对话、新 Codex 会话、本地接手时先读它。
+每个项目必须有且只有一个权威 `PROJECT_HOME`（集中在 `00_ProjectOS/projects/`）。已知 Project ID 的任务直接读取它；不需要先读所有全局制度。
 
 PROJECT_HOME 控制在约 100 行以内，只记录：
 1. 项目目标与观众/用户承诺
@@ -64,21 +64,21 @@ PROJECT_HOME 控制在约 100 行以内，只记录：
 
 ## 6. 标准交接协议
 
-跨端状态只认 6 个字段：
-- `STATUS` 当前状态
-- `DONE` 已完成
-- `NEXT` 唯一下一步
-- `BLOCKERS` 阻塞
-- `FILES` 真源位置
-- `CHANGES` 本轮改变了什么固定规则
+正常 ChatGPT → Codex 只需：
+- `PROJECT_ID`
+- `DELTA`：本轮新增/变化信息，没有则 `none`
+- `TASK`
+- `ACCEPTANCE`：验收标准
 
-`CHANGES = none` 时，下一端必须默认维持上一轮已验证的视觉、剪辑、叙事、命名或技术规则。
+Codex → ChatGPT 使用：
+- `RESULT`
+- `CHANGED`
+- `TEST`
+- `OPEN`
+- `NEXT`
+- `SYNC_BACK`
 
-### ChatGPT → Codex
-使用 `CODEX_HANDOFF_TEMPLATE.md`。提示词必须自包含，不依赖 Codex 能看到云端聊天历史。
-
-### Codex → ChatGPT
-结束时生成 `RESULT / CHANGED / TEST / OPEN / NEXT / SYNC_BACK`；云端只把真正稳定的新事实回写 PROJECT_HOME，不把整段执行日志复制回来。
+只同步稳定增量，不复制完整执行日志。项目长期身份没有变化时，不要重复写一遍固定设定。
 
 ## 7. 文件生命周期
 
@@ -88,29 +88,43 @@ PROJECT_HOME 控制在约 100 行以内，只记录：
 - 进入项目后改成语义化文件名。
 - 中间文件只保留能继续工作的最小集合。
 - 发布后长期保留：源/母版、最终成片、封面、字幕/脚本、PROJECT_HOME、必要授权/素材说明。
-- 可再生成缓存、重复导出、旧 Handoff、无意义 AI 中间图可以删除；不确定是否有价值的先归档，不冒险永久删除。
+- 可再生成缓存、重复导出、旧 Handoff、无意义 AI 中间图可以删除；不确定是否有价值的先归档。
 
-## 8. 搜索顺序（Token 防浪费）
+## 8. Codex 最小路由（Usage 防浪费）
 
-已有项目严格按以下顺序：
-1. `ACTIVE_INDEX` 确认 ID；
-2. PROJECT_HOME；
-3. 已知 GitHub / Drive ACTIVE 路径；
-4. 项目对应 Library 文件夹；
-5. 只有前四项失败时才做全局恢复搜索。
+详细规则以 `CODEX_ROUTER.md` 为准。默认原则：**已知 ID 直达，未知 ID 才路由。**
 
-禁止把 Library 根目录历史散件、Drive 根目录或整个 GitHub repo 当作每轮默认搜索起点。
+### 已知 Project ID
+1. 读取唯一 PROJECT_HOME；
+2. 读取 TASK 直接相关的代码/文件；
+3. 执行与最小相关测试；
+4. 回传 SYNC_BACK。
+
+不默认读取：根 README、完整 ProjectOS README、ACTIVE_INDEX、其他 PROJECT_HOME、历史 notes。
+
+### 未知 Project ID
+1. 用 `CODEX_ROUTER.md` 映射；
+2. 只有归属确实模糊时才读 `ACTIVE_INDEX.md`；
+3. 仍然无法定位时才逐级扩大搜索。
+
+### 搜索升级
+`已知路径 -> 项目内搜索 -> 当前工作区 -> 全仓恢复搜索`
+
+一旦 PROJECT_HOME、TASK、验收标准和目标文件都明确，就停止“继续了解情况”，转入执行。
+
+禁止把 Library 根目录历史散件、Drive 根目录、Frozen Legacy 或整个 GitHub repo 当作每轮默认搜索起点。
 
 ## 9. AI 默认行为
 
 AI 接手已有项目时：
-1. 先找编号和 PROJECT_HOME；
+1. 已知编号就直接读 PROJECT_HOME；
 2. 不重新询问已写明的信息；
-3. 不因为换模型/线程/平台就重做已验证成功的风格；
+3. 不因为换模型/线程/平台就重做已验证成功的风格或架构；
 4. 先完成最小可靠交付，再升级；
-5. 本轮结束前更新 `STATUS/NEXT/CHANGES`；
+5. 先跑最小相关测试，再按风险扩大回归；
 6. 发现混乱优先修入口、索引和真源，不进行无依据的大规模搬家；
-7. 新创意默认进入 INBOX/WAITING，不自动抢占 ACTIVE。
+7. 新创意默认进入 INBOX/WAITING，不自动抢占 ACTIVE；
+8. 同一会话已读取且未变化的控制文档不重复读取。
 
 ## 10. 系列连续性规则
 
@@ -126,7 +140,7 @@ AI 接手已有项目时：
 - Drive/GitHub 是否出现多个“最新版”；
 - DONE/旧版本是否需要归档；
 - 是否存在重复存储或无意义中间产物；
-- 系列风格是否发生未经记录的漂移；
+- 是否出现新的重复入口、重复规则或无意义必读文档；
 - 只提出 1 条本周最值得执行的制度维护动作。
 
 ## 12. 当前物理结构
@@ -134,10 +148,14 @@ AI 接手已有项目时：
 ### Library
 `00_工作台 / 10_内容项目 / 20_软件项目 / 30_运营 / 40_学习研究 / 90_归档 / 99_收件箱`
 
-Library 根目录的历史 UUID/旧生成散件按 Legacy 处理，不参与正常检索；部分旧索引因底层文件已不可用，无法迁移时直接忽略，不重复尝试。
+Library 根目录历史散件按 Legacy 处理，不参与正常检索。
 
 ### Drive
 `00_项目管理 / 01_进行中 / 02_发布交付 / 03_原始素材 / 90_归档 / 99_待整理`
 
 ### GitHub
-根入口 `README.md` / `AGENTS.md` → `00_ProjectOS/` → 项目 PROJECT_HOME / workflows；历史根目录文件默认 Legacy，除非现有构建明确引用。
+常规执行逻辑入口：`CODEX_ROUTER.md -> PROJECT_HOME -> task files`。
+
+仓库治理入口：`README.md / AGENTS.md -> 00_ProjectOS/README.md / REPOSITORY_MAP.md`。
+
+历史根目录文件默认 Frozen Legacy，除非任务明确要求恢复。
