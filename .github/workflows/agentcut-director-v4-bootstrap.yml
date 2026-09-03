@@ -33,7 +33,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .agentcut4-bootstrap/part-*.b64 | tr -d '\r\n' | base64 -d > /tmp/agentcut4-sync.zip
+          cat \
+            .agentcut4-bootstrap/part-01.b64 \
+            .agentcut4-bootstrap/part-02.b64 \
+            .agentcut4-bootstrap/part-03.b64 \
+            .agentcut4-bootstrap/part-04.b64 \
+            .agentcut4-bootstrap/part-05.b64 \
+            .agentcut4-bootstrap/fix-06a.b64 \
+            .agentcut4-bootstrap/fix-06b.b64 \
+            .agentcut4-bootstrap/part-07.b64 \
+            .agentcut4-bootstrap/fix-08a.b64 \
+            .agentcut4-bootstrap/fix-08b.b64 \
+            .agentcut4-bootstrap/part-09.b64 \
+            .agentcut4-bootstrap/part-10.b64 \
+            | tr -d '\r\n' | base64 -d > /tmp/agentcut4-sync.zip
           echo 'cdeb5109af1075952fc319fa3bc810cefc198f5552a9970ee21d11236b19172d  /tmp/agentcut4-sync.zip' | sha256sum -c -
 
           python - <<'PY'
