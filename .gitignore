@@ -44,7 +44,7 @@
 *.snm
 *.vrb
 
-#(e)ledmac/(e)ledpar
+# (e)ledmac/(e)ledpar
 *.end
 *.[1-9]
 *.[1-9][0-9]
@@ -109,6 +109,74 @@ sympy-plots-for-*.tex/
 # xindy
 *.xdy
 
+## ProjectOS storage boundary
+# Google Drive is the source of truth for large media, delivery packages,
+# executables and model weights. Existing tracked files are unaffected;
+# a genuinely required small test fixture may be explicitly unignored in
+# its project directory and documented there.
 
+# Video / audio deliverables
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+*.m4v
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.wav
+
+# Archives and installers
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.exe
+*.msi
+*.dmg
+*.AppImage
+*.iso
+
+# Creative project binaries / model weights
+*.psd
+*.psb
+*.procreate
+*.aep
+*.blend
+*.onnx
+*.safetensors
+*.ckpt
+*.pth
+*.pt
+
+# Dependencies, caches and generated output
+**/node_modules/
+**/.venv/
+**/venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.cache/
+**/coverage/
+**/dist/
+**/build/
+**/out/
+**/renders/
+**/render/
+**/exports/
+**/delivery/
+
+# Secrets and OS/editor noise
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
 *~
-
