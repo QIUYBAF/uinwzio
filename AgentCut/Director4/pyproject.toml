@@ -5,15 +5,15 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "agentcut-director"
 version = "4.0.0"
-description = "AgentCut Director 4: semantic video control plane using CutGraph and renderer adapters"
+description = "Agent-native semantic directing control plane for deterministic Remotion video production"
 readme = "README.md"
-requires-python = ">=3.11"
-license = {text = "MIT"}
-authors = [{name = "AgentCut Project"}]
-keywords = ["video", "agent", "remotion", "editing", "cutgraph"]
+requires-python = ">=3.10"
+authors = [{name = "薇纷芳橙 / AgentCut Project"}]
+license = {text = "Proprietary project source; third-party assets retain their own licenses"}
+keywords = ["video", "remotion", "agent", "editing", "codex"]
 classifiers = [
-  "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
@@ -21,7 +21,6 @@ dependencies = []
 
 [project.scripts]
 agentcut-director = "agentcut_director.cli:main"
-agentcut4 = "agentcut_director.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -29,6 +28,5 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-addopts = "-ra"
+[tool.setuptools.package-data]
+agentcut_director = ["py.typed"]
