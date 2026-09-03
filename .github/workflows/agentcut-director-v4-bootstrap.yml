@@ -33,13 +33,16 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          cat .agentcut4-bootstrap/part-*.b64 | tr -d '\r\n' | base64 -d > /tmp/agentcut4-sync.zip
+          echo 'cdeb5109af1075952fc319fa3bc810cefc198f5552a9970ee21d11236b19172d  /tmp/agentcut4-sync.zip' | sha256sum -c -
+
           python - <<'PY'
           from pathlib import Path
           import shutil
           import zipfile
 
           repo = Path.cwd()
-          payload = repo / '.agentcut4-bootstrap' / 'payload.zip'
+          payload = Path('/tmp/agentcut4-sync.zip')
           temp = Path('/tmp/agentcut4-sync')
           shutil.rmtree(temp, ignore_errors=True)
           temp.mkdir(parents=True)
