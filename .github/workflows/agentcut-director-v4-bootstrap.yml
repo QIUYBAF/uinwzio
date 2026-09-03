@@ -7,6 +7,10 @@ on:
     paths:
       - .github/workflows/agentcut-director-v4-bootstrap.yml
 
+concurrency:
+  group: agentcut-director-v4-source-sync
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -16,7 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github
+            .agentcut4-bootstrap
+            00_ProjectOS
+            AgentCut/Director4
 
       - name: Apply canonical AgentCut Director 4 source tree
         shell: bash
