@@ -3,13 +3,28 @@
 This repository is used by both ChatGPT and Codex. Treat ChatGPT cloud context and Codex/local session history as separate memory domains. Never assume Codex knows what was discussed in ChatGPT, or vice versa.
 
 ## Mandatory startup sequence
-1. Read `00_ProjectOS/README.md`.
-2. Read `00_ProjectOS/ACTIVE_INDEX.md`.
-3. Identify the project ID.
-4. Read the matching `00_ProjectOS/projects/<PROJECT_ID>_*.md` PROJECT_HOME.
-5. Read the matching workflow under `00_ProjectOS/workflows/` when relevant.
-6. If this session came from ChatGPT, read the supplied CODEX_HANDOFF / DELTA before execution.
-7. Do not ask the user to repeat information already written there unless it is genuinely contradictory, stale, or missing.
+1. Read `README.md`.
+2. Read `00_ProjectOS/README.md`.
+3. Read `00_ProjectOS/ACTIVE_INDEX.md`.
+4. Read `00_ProjectOS/REPOSITORY_MAP.md` before doing any broad repository search.
+5. Identify the project ID.
+6. Read the matching `00_ProjectOS/projects/<PROJECT_ID>_*.md` PROJECT_HOME.
+7. Read the matching workflow under `00_ProjectOS/workflows/` when relevant.
+8. If this session came from ChatGPT, read the supplied CODEX_HANDOFF / DELTA before execution.
+9. Do not ask the user to repeat information already written there unless it is genuinely contradictory, stale, or missing.
+
+## Repository boundary rule
+Normal work is restricted to the current zones documented in `00_ProjectOS/REPOSITORY_MAP.md`.
+
+Treat old topic/category roots such as `其他/`, `化学/`, `思想/`, `教育/`, `数学/`, `文学/`, `术数/`, `电脑/`, `templates/` and the old static-site generator files as **Frozen Legacy**.
+
+Unless the task explicitly targets historical material:
+- do not recursively search those roots;
+- do not write new project assets there;
+- do not use them as evidence for current project state;
+- do not opportunistically rename/move/delete them.
+
+Do not create new top-level project/test folders. A new software project must first receive a ProjectOS ID and PROJECT_HOME; then decide deliberately whether it belongs in this repository or a separate repo.
 
 ## Memory rule
 Codex thread history is execution context, not durable project memory. Durable facts must live in PROJECT_HOME, Git, or the canonical Drive location.
@@ -37,13 +52,12 @@ Use the same project ID in ChatGPT group names, Codex/local folders, Google Driv
 Do not create another source of truth without explicitly recording why.
 
 ## Search policy
-1. PROJECT_HOME and known project paths first.
+1. `ACTIVE_INDEX` and PROJECT_HOME first.
 2. Known GitHub/Drive ACTIVE location second.
 3. Matching Library project folder third.
 4. Broad/global search only for recovery.
 
-In ChatGPT Library, normal work is scoped to `00_工作台`, `10_内容项目`, `20_软件项目`, `30_运营`, `40_学习研究`, `90_归档`, `99_收件箱`.
-Treat loose historical files in the Library root as Legacy. Do not include them in normal searches. Some legacy root entries may be stale indexes whose backing files no longer exist; do not repeatedly retry them.
+A broad GitHub search still excludes Frozen Legacy unless the recovery target is known to predate ProjectOS.
 
 Avoid repeatedly enumerating Drive/GitHub roots just to rediscover known locations.
 
