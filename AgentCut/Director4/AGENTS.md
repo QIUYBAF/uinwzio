@@ -1,10 +1,12 @@
-# AGENTS — AgentCut Director 4
+# AgentCut Director 4 — Agent Rules
 
-1. Read `README.md` and `docs/NAMING.md` first.
-2. Treat CutGraph as the only canonical timeline.
-3. Use transactions with `expected_sha256`; do not overwrite state from chat history.
-4. Run capability preflight before compiling.
-5. Verify CutBundle before preview/render.
-6. Use scoped preview spans from the impact planner.
-7. Never infer Codex usage; accept externally reported values only.
-8. Put source/tests/history in GitHub and wheels, ZIPs, video and large evidence in Drive.
+1. Read this file and `README.md`; do not recursively read AgentCut Classic documentation unless migration is the task.
+2. Treat `agentcut.director.cutgraph.v1` JSON as the only canonical edit state.
+3. Preflight before apply. Apply with `expected_project_hash`.
+4. Prefer one atomic transaction over many partially dependent writes.
+5. Use the returned impact plan; do not render the full video for a local change without a reason.
+6. Generated Remotion files are compiler output. Fix the CutGraph/compiler rather than hand-forking timing in TSX.
+7. Do not modify source media. Verify recorded hashes before copying.
+8. Preserve the naming boundary: “AgentCut Director 4” and “AgentCut Classic 3.x” are distinct products.
+9. Do not claim Codex credit savings from structural byte/frame proxies; record actual usage separately.
+10. Every release requires tests, clean wheel install, demo bridge verification, checksums and one Drive ACTIVE handoff.
