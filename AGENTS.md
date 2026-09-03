@@ -1,19 +1,34 @@
 # AGENTS.md — ProjectOS execution rules
 
-This repository is used by both ChatGPT and Codex. Treat ChatGPT cloud context and Codex/local session history as separate memory domains. Never assume Codex knows what was discussed in ChatGPT, or vice versa.
+This repository is used by both ChatGPT and Codex. Treat ChatGPT cloud context and Codex/local session history as separate memory domains. Never assume another session already knows the current project state.
 
-## Mandatory startup sequence
-1. Read `README.md`.
-2. Read `00_ProjectOS/README.md`.
-3. Read `00_ProjectOS/ACTIVE_INDEX.md`.
-4. Read `00_ProjectOS/REPOSITORY_MAP.md` before doing any broad repository search.
-5. Identify the project ID.
-6. Read the matching `00_ProjectOS/projects/<PROJECT_ID>_*.md` PROJECT_HOME.
-7. Read the matching workflow under `00_ProjectOS/workflows/` when relevant.
-8. If this session came from ChatGPT, read the supplied CODEX_HANDOFF / DELTA before execution.
-9. Do not ask the user to repeat information already written there unless it is genuinely contradictory, stale, or missing.
+## Minimal startup route
+
+The default goal is **minimum sufficient context**, not maximum repository awareness.
+
+1. If the task or handoff already gives a Project ID, go directly to its `00_ProjectOS/projects/<PROJECT_ID>_*.md` PROJECT_HOME.
+2. If the Project ID is absent but the project name is clear, use `00_ProjectOS/CODEX_ROUTER.md` to map it; do not perform a repo-wide search.
+3. Read `00_ProjectOS/ACTIVE_INDEX.md` only when routing is genuinely ambiguous or the task concerns status/scheduling across projects.
+4. Read the full `00_ProjectOS/README.md` / `REPOSITORY_MAP.md` only for ProjectOS policy, repository governance, storage, cross-project conflicts, or recovery work.
+5. After PROJECT_HOME, read only the source files, tests, assets, or task-specific docs needed for the requested change.
+6. Workflows and historical/release docs are opt-in: read them only when the task actually depends on that workflow/history.
+7. If this session came from ChatGPT, use the supplied DELTA / TASK / acceptance criteria; do not reconstruct the whole prior conversation.
+
+For the detailed low-cost routing and search escalation rules, see `00_ProjectOS/CODEX_ROUTER.md`.
+
+## Stop-search rule
+
+Stop gathering context and begin execution once all are known:
+- the unique PROJECT_HOME;
+- the current TASK;
+- acceptance criteria;
+- the concrete files/paths to inspect or modify;
+- no blocking contradiction remains.
+
+Do not keep scanning unrelated projects merely to gain broader context.
 
 ## Repository boundary rule
+
 Normal work is restricted to the current zones documented in `00_ProjectOS/REPOSITORY_MAP.md`.
 
 Treat old topic/category roots such as `其他/`, `化学/`, `思想/`, `教育/`, `数学/`, `文学/`, `术数/`, `电脑/`, `templates/` and the old static-site generator files as **Frozen Legacy**.
@@ -27,13 +42,15 @@ Unless the task explicitly targets historical material:
 Do not create new top-level project/test folders. A new software project must first receive a ProjectOS ID and PROJECT_HOME; then decide deliberately whether it belongs in this repository or a separate repo.
 
 ## Memory rule
+
 Codex thread history is execution context, not durable project memory. Durable facts must live in PROJECT_HOME, Git, or the canonical Drive location.
 
-When a project is first transferred from ChatGPT cloud, require a self-contained handoff. On later sessions prefer a small delta: `PROJECT_HOME + DELTA + TASK + acceptance criteria`.
+On later sessions prefer a small handoff: `PROJECT_ID + DELTA + TASK + acceptance criteria`. A full self-contained handoff is only needed when the canonical PROJECT_HOME is missing or inaccessible.
 
-Before ending meaningful work, return `RESULT / CHANGED / TEST / OPEN / NEXT / SYNC_BACK`. SYNC_BACK contains only facts that the ChatGPT cloud side needs to persist.
+Before ending meaningful work, return `RESULT / CHANGED / TEST / OPEN / NEXT / SYNC_BACK`. SYNC_BACK contains only durable facts the cloud side needs to persist.
 
 ## Project IDs
+
 - `CT-*` content/video series
 - `IP-*` original IP/worldbuilding
 - `SW-*` software/tools
@@ -43,6 +60,7 @@ Before ending meaningful work, return `RESULT / CHANGED / TEST / OPEN / NEXT / S
 Use the same project ID in ChatGPT group names, Codex/local folders, Google Drive folders, filenames and handoffs whenever possible.
 
 ## Source-of-truth rules
+
 - GitHub: code, ProjectOS, PROJECT_HOME, technical version history.
 - Google Drive: large media, source assets, executables, final delivery packages.
 - ChatGPT Library: short summaries, prompts, references, AI quick-entry memory.
@@ -51,50 +69,55 @@ Use the same project ID in ChatGPT group names, Codex/local folders, Google Driv
 
 Do not create another source of truth without explicitly recording why.
 
-## Search policy
-1. `ACTIVE_INDEX` and PROJECT_HOME first.
-2. Known GitHub/Drive ACTIVE location second.
-3. Matching Library project folder third.
-4. Broad/global search only for recovery.
+## Search escalation
 
-A broad GitHub search still excludes Frozen Legacy unless the recovery target is known to predate ProjectOS.
+Use the cheapest level that can answer the task:
 
-Avoid repeatedly enumerating Drive/GitHub roots just to rediscover known locations.
+1. **Known path** — read/modify directly; no search.
+2. **Project scope** — search only the matching project/code directory.
+3. **Current workspace** — search `.github/`, `00_ProjectOS/`, and known active code roots.
+4. **Repository recovery** — repo-wide search only when canonical paths are missing or contradictory.
+
+A broad GitHub search still excludes Frozen Legacy unless the target is known to predate ProjectOS. Do not enumerate Drive/GitHub roots simply to rediscover locations already recorded in PROJECT_HOME.
 
 ## ACTIVE rule
+
 Each project has one state: `ACTIVE`, `WAITING`, `DONE`, or `ARCHIVE`.
 A current project must have only one unversioned ACTIVE entry and exactly one NEXT.
 Never create parallel folders like `Project_v3_ACTIVE`, `Project_v4_ACTIVE`, `final2`, `latest-new`.
 Use Git history/releases or archive folders for old versions.
 
 ## Preserve successful project identity
+
 For established series and tools, treat PROJECT_HOME constraints as protected defaults.
 Do not redesign visual language, editing grammar, character behavior, architecture, naming or interaction patterns merely because a new conversation/session started.
 
-For content series, the established audience experience is effectively an interface contract. Meaningful changes require evidence/reason and must be recorded under `CHANGES`. Prefer local experiments over silently changing the whole series.
+Meaningful changes require evidence/reason and must be recorded under `CHANGES`. Prefer local experiments over silently changing the whole project.
 
 ## Work policy
+
 - Prefer the smallest reliable deliverable first.
 - Avoid redoing validated work without evidence.
-- For heavy production, no more than 3 main ACTIVE projects per week.
-- New ideas default to INBOX/WAITING rather than becoming ACTIVE automatically.
 - Inspect existing implementation before changing it.
 - Preserve verified working parts.
-- Test actual outputs where possible.
-- If a file is reproducible cache/intermediate output, do not treat it as permanent project memory.
+- Run the smallest relevant test first; expand only if risk warrants it.
+- Reproducible cache/intermediate output is not permanent project memory.
+- New ideas default to INBOX/WAITING rather than becoming ACTIVE automatically.
 
 ## File lifecycle
+
 `INBOX -> ACTIVE -> DELIVERY -> ARCHIVE`
 
 At completion, keep the minimum durable set: source/master files, final deliverable, cover/thumbnail, script/subtitles where relevant, PROJECT_HOME/decision notes, and required licensing/source notes. Delete clearly reproducible/obsolete intermediates; archive uncertain historical material instead of destroying it.
 
 ## End-of-session protocol
-Report and/or update:
-- `STATUS`
-- `DONE`
-- `NEXT` — exactly one concrete next step
-- `BLOCKERS`
-- `FILES` — source-of-truth locations
-- `CHANGES` — `none` unless a stable project rule changed
 
-Then provide `SYNC_BACK` for the cloud side. Do not dump the entire execution log into PROJECT_HOME.
+Report and/or update:
+- `RESULT`
+- `CHANGED`
+- `TEST`
+- `OPEN`
+- `NEXT` — exactly one concrete next step
+- `SYNC_BACK` — only durable new facts
+
+Do not dump the full execution log into PROJECT_HOME.
