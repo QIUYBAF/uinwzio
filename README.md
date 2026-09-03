@@ -9,7 +9,8 @@
 3. `00_ProjectOS/ACTIVE_INDEX.md` — 当前项目编号与状态
 4. `00_ProjectOS/projects/` — 各项目 PROJECT_HOME
 5. `00_ProjectOS/workflows/` — 内容、绘画、发布、软件发布标准工作流
-6. `AgentCut/` — SW-01 AgentCut 当前代码目录
+6. `00_ProjectOS/STORAGE_AND_RETENTION.md` — Library / Drive / GitHub 储存边界、命名、保留与清理记录
+7. `AgentCut/` — SW-01 AgentCut 当前代码目录
 
 ## 平台职责
 
@@ -23,6 +24,12 @@
 
 已有项目先找项目 ID，再读 PROJECT_HOME；禁止因为换了会话就重新设计已验证的系列风格或软件架构。每个项目只允许一个 ACTIVE 和一个 NEXT。跨端交接使用 `STATUS / DONE / NEXT / BLOCKERS / FILES / CHANGES`。
 
+## 储存安全
+
+大文件不得把 GitHub 或 Library 变成第二个 Drive。视频、音频交付包、ZIP、可执行程序、模型权重和可再生成构建产物默认由 `.gitignore` 拦截并存入 Drive。超过跨端单文件限制时，按 `STORAGE_AND_RETENTION.md` 的无损分卷与 SHA-256 规则处理。
+
 ## Legacy
 
 根目录仍有部分旧网页/脚本文件，暂不大规模移动，以免破坏历史依赖。它们默认视为 Legacy，不参与正常项目检索。旧版根 README 已保存到 `90_Legacy/README_legacy_taxonomy.md`。
+
+仓库历史若需真正瘦身，必须先做大对象审计、镜像备份和 Drive 真源核验；普通整理不得直接 force-push 重写历史。
