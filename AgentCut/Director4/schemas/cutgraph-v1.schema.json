@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agentcut.director.cutgraph.v1",
+  "title": "AgentCut Director 4 CutGraph",
+  "type": "object",
+  "required": [
+    "schema",
+    "product",
+    "project",
+    "assets",
+    "timeline",
+    "delivery",
+    "history"
+  ],
+  "properties": {
+    "schema": {"const": "agentcut.director.cutgraph.v1"},
+    "product": {"type": "object", "required": ["name", "version", "generation"]},
+    "project": {"type": "object", "required": ["id", "title", "fps", "width", "height", "duration_frames"]},
+    "assets": {"type": "object"},
+    "timeline": {"type": "object", "required": ["scenes", "captions", "audio"]},
+    "delivery": {"type": "object"},
+    "history": {"type": "object", "required": ["version", "receipts"]}
+  },
+  "additionalProperties": true
+}
