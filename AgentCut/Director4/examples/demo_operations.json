@@ -1,0 +1,21 @@
+[
+  {
+    "action": "update_scene",
+    "args": {
+      "scene_id": "s02",
+      "patch": {
+        "motion": {
+          "type": "push",
+          "amount": 0.025
+        }
+      }
+    }
+  },
+  {
+    "action": "set_metadata",
+    "args": {
+      "key": "review_status",
+      "value": "proxy-approved"
+    }
+  }
+]

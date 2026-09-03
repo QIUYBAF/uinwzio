@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agentcut.director.remotion.v1",
+  "title": "AgentCut Director Remotion Manifest",
+  "type": "object",
+  "required": [
+    "schema",
+    "generator",
+    "compositionId",
+    "projectHash",
+    "project",
+    "assets",
+    "scenes",
+    "captions",
+    "audio"
+  ],
+  "properties": {
+    "schema": {"const": "agentcut.director.remotion.v1"},
+    "compositionId": {"const": "AgentCutDirector4"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentcut-director"
+version = "4.0.0"
+description = "Agent-native semantic directing control plane for deterministic Remotion video production"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "薇纷芳橙 / AgentCut Project"}]
+license = {text = "Proprietary project source; third-party assets retain their own licenses"}
+keywords = ["video", "remotion", "agent", "editing", "codex"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = []
+
+[project.scripts]
+agentcut-director = "agentcut_director.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+agentcut_director = ["py.typed"]
