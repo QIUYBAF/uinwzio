@@ -1,6 +1,6 @@
 # START HERE — AgentCut 3.2.3
 
-Cross-conversation / Work / Codex handoff entry.
+> **Legacy resume reference.** Routine Codex work should start from `00_ProjectOS/projects/SW-01_AgentCut.md`, not from this file. Read this document only when working on cross-conversation resume/bootstrap behavior or reconstructing the 3.2.3 handoff context.
 
 ## Current stable baseline
 
@@ -13,7 +13,7 @@ Validation:
 - EP07 Nether diagnostic coverage proxy: render + QA pass
 - bundled Real-ESRGAN retained
 
-## First action on restart
+## Resume/bootstrap reference
 
 Do **not** reread the repository or full operation schema.
 
@@ -62,8 +62,12 @@ Current 3.2.3 validation visuals are marked **PROXY STORYBOARD**. They are not f
 
 Full source Handoff: `AgentCut_v3.2.3_Handoff`.
 
-Read next:
-1. `V3.2.3_EDITORIAL_COVERAGE.md`
-2. `V3.2.2_PRODUCTION_FRICTION.md`
-3. `AGENT_PROTOCOL.md`
-4. `VALIDATION_SUMMARY_V3.md`
+## Optional references
+
+Only open these when the task specifically needs them:
+- `V3.2.3_EDITORIAL_COVERAGE.md` — coverage implementation/regression
+- `V3.2.2_PRODUCTION_FRICTION.md` — earlier production-friction decisions
+- `AGENT_PROTOCOL.md` — protocol/bootstrap/API behavior
+- `VALIDATION_SUMMARY_V3.md` — broad release validation
+
+Do not chain-read all four during routine development.
