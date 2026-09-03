@@ -1,45 +1,34 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
-from importlib import metadata
 from typing import Any
 
-
-@dataclass(frozen=True)
-class ProductIdentity:
-    product: str = "AgentCut Director"
-    release_line: str = "AgentCut Director 4"
-    cli: str = "agentcut-director"
-    python_package: str = "agentcut_director"
-    classic_line: str = "AgentCut Classic 3"
-    classic_distribution: str = "agentcut"
-    canonical_ir: str = "CutGraph"
-    portable_build: str = "CutBundle"
-    remotion_adapter: str = "AgentCut Remotion Adapter"
-    ffmpeg_adapter: str = "AgentCut FFmpeg Adapter"
-    reserved_gui: str = "AgentCut Studio"
+PRODUCT_NAME = "AgentCut Director"
+PRODUCT_SLUG = "agentcut-director"
+CLI_NAME = "agentcut-director"
+VERSION = "4.0.0"
+GENERATION = 4
+SCHEMA = "agentcut.director.cutgraph.v1"
+REMOTION_SCHEMA = "agentcut.director.remotion.v1"
+CLASSIC_FAMILY = "AgentCut Classic 3.x"
+COMPOSITION_ID = "AgentCutDirector4"
 
 
-PRODUCT_IDENTITY = ProductIdentity()
-
-
-def package_version() -> str:
-    try:
-        return metadata.version("agentcut-director")
-    except metadata.PackageNotFoundError:
-        return "4.0.0"
-
-
-def identity_payload() -> dict[str, Any]:
+def product_identity() -> dict[str, Any]:
     return {
-        "schema": "agentcut.identity.v1",
-        "version": package_version(),
-        "identity": asdict(PRODUCT_IDENTITY),
-        "ownership": {
-            "canonical_timeline": "CutGraph",
-            "semantic_transactions": "AgentCut Director",
-            "presentation": "renderer adapter",
-            "remotion": "rendering backend only",
-            "classic3": "optional compatibility runtime only",
-        },
+        "name": PRODUCT_NAME,
+        "slug": PRODUCT_SLUG,
+        "cli": CLI_NAME,
+        "version": VERSION,
+        "generation": GENERATION,
+        "schema": SCHEMA,
+        "classic_family": CLASSIC_FAMILY,
+        "composition_id": COMPOSITION_ID,
     }
+
+
+def assert_director_identity(project: dict[str, Any]) -> None:
+    if project.get("schema") != SCHEMA:
+        raise ValueError(f"expected schema {SCHEMA!r}, got {project.get('schema')!r}")
+    identity = project.get("product") or {}
+    if identity.get("name") != PRODUCT_NAME or int(identity.get("generation", -1)) != GENERATION:
+        raise ValueError("project identity is not AgentCut Director generation 4")
