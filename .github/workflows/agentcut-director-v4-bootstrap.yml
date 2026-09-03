@@ -1,0 +1,63 @@
+name: AgentCut Director 4 source sync
+
+on:
+  push:
+    branches:
+      - release/agentcut-director-4.0.0-bootstrap
+    paths:
+      - .github/workflows/agentcut-director-v4-bootstrap.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply canonical AgentCut Director 4 source tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          import zipfile
+
+          repo = Path.cwd()
+          payload = repo / '.agentcut4-bootstrap' / 'payload.zip'
+          temp = Path('/tmp/agentcut4-sync')
+          shutil.rmtree(temp, ignore_errors=True)
+          temp.mkdir(parents=True)
+          with zipfile.ZipFile(payload) as archive:
+              bad = archive.testzip()
+              if bad:
+                  raise SystemExit(f'corrupt payload member: {bad}')
+              archive.extractall(temp)
+          source = temp / 'AgentCut_Director_v4.0.0_GitHub_Sync'
+          if not source.is_dir():
+              raise SystemExit('canonical source directory missing')
+
+          shutil.rmtree(repo / 'AgentCut' / 'Director4', ignore_errors=True)
+          for child in source.iterdir():
+              if child.name in {'APPLY_TO_GITHUB.md', 'SYNC_MANIFEST.json'}:
+                  continue
+              destination = repo / child.name
+              if child.is_dir():
+                  shutil.copytree(child, destination, dirs_exist_ok=True)
+              else:
+                  destination.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(child, destination)
+          PY
+
+          rm -rf .agentcut4-bootstrap
+          rm -f .github/workflows/agentcut-director-v4-bootstrap.yml
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat(agentcut4): complete Director 4.0.0 RC source tree'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
