@@ -79,6 +79,7 @@ If a referenced asset is missing, first search the listed canonical location. Do
 5. Test/preview the result where possible.
 6. Fix regressions introduced by this session.
 7. Do not create parallel “final/final2/latest/new” versions. Maintain one ACTIVE output.
+8. Before handoff, extract the minimum historical sufficient set and remove verified obsolete builds, duplicate exports, stale previews/checkpoints/handoffs, caches, dependency folders and reproducible intermediates.
 
 ## 8. Acceptance criteria
 The task is complete only when:
@@ -87,6 +88,8 @@ The task is complete only when:
 - [ ] Existing verified behavior still works.
 - [ ] Output is placed in the canonical location.
 - [ ] No unnecessary duplicate versions are left behind.
+- [ ] Current runnable source, current release/final output, irreplaceable assets and any required rollback point remain intact.
+- [ ] Cleanup performed or unresolved ownership/reference risk is listed under OPEN / NEEDS-HUMAN.
 
 ## 9. Output protocol
 At the end, report only:
