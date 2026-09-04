@@ -37,7 +37,7 @@ Unless the task explicitly targets historical material:
 - do not recursively search those roots;
 - do not write new project assets there;
 - do not use them as evidence for current project state;
-- do not opportunistically rename/move/delete them.
+- do not opportunistically mutate them during ordinary project work; the scheduled governance task may delete or consolidate them after dependency and value audit.
 
 Do not create new top-level project/test folders. A new software project must first receive a ProjectOS ID and PROJECT_HOME; then decide deliberately whether it belongs in this repository or a separate repo.
 
@@ -108,7 +108,9 @@ Meaningful changes require evidence/reason and must be recorded under `CHANGES`.
 
 `INBOX -> ACTIVE -> DELIVERY -> ARCHIVE`
 
-At completion, keep the minimum durable set: source/master files, final deliverable, cover/thumbnail, script/subtitles where relevant, PROJECT_HOME/decision notes, and required licensing/source notes. Delete clearly reproducible/obsolete intermediates; archive uncertain historical material instead of destroying it.
+At completion, keep the minimum historical sufficient set: the current runnable source, current release/final deliverable, one rollback point only when needed, representative milestone output, concise development lessons, and irreplaceable source/licensing material. After verifying no ACTIVE reference, directly delete obsolete full-version copies, old builds/installers, duplicate archives/exports, stale previews/checkpoints/handoffs, caches, dependency directories, virtual environments, rejected outputs without reuse value, and reproducible intermediates. Archive only material with explicit historical, display, legal, or reproducibility value; uncertainty alone goes to NEEDS-HUMAN, not permanent hoarding.
+
+Daily maintenance may perform verified low-risk deletions without per-file approval. It must not automatically delete the only irreplaceable source asset, the only final deliverable, current ACTIVE/CURRENT RELEASE dependencies, current runnable source, default branch/current release tag, or material whose ownership/reference status cannot be established. See `00_ProjectOS/STORAGE_AND_RETENTION.md`.
 
 ## End-of-session protocol
 
