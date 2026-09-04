@@ -4,6 +4,9 @@ This file is the compact development path. It is not a second current-state docu
 
 ## Milestones
 
+### 1.0.1 Remaster — Quick Connect
+Restored the complete lightweight 3.3.1 editing runtime into the current 1.x release line, added a direct checkout runner, one-command project bootstrap, actionable non-crashing diagnostics, and verified automatic backend fallback. Heavy optional binaries and model weights remain outside GitHub.
+
 ### Alpha 5–10 — runtime/reliability prototypes
 Established the early Agent-native editing loop, deterministic state, practical workflow experiments, and reliability/QA scaffolding. These builds are historical only and must not be selected for new deployments.
 
@@ -16,13 +19,13 @@ Added stronger subtitles/dialogue handling, cast-aware staging, editorial covera
 ### 3.3.0 — Gen3 / Jane3 + Remotion bridge
 Introduced the semantic visual-essay workflow used by 《她们仍在旅行》: exhibit/info-card/return/montage/silence/quote scene grammar, tiled still-image refinement, actor-card processing, and an AgentCut→Remotion bridge. AgentCut remained the state/director layer while Remotion became the preferred presentation renderer when available.
 
-### 3.3.1 — current usable baseline
+### 3.3.1 — inherited source baseline
 Improved task-scoped Agent context, warm bootstrap, local render-scope planning, efficiency telemetry, and Remotion Bridge v2 integrity checks. Validation recorded 156 automated tests passed with zero failures and a real three-scene bridge E2E proxy render.
 
 However, the validation environment did not claim a fresh npm install + Chromium/Remotion render. Real project use exposed deployment friction. Therefore deployment simplicity is the next P0 rather than another feature-expansion cycle.
 
 ### Director 4.0.0 — placeholder / experimental name
-A Drive handoff folder was created under this name, but as of 2026-09-05 it contains no usable package/source/validation payload. It is not the latest release and must not supersede 3.3.1 until a real handoff exists.
+A Drive handoff folder was created under this name, but it contains no usable package/source/validation payload. It is not a release baseline and must not supersede the 1.x line.
 
 ## Retention policy
 

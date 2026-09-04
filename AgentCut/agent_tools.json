@@ -1,7 +1,7 @@
 {
   "name": "AgentCut",
-  "version": "3.3.1",
-  "release_status": "current_usable_baseline",
+  "version": "1.0.1",
+  "release_status": "stable_remaster",
   "protocol_version": 5,
   "canonical_state": "project.json",
   "preferred_agent_gateway": {
@@ -84,15 +84,18 @@
     "deterministic_ffmpeg_pillow_fallback": true
   },
   "enhancement": {
-    "bundled_realesrgan_windows_linux": true,
-    "bundled_models": ["realesr-animevideov3-x2", "realesr-animevideov3-x4"],
+    "bundled_realesrgan_windows_linux": false,
+    "bundled_models": [],
     "rife_external_optional": true,
     "fallback_never_reported_as_ai": true
   },
   "deployment": {
     "priority": "P0",
-    "target_release": "3.4",
-    "problem": "Remotion path currently spans Python, FFmpeg, Node/npm and Chromium and is too environment-sensitive for production use",
-    "target": "single bootstrap + doctor/fix + backend auto + fresh-environment real Remotion E2E"
+    "target_release": "1.0.1",
+    "direct_checkout_runner": "python AgentCut/run.py",
+    "one_command": "agentcut quickstart PROJECT --create",
+    "github_source_complete": true,
+    "backend_auto": true,
+    "optional_heavy_dependencies_bundled": false
   }
 }

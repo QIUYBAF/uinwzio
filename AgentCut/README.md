@@ -1,41 +1,64 @@
-# AgentCut 1.0.0 Remaster — CURRENT
+# AgentCut 1.0.1 Remaster — CURRENT
 
-**LATEST / STABLE BASELINE: 1.0.0 Remaster**
+**LATEST / STABLE BASELINE: 1.0.1 Remaster**
 
-This is the reset baseline after the 3.x experimental line, designed so Codex and ChatGPT Work can locate the current AgentCut without version archaeology.
+AgentCut is an agent-native semantic video editing runtime. Version 1.0.1 restores the complete lightweight 3.3.1 editing surface behind one current manifest and a low-friction Work/Codex entry.
 
-## Agent start
+## Run immediately after download
 
-Read `agentcut.manifest.json` → `AGENTS.md`, then:
+From the repository root, no editable install is required:
 
 ```bash
-python -m pip install -e .
-agentcut discover
-agentcut doctor
+python AgentCut/run.py discover
+python AgentCut/run.py quickstart PROJECT --create --task "Describe the edit"
 ```
 
-For a project, use `agentcut setup PROJECT --create` and `agentcut agent-start PROJECT --task "..."`.
+From inside `AgentCut/`, use `python run.py ...`. To install the `agentcut` command:
 
-## 1.0.0 Remaster
+```bash
+python -m pip install -e AgentCut
+agentcut quickstart PROJECT --create --task "Describe the edit"
+```
 
-- unique version truth: `agentcut.manifest.json`;
-- unique agent entry: `AGENTS.md`;
-- project-free `agentcut discover` environment/backend probe;
-- explicit Codex + ChatGPT Work/cloud behavior;
-- Remotion optional; deterministic FFmpeg/Pillow fallback policy;
-- old 0.2/3.x numbering frozen; Director 4.0 skipped as a release baseline;
-- SemVer from this point: 1.0.x fixes/deployment, 1.x compatible capability, 2.0 breaking change.
+`quickstart` creates or opens the project, prepares its local runtime, detects the backend, runs diagnostics, and returns the compact agent bootstrap in one JSON response.
 
-No major editing feature was intentionally added.
+## Agent entry
 
-## Current boundary
+Read `agentcut.manifest.json`, then `AGENTS.md`. Useful project-free commands:
 
-The 1.0.0 control/discovery layer is live on GitHub. The complete inherited 3.3.1 lightweight runtime source is not yet fully synchronized into `AgentCut/` in this session, so a fresh GitHub-only clone is **not yet claimed fully installable**. The packaged 1.0.0 Remaster source artifact is the reference for completing that sync.
+```bash
+python AgentCut/run.py discover
+python AgentCut/run.py doctor
+python AgentCut/run.py backend
+```
 
-Validation completed here: remaster tests 2/2; Python compile check; `python -m agentcut discover`. The inherited 3.3.1 baseline had a prior 156-test release validation, but that full suite was not rerun to completion during this remaster.
+`doctor` degrades cleanly when FFmpeg, Remotion, Chromium, AI enhancement, or ASR components are absent. `doctor --fix` only creates safe local AgentCut runtime directories; it does not install system software.
 
-## NEXT
+## Restored functionality
 
-**1.0.1 Quick Connect:** finish lightweight runtime source sync, fresh-machine bootstrap, actionable doctor/fix, backend-auto, and real npm + Chromium/Remotion E2E where available. Do not begin a feature-heavy 1.1 before this closes.
+- canonical `project.json` state with history, undo/redo, diff, checkpoints, and atomic batches;
+- agent context, operation schema, normalization, preflight, optimistic concurrency, apply receipts, and resume capsules;
+- scene, asset, camera, transition, effects, audio, caption, dialogue, composition, cast, and cinematic operations;
+- proxy/scene/span/final rendering, export planning, cache, contact sheets, and QA;
+- subtitle/SRT workflows with optional Whisper.cpp ASR;
+- Gen3/Jane3 scene grammar, actor cards, tile extraction/stitching, chroma key, and optional Remotion bridge;
+- optional Real-ESRGAN/RIFE integrations with deterministic FFmpeg/Pillow fallbacks.
 
-Heavy optional Real-ESRGAN binaries/models stay out of the active GitHub checkout to keep Codex/Work startup light.
+## Runtime policy
+
+Remotion is selected only when a real local executable is available and React/UI rendering is requested. Otherwise AgentCut uses FFmpeg/Pillow. Heavy Real-ESRGAN binaries, model weights, Chromium, and generated media are intentionally excluded from the lightweight source checkout.
+
+The version source of truth is `agentcut.manifest.json`. Old 0.2/3.x releases and Director 4.0 experiments are history, not startup candidates.
+
+## Validation
+
+Run from `AgentCut/`:
+
+```bash
+python run.py release-check . --strict
+python -m pytest -q
+```
+
+Release validation for 1.0.1 completed with 163/163 tests passing. Optional real Chromium/Remotion rendering was not available in the validation environment and is not claimed.
+
+SemVer policy: 1.0.x is for deployment, bug, reliability, and compatibility patches; 1.x adds compatible capability; 2.0 is reserved for breaking state/API changes.

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "whoosh_soft",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -12
+      },
+      "description": "whoosh soft"
+    },
+    {
+      "id": "whoosh_fast",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -9
+      },
+      "description": "whoosh fast"
+    },
+    {
+      "id": "impact_soft",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -12
+      },
+      "description": "impact soft"
+    },
+    {
+      "id": "impact_hard",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -7
+      },
+      "description": "impact hard"
+    },
+    {
+      "id": "glitch_tick",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -14
+      },
+      "description": "glitch tick"
+    },
+    {
+      "id": "ui_click",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -16
+      },
+      "description": "ui click"
+    },
+    {
+      "id": "rise_short",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -13
+      },
+      "description": "rise short"
+    },
+    {
+      "id": "drop_short",
+      "backend": "semantic_audio",
+      "tags": [
+        "audio_cue"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "kind": "sfx",
+        "volume_db": -11
+      },
+      "description": "drop short"
+    }
+  ]
+}

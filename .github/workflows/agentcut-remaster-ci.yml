@@ -1,0 +1,35 @@
+name: AgentCut Remaster CI
+
+on:
+  push:
+    paths:
+      - "AgentCut/**"
+      - ".github/workflows/agentcut-remaster-ci.yml"
+  pull_request:
+    paths:
+      - "AgentCut/**"
+      - ".github/workflows/agentcut-remaster-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: AgentCut/pyproject.toml
+      - name: Install AgentCut and test dependencies
+        run: python -m pip install -e './AgentCut[dev]'
+      - name: Compile runtime
+        run: python -m compileall -q AgentCut/agentcut AgentCut/run.py
+      - name: Verify release truth
+        run: python AgentCut/run.py release-check AgentCut --strict
+      - name: Run regression suite
+        working-directory: AgentCut
+        run: python -m pytest -q

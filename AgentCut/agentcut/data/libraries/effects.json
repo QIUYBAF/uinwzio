@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "snow_light",
+      "backend": "snow",
+      "tags": [
+        "effect",
+        "weather",
+        "cold",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.18,
+        "speed": 0.55,
+        "opacity": 0.48,
+        "direction": "down",
+        "depth": "midground",
+        "material": "snow_crisp"
+      },
+      "description": "snow light"
+    },
+    {
+      "id": "snow_wind",
+      "backend": "snow",
+      "tags": [
+        "effect",
+        "weather",
+        "cold",
+        "wind"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.32,
+        "speed": 1.15,
+        "opacity": 0.68,
+        "direction": "down_right",
+        "depth": "foreground",
+        "material": "snow_crisp"
+      },
+      "description": "snow wind"
+    },
+    {
+      "id": "snow_heavy",
+      "backend": "snow",
+      "tags": [
+        "effect",
+        "weather",
+        "cold",
+        "heavy"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.62,
+        "speed": 0.9,
+        "opacity": 0.82,
+        "direction": "down",
+        "depth": "foreground",
+        "material": "snow_soft"
+      },
+      "description": "snow heavy"
+    },
+    {
+      "id": "rain_light",
+      "backend": "rain",
+      "tags": [
+        "effect",
+        "weather",
+        "rain",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.18,
+        "speed": 0.75,
+        "opacity": 0.42,
+        "direction": "down_left",
+        "depth": "foreground",
+        "material": "rain_cool"
+      },
+      "description": "rain light"
+    },
+    {
+      "id": "rain_heavy",
+      "backend": "rain",
+      "tags": [
+        "effect",
+        "weather",
+        "rain",
+        "heavy"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.55,
+        "speed": 1.4,
+        "opacity": 0.62,
+        "direction": "down_left",
+        "depth": "foreground",
+        "material": "rain_cool"
+      },
+      "description": "rain heavy"
+    },
+    {
+      "id": "dust_motes",
+      "backend": "dust",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "dust",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.18,
+        "speed": 0.35,
+        "opacity": 0.42,
+        "direction": "auto",
+        "depth": "midground",
+        "material": "dust_warm"
+      },
+      "description": "dust motes"
+    },
+    {
+      "id": "dust_wind",
+      "backend": "dust",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "dust",
+        "wind"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.46,
+        "speed": 1.15,
+        "opacity": 0.55,
+        "direction": "right",
+        "depth": "foreground",
+        "material": "dust_warm"
+      },
+      "description": "dust wind"
+    },
+    {
+      "id": "fog_low",
+      "backend": "fog",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "fog",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.22,
+        "speed": 0.35,
+        "opacity": 0.34,
+        "direction": "right",
+        "depth": "background",
+        "material": "fog_white"
+      },
+      "description": "fog low"
+    },
+    {
+      "id": "fog_dense",
+      "backend": "fog",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "fog",
+        "heavy"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.52,
+        "speed": 0.25,
+        "opacity": 0.55,
+        "direction": "right",
+        "depth": "background",
+        "material": "fog_white"
+      },
+      "description": "fog dense"
+    },
+    {
+      "id": "embers_light",
+      "backend": "embers",
+      "tags": [
+        "effect",
+        "energy",
+        "embers",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.2,
+        "speed": 0.7,
+        "opacity": 0.52,
+        "direction": "up",
+        "depth": "foreground",
+        "material": "spark_hot"
+      },
+      "description": "embers light"
+    },
+    {
+      "id": "sparks",
+      "backend": "sparks",
+      "tags": [
+        "effect",
+        "energy",
+        "sparks"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.45,
+        "speed": 1.4,
+        "opacity": 0.78,
+        "direction": "up_right",
+        "depth": "foreground",
+        "material": "spark_hot"
+      },
+      "description": "sparks"
+    },
+    {
+      "id": "fire",
+      "backend": "fire",
+      "tags": [
+        "effect",
+        "energy",
+        "fire"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.52,
+        "speed": 1.0,
+        "opacity": 0.72,
+        "direction": "up",
+        "depth": "foreground",
+        "material": "fire_hot"
+      },
+      "description": "fire"
+    },
+    {
+      "id": "smoke_light",
+      "backend": "smoke",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "smoke",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.2,
+        "speed": 0.32,
+        "opacity": 0.32,
+        "direction": "up_right",
+        "depth": "background",
+        "material": "smoke_gray"
+      },
+      "description": "smoke light"
+    },
+    {
+      "id": "smoke_dense",
+      "backend": "smoke",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "smoke",
+        "heavy"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.48,
+        "speed": 0.48,
+        "opacity": 0.5,
+        "direction": "up",
+        "depth": "midground",
+        "material": "smoke_gray"
+      },
+      "description": "smoke dense"
+    },
+    {
+      "id": "ash",
+      "backend": "ash",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "ash"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.28,
+        "speed": 0.45,
+        "opacity": 0.48,
+        "direction": "down_right",
+        "depth": "foreground",
+        "material": "ash_gray"
+      },
+      "description": "ash"
+    },
+    {
+      "id": "bokeh_warm",
+      "backend": "bokeh",
+      "tags": [
+        "effect",
+        "light",
+        "bokeh",
+        "warm"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.25,
+        "speed": 0.2,
+        "opacity": 0.38,
+        "direction": "auto",
+        "depth": "background",
+        "material": "bokeh_warm"
+      },
+      "description": "bokeh warm"
+    },
+    {
+      "id": "bokeh_cool",
+      "backend": "bokeh",
+      "tags": [
+        "effect",
+        "light",
+        "bokeh",
+        "cool"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.25,
+        "speed": 0.2,
+        "opacity": 0.38,
+        "direction": "auto",
+        "depth": "background",
+        "material": "bokeh_cool"
+      },
+      "description": "bokeh cool"
+    },
+    {
+      "id": "light_particles",
+      "backend": "light_particles",
+      "tags": [
+        "effect",
+        "light",
+        "particles"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.22,
+        "speed": 0.4,
+        "opacity": 0.45,
+        "direction": "up",
+        "depth": "midground",
+        "material": "light_clean"
+      },
+      "description": "light particles"
+    },
+    {
+      "id": "glow_orbs",
+      "backend": "bokeh",
+      "tags": [
+        "effect",
+        "light",
+        "orbs",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.18,
+        "speed": 0.12,
+        "opacity": 0.32,
+        "direction": "auto",
+        "depth": "background",
+        "material": "light_clean"
+      },
+      "description": "glow orbs"
+    },
+    {
+      "id": "storm_rain",
+      "backend": "rain",
+      "tags": [
+        "effect",
+        "weather",
+        "storm"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.75,
+        "speed": 1.8,
+        "opacity": 0.7,
+        "direction": "down_left",
+        "depth": "foreground",
+        "material": "rain_cool"
+      },
+      "description": "storm rain"
+    },
+    {
+      "id": "blizzard",
+      "backend": "snow",
+      "tags": [
+        "effect",
+        "weather",
+        "snow",
+        "storm"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.8,
+        "speed": 1.7,
+        "opacity": 0.86,
+        "direction": "down_right",
+        "depth": "foreground",
+        "material": "snow_soft"
+      },
+      "description": "blizzard"
+    },
+    {
+      "id": "haze",
+      "backend": "fog",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "haze",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.16,
+        "speed": 0.18,
+        "opacity": 0.22,
+        "direction": "right",
+        "depth": "background",
+        "material": "fog_white"
+      },
+      "description": "haze"
+    },
+    {
+      "id": "floating_ash",
+      "backend": "ash",
+      "tags": [
+        "effect",
+        "atmosphere",
+        "ash",
+        "subtle"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.18,
+        "speed": 0.22,
+        "opacity": 0.36,
+        "direction": "auto",
+        "depth": "midground",
+        "material": "ash_gray"
+      },
+      "description": "floating ash"
+    },
+    {
+      "id": "campfire_sparks",
+      "backend": "sparks",
+      "tags": [
+        "effect",
+        "energy",
+        "fire",
+        "sparks"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "intensity": 0.28,
+        "speed": 0.9,
+        "opacity": 0.66,
+        "direction": "up",
+        "depth": "foreground",
+        "material": "spark_hot"
+      },
+      "description": "campfire sparks"
+    }
+  ]
+}

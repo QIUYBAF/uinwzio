@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "fade_in",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "opacity": 0.0
+        },
+        "to": {
+          "opacity": 1.0
+        },
+        "duration": 0.35
+      },
+      "description": "fade in"
+    },
+    {
+      "id": "fade_out",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "opacity": 1.0
+        },
+        "to": {
+          "opacity": 0.0
+        },
+        "duration": 0.35
+      },
+      "description": "fade out"
+    },
+    {
+      "id": "reveal_up",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "y_offset": 40,
+          "opacity": 0.0
+        },
+        "to": {
+          "y_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.45
+      },
+      "description": "reveal up"
+    },
+    {
+      "id": "reveal_down",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "y_offset": -40,
+          "opacity": 0.0
+        },
+        "to": {
+          "y_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.45
+      },
+      "description": "reveal down"
+    },
+    {
+      "id": "reveal_left",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "x_offset": 50,
+          "opacity": 0.0
+        },
+        "to": {
+          "x_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.45
+      },
+      "description": "reveal left"
+    },
+    {
+      "id": "reveal_right",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "x_offset": -50,
+          "opacity": 0.0
+        },
+        "to": {
+          "x_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.45
+      },
+      "description": "reveal right"
+    },
+    {
+      "id": "pop",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "scale": 0.82,
+          "opacity": 0.0
+        },
+        "to": {
+          "scale": 1.0,
+          "opacity": 1.0
+        },
+        "duration": 0.35
+      },
+      "description": "pop"
+    },
+    {
+      "id": "soft_pop",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "scale": 0.94,
+          "opacity": 0.0
+        },
+        "to": {
+          "scale": 1.0,
+          "opacity": 1.0
+        },
+        "duration": 0.45
+      },
+      "description": "soft pop"
+    },
+    {
+      "id": "slide_left",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "x_offset": 120,
+          "opacity": 0.0
+        },
+        "to": {
+          "x_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.5
+      },
+      "description": "slide left"
+    },
+    {
+      "id": "slide_right",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "x_offset": -120,
+          "opacity": 0.0
+        },
+        "to": {
+          "x_offset": 0,
+          "opacity": 1.0
+        },
+        "duration": 0.5
+      },
+      "description": "slide right"
+    },
+    {
+      "id": "zoom_in",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "scale": 0.88,
+          "opacity": 0.0
+        },
+        "to": {
+          "scale": 1.0,
+          "opacity": 1.0
+        },
+        "duration": 0.55
+      },
+      "description": "zoom in"
+    },
+    {
+      "id": "zoom_out",
+      "backend": "keyframes",
+      "tags": [
+        "layer_motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "from": {
+          "scale": 1.08,
+          "opacity": 0.0
+        },
+        "to": {
+          "scale": 1.0,
+          "opacity": 1.0
+        },
+        "duration": 0.55
+      },
+      "description": "zoom out"
+    }
+  ]
+}

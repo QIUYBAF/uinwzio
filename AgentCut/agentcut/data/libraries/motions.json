@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "static",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "static"
+    },
+    {
+      "id": "gentle_push",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "slow_push",
+        "amount": 0.025,
+        "easing": "linear"
+      },
+      "description": "gentle push"
+    },
+    {
+      "id": "slow_push",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "slow_push",
+        "amount": 0.04,
+        "easing": "linear"
+      },
+      "description": "slow push"
+    },
+    {
+      "id": "slow_pull",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "slow_pull",
+        "amount": 0.04,
+        "easing": "linear"
+      },
+      "description": "slow pull"
+    },
+    {
+      "id": "pan_left",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_left",
+        "amount": 0.035,
+        "easing": "linear"
+      },
+      "description": "pan left"
+    },
+    {
+      "id": "pan_right",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_right",
+        "amount": 0.035,
+        "easing": "linear"
+      },
+      "description": "pan right"
+    },
+    {
+      "id": "pan_up",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_up",
+        "amount": 0.035,
+        "easing": "linear"
+      },
+      "description": "pan up"
+    },
+    {
+      "id": "pan_down",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_down",
+        "amount": 0.035,
+        "easing": "linear"
+      },
+      "description": "pan down"
+    },
+    {
+      "id": "documentary_push",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "slow_push",
+        "amount": 0.018,
+        "easing": "ease_in_out"
+      },
+      "description": "documentary push"
+    },
+    {
+      "id": "dramatic_push",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "slow_push",
+        "amount": 0.075,
+        "easing": "ease_in"
+      },
+      "description": "dramatic push"
+    },
+    {
+      "id": "reveal_left",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_right",
+        "amount": 0.055,
+        "easing": "ease_out"
+      },
+      "description": "reveal left"
+    },
+    {
+      "id": "reveal_right",
+      "backend": "camera",
+      "tags": [
+        "motion"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "motion": "pan_left",
+        "amount": 0.055,
+        "easing": "ease_out"
+      },
+      "description": "reveal right"
+    }
+  ]
+}

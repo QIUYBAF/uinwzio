@@ -1,0 +1,526 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "cut",
+      "backend": "cut",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.0
+      },
+      "description": "cut"
+    },
+    {
+      "id": "fade",
+      "backend": "fade",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "fade"
+    },
+    {
+      "id": "fade_black",
+      "backend": "fadeblack",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "fade black"
+    },
+    {
+      "id": "fade_white",
+      "backend": "fadewhite",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "fade white"
+    },
+    {
+      "id": "crossfade",
+      "backend": "fade",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "crossfade"
+    },
+    {
+      "id": "wipe_left",
+      "backend": "wipeleft",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "wipe left"
+    },
+    {
+      "id": "wipe_right",
+      "backend": "wiperight",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "wipe right"
+    },
+    {
+      "id": "wipe_up",
+      "backend": "wipeup",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "wipe up"
+    },
+    {
+      "id": "wipe_down",
+      "backend": "wipedown",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "wipe down"
+    },
+    {
+      "id": "slide_left",
+      "backend": "slideleft",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "slide left"
+    },
+    {
+      "id": "slide_right",
+      "backend": "slideright",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "slide right"
+    },
+    {
+      "id": "slide_up",
+      "backend": "slideup",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "slide up"
+    },
+    {
+      "id": "slide_down",
+      "backend": "slidedown",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "slide down"
+    },
+    {
+      "id": "circle_crop",
+      "backend": "circlecrop",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "circle crop"
+    },
+    {
+      "id": "rect_crop",
+      "backend": "rectcrop",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "rect crop"
+    },
+    {
+      "id": "radial",
+      "backend": "radial",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "radial"
+    },
+    {
+      "id": "smooth_left",
+      "backend": "smoothleft",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "smooth left"
+    },
+    {
+      "id": "smooth_right",
+      "backend": "smoothright",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "smooth right"
+    },
+    {
+      "id": "smooth_up",
+      "backend": "smoothup",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "smooth up"
+    },
+    {
+      "id": "smooth_down",
+      "backend": "smoothdown",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "smooth down"
+    },
+    {
+      "id": "circle_open",
+      "backend": "circleopen",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "circle open"
+    },
+    {
+      "id": "circle_close",
+      "backend": "circleclose",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "circle close"
+    },
+    {
+      "id": "dissolve",
+      "backend": "dissolve",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "dissolve"
+    },
+    {
+      "id": "pixelize",
+      "backend": "pixelize",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "pixelize"
+    },
+    {
+      "id": "diag_tl",
+      "backend": "diagtl",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "diag tl"
+    },
+    {
+      "id": "diag_tr",
+      "backend": "diagtr",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "diag tr"
+    },
+    {
+      "id": "diag_bl",
+      "backend": "diagbl",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "diag bl"
+    },
+    {
+      "id": "diag_br",
+      "backend": "diagbr",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "diag br"
+    },
+    {
+      "id": "hblur",
+      "backend": "hblur",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "hblur"
+    },
+    {
+      "id": "fade_grays",
+      "backend": "fadegrays",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "fade grays"
+    },
+    {
+      "id": "squeeze_h",
+      "backend": "squeezeh",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "squeeze h"
+    },
+    {
+      "id": "squeeze_v",
+      "backend": "squeezev",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "squeeze v"
+    },
+    {
+      "id": "zoom_in",
+      "backend": "zoomin",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "zoom in"
+    },
+    {
+      "id": "cover_left",
+      "backend": "coverleft",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "cover left"
+    },
+    {
+      "id": "cover_right",
+      "backend": "coverright",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "cover right"
+    },
+    {
+      "id": "cover_up",
+      "backend": "coverup",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "cover up"
+    },
+    {
+      "id": "reveal_left",
+      "backend": "revealleft",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "reveal left"
+    },
+    {
+      "id": "reveal_right",
+      "backend": "revealright",
+      "tags": [
+        "transition",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "reveal right"
+    },
+    {
+      "id": "reveal_up",
+      "backend": "revealup",
+      "tags": [
+        "transition",
+        "experimental"
+      ],
+      "stability": "experimental",
+      "defaults": {
+        "duration": 0.35
+      },
+      "description": "reveal up"
+    },
+    {
+      "id": "shared_morph",
+      "backend": "fade",
+      "tags": [
+        "transition",
+        "shared-element",
+        "stable"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "duration": 0.6
+      },
+      "description": "Crossfade scene backgrounds while matching shared_id layers render once on a continuous morph path."
+    }
+  ]
+}

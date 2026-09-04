@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "snow_crisp",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#f7fbff",
+        "softness": 0.15,
+        "size": 1.0
+      },
+      "description": "snow crisp"
+    },
+    {
+      "id": "snow_soft",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#ffffff",
+        "softness": 0.35,
+        "size": 1.25
+      },
+      "description": "snow soft"
+    },
+    {
+      "id": "rain_cool",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#b7d9ff",
+        "softness": 0.05,
+        "size": 1.0
+      },
+      "description": "rain cool"
+    },
+    {
+      "id": "dust_warm",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#d7c0a0",
+        "softness": 0.45,
+        "size": 1.0
+      },
+      "description": "dust warm"
+    },
+    {
+      "id": "ash_gray",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#b8b8b8",
+        "softness": 0.3,
+        "size": 0.9
+      },
+      "description": "ash gray"
+    },
+    {
+      "id": "spark_hot",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#ff9a2e",
+        "softness": 0.12,
+        "size": 0.8
+      },
+      "description": "spark hot"
+    },
+    {
+      "id": "fire_hot",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#ff6a18",
+        "softness": 0.4,
+        "size": 1.0
+      },
+      "description": "fire hot"
+    },
+    {
+      "id": "smoke_gray",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#8a8a8a",
+        "softness": 0.8,
+        "size": 1.2
+      },
+      "description": "smoke gray"
+    },
+    {
+      "id": "fog_white",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#d8dde3",
+        "softness": 0.9,
+        "size": 1.4
+      },
+      "description": "fog white"
+    },
+    {
+      "id": "bokeh_warm",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#ffd991",
+        "softness": 0.7,
+        "size": 2.0
+      },
+      "description": "bokeh warm"
+    },
+    {
+      "id": "bokeh_cool",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#8fd7ff",
+        "softness": 0.7,
+        "size": 2.0
+      },
+      "description": "bokeh cool"
+    },
+    {
+      "id": "light_clean",
+      "backend": "procedural",
+      "tags": [
+        "material"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "color": "#f6fbff",
+        "softness": 0.5,
+        "size": 1.2
+      },
+      "description": "light clean"
+    }
+  ]
+}

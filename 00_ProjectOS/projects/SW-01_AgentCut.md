@@ -1,12 +1,12 @@
 # SW-01 AgentCut — PROJECT_HOME
 
 **STATUS:** ACTIVE  
-**UPDATED:** 2026-09-05
+**UPDATED:** 2026-09-04
 
 ## Current truth
 
 **Current release line: AgentCut 1.x**  
-**LATEST: 1.0.0 Remaster**
+**LATEST: 1.0.1 Remaster — Quick Connect**
 
 The old 0.2/3.x numbering is frozen history. AgentCut Director 4.0 is skipped as a release baseline. Do not infer a newer release from old folders, Drive handoffs, or historical notes.
 
@@ -18,9 +18,9 @@ Build an Agent-native editing runtime that Codex and ChatGPT Work can locate, un
 ```text
 AgentCut/agentcut.manifest.json
 → AgentCut/AGENTS.md
-→ agentcut discover
-→ agentcut doctor
-→ project agent-start / scoped context
+→ python AgentCut/run.py discover
+→ python AgentCut/run.py quickstart PROJECT [--create] --task "..."
+→ scoped context / preflight / apply
 ```
 
 Do not scan release history before executing a normal task.
@@ -46,20 +46,25 @@ Do not scan release history before executing a normal task.
 - `2.0.0`: breaking API/state change only.
 - Never revive 3.x numbering.
 
-## Current release — 1.0.0 Remaster
+## Current release — 1.0.1 Remaster
 Based on the verified 3.3.1 runtime, with a reset control surface for agents:
 - machine-readable `agentcut.manifest.json` is the unique version truth;
 - `AGENTS.md` is the default Codex/Work entry;
-- `agentcut discover` is project-free environment/backend discovery;
+- the full lightweight editing runtime and test suite are present in GitHub;
+- `run.py` works directly from a downloaded checkout without editable installation;
+- `discover`, actionable non-crashing `doctor`, and verified `backend` auto-selection are project-free;
+- `quickstart` combines project create/open, runtime setup, discovery, diagnosis, backend choice, and agent bootstrap;
 - explicit cloud/Work fallback policy;
 - optional heavy AI runtimes are not part of the lightweight GitHub checkout;
 - no major editing feature intentionally added.
 
 ## Validation status
-- Remaster-specific tests: 2/2 passed.
+- Full regression: 163/163 passed in the current Linux cloud runtime.
+- Strict release/version/source check: passed.
 - Python compile check: passed.
-- `python -m agentcut discover`: passed in current Linux cloud runtime.
-- Full inherited 3.3.1 regression was not rerun to completion in this remaster session; do not claim it was. The source baseline had a prior 156/156 release validation before the remaster.
+- Direct checkout `discover`, `doctor`, and `quickstart --create` smoke tests: passed.
+- Backend auto selected FFmpeg/Pillow and did not mistake Node/npm alone for Remotion.
+- Real npm + Chromium/Remotion E2E was not available in this environment and is not claimed.
 
 ## NEXT — exactly one
-**1.0.1 Quick Connect:** synchronize the remaining full lightweight runtime source into GitHub and harden fresh-environment bootstrap/doctor/backend-auto, including real Remotion npm + Chromium E2E where the environment permits it.
+**1.0.x maintenance:** keep deployment and compatibility stable; validate optional Remotion npm + Chromium E2E when an appropriate environment is available.

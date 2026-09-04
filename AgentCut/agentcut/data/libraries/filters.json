@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "clean",
+      "backend": "null",
+      "tags": [
+        "filter",
+        "neutral"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "clean"
+    },
+    {
+      "id": "monochrome",
+      "backend": "hue=s=0",
+      "tags": [
+        "filter",
+        "bw"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "monochrome"
+    },
+    {
+      "id": "cinematic_contrast",
+      "backend": "eq=contrast=1.12:saturation=0.94:brightness=-0.015",
+      "tags": [
+        "filter",
+        "cinematic"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "cinematic contrast"
+    },
+    {
+      "id": "warm",
+      "backend": "colorbalance=rs=.06:gs=.015:bs=-.05",
+      "tags": [
+        "filter",
+        "warm"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "warm"
+    },
+    {
+      "id": "cool",
+      "backend": "colorbalance=rs=-.045:gs=.005:bs=.07",
+      "tags": [
+        "filter",
+        "cool"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "cool"
+    },
+    {
+      "id": "vignette",
+      "backend": "vignette=PI/5",
+      "tags": [
+        "filter",
+        "cinematic"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "vignette"
+    },
+    {
+      "id": "sharpen",
+      "backend": "unsharp=5:5:0.55:5:5:0.0",
+      "tags": [
+        "filter",
+        "detail"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "sharpen"
+    },
+    {
+      "id": "soften",
+      "backend": "gblur=sigma=0.7",
+      "tags": [
+        "filter",
+        "soft"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "soften"
+    },
+    {
+      "id": "sepia",
+      "backend": "colorchannelmixer=.393:.769:.189:0:.349:.686:.168:0:.272:.534:.131",
+      "tags": [
+        "filter",
+        "vintage"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "sepia"
+    },
+    {
+      "id": "faded_film",
+      "backend": "eq=contrast=.92:saturation=.82:brightness=.035",
+      "tags": [
+        "filter",
+        "film"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "faded film"
+    },
+    {
+      "id": "desaturate",
+      "backend": "eq=saturation=.55",
+      "tags": [
+        "filter",
+        "muted"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "desaturate"
+    },
+    {
+      "id": "high_contrast",
+      "backend": "eq=contrast=1.28:saturation=1.03",
+      "tags": [
+        "filter",
+        "punchy"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "high contrast"
+    },
+    {
+      "id": "noir",
+      "backend": "hue=s=0,eq=contrast=1.35:brightness=-.03",
+      "tags": [
+        "filter",
+        "bw",
+        "cinematic"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "noir"
+    },
+    {
+      "id": "night_blue",
+      "backend": "colorbalance=rs=-.08:gs=-.015:bs=.12,eq=brightness=-.025",
+      "tags": [
+        "filter",
+        "night",
+        "cool"
+      ],
+      "stability": "stable",
+      "defaults": {},
+      "description": "night blue"
+    }
+  ]
+}

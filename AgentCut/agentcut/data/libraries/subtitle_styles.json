@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "bilibili_clean",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 48,
+        "position": "bottom",
+        "outline": 2
+      },
+      "description": "bilibili clean"
+    },
+    {
+      "id": "documentary",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 42,
+        "position": "bottom",
+        "outline": 2
+      },
+      "description": "documentary"
+    },
+    {
+      "id": "keynote",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 52,
+        "position": "bottom",
+        "outline": 2
+      },
+      "description": "keynote"
+    },
+    {
+      "id": "minimal_center",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 46,
+        "position": "center",
+        "outline": 2
+      },
+      "description": "minimal center"
+    },
+    {
+      "id": "small_note",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 36,
+        "position": "bottom",
+        "outline": 2
+      },
+      "description": "small note"
+    },
+    {
+      "id": "large_statement",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 60,
+        "position": "center",
+        "outline": 2
+      },
+      "description": "large statement"
+    },
+    {
+      "id": "top_label",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 38,
+        "position": "top",
+        "outline": 2
+      },
+      "description": "top label"
+    },
+    {
+      "id": "mono_tech",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 42,
+        "position": "bottom",
+        "outline": 2
+      },
+      "description": "mono tech"
+    },
+    {
+      "id": "anime_band",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "band"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 52,
+        "position": "bottom",
+        "outline": 3,
+        "subtitle_style": "band"
+      },
+      "description": "Anime band dialogue with short fades and speaker emphasis."
+    },
+    {
+      "id": "manga_pop",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "manga"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 58,
+        "position": "bottom",
+        "outline": 4,
+        "subtitle_style": "manga"
+      },
+      "description": "Bold manga-style subtitle for comedic or reaction beats."
+    },
+    {
+      "id": "neon_live",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "neon"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 54,
+        "position": "bottom",
+        "outline": 3,
+        "subtitle_style": "neon"
+      },
+      "description": "Neon outlined live-house subtitle."
+    },
+    {
+      "id": "boxed_comment",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "boxed"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 48,
+        "position": "bottom",
+        "outline": 2,
+        "subtitle_style": "boxed"
+      },
+      "description": "Dark boxed commentary / annotation subtitle."
+    },
+    {
+      "id": "cinematic_dialogue",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "cinematic"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 46,
+        "position": "bottom",
+        "outline": 2,
+        "subtitle_style": "cinematic"
+      },
+      "description": "Restrained cinematic dialogue with slower fades."
+    },
+    {
+      "id": "lower_third_speaker",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "lower_third"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 42,
+        "position": "bottom_left",
+        "outline": 2,
+        "subtitle_style": "lower_third"
+      },
+      "description": "Lower-third speaker caption."
+    },
+    {
+      "id": "bilingual_clean",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "bilingual"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 52,
+        "position": "bottom",
+        "outline": 3,
+        "subtitle_style": "bilingual"
+      },
+      "description": "Primary line plus smaller secondary-language line."
+    },
+    {
+      "id": "karaoke_energy",
+      "backend": "ass",
+      "tags": [
+        "subtitle_style",
+        "karaoke"
+      ],
+      "stability": "stable",
+      "defaults": {
+        "font_size": 56,
+        "position": "bottom",
+        "outline": 3,
+        "subtitle_style": "karaoke"
+      },
+      "description": "Energetic lyric/performance subtitle preset."
+    }
+  ]
+}
