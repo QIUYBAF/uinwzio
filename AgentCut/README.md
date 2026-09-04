@@ -1,92 +1,104 @@
-# AgentCut 3.2
+# AgentCut — CURRENT
 
-**Agent-native semantic video editing runtime.**
+> **LATEST USABLE RELEASE: 3.3.1** — 2026-09-03  
+> **Current production baseline:** 3.3.1  
+> **Current P0:** deployment / Remotion environment friction  
+> **Do not treat 3.2.3 or any Alpha note as current.**
 
-Current stable release: **3.2.3**.
+AgentCut is an Agent-native semantic video editing runtime. Its core identity remains: structured state, deterministic edits, local modification, undo/diff/history, cheap preview, and reproducible export.
 
-Validation:
-- **145 / 145 automated tests passed**
-- `agentcut doctor`: pass
-- dedicated 3.2.3 dialogue-coverage suite: 10 / 10
-- EP07 Nether diagnostic coverage proxy: render pass + QA pass
-- 3.2.2 subtitle/runtime, 3.1 performance, 3.0 flexible export/4K60 and Alpha cinematic regressions: pass
-- bundled slim Real-ESRGAN AnimeVideo-v3 x2/x4 on Windows/Linux
+## Start here — Codex / AI
 
-## Codex / AI entry
-
-Routine SW-01 work does **not** require reading every document in this directory.
-
-Default route:
+For SW-01 work, use the shortest path:
 
 ```text
 00_ProjectOS/projects/SW-01_AgentCut.md
-→ task-relevant AgentCut source/test files
-→ smallest relevant test
-→ broader regression only when risk requires it
+→ AgentCut/README.md
+→ only the concrete source/test files required by the task
 ```
 
-Use `00_ProjectOS/CODEX_ROUTER.md` when the Project ID or path is unknown.
+Do **not** enumerate old release notes or reconstruct project state from historical docs.
 
-Read the documents below only when the task depends on them:
+## Current version truth
 
-- `START_HERE_WORK.md` — legacy cross-conversation resume/bootstrap reference; not routine startup.
-- `AGENT_PROTOCOL.md` — agent protocol/bootstrap/API changes.
-- `V3.2.3_EDITORIAL_COVERAGE.md` — editorial coverage behavior or regression.
-- `V3.2.2_PRODUCTION_FRICTION.md` — production-friction history/regression.
-- `VALIDATION_SUMMARY_V3.md` — release validation / broad QA.
-- `GLT_*` and cinematic playbooks — GLT-specific editing case studies, not core runtime prerequisites.
-- `ALPHA*` / `V0.2_*_NOTES.md` — historical behavior or regression archaeology only.
+### 3.3.1 — current usable baseline
 
-Do not automatically read release notes just because they exist.
+3.3.1 is the newest verified usable AgentCut package currently present in the project storage.
 
-## 3.2.3: editorial coverage / anti-template pass
+Verified on 2026-09-03:
 
-EP07 practical cutting showed a remaining failure mode: speaker tracking could be technically correct while a long static-image scene still felt like a slideshow because it used one continuous push/reframe.
+- 156 automated tests passed, 0 failed;
+- `agentcut doctor`: pass;
+- CLI/API package version: 3.3.1;
+- task-scoped Agent context and warm bootstrap;
+- local render-scope planning;
+- Remotion Bridge v2 integrity / tamper verification;
+- three-scene bridge E2E proxy render + QA pass.
 
-3.2.3 adds semantic editorial coverage without forcing motion everywhere:
+### AgentCut Director 4.0.0 — NOT a current release
 
-```python
-editor.direct_dialogue_coverage("s06", intensity=.62)
-editor.direct_attention_insert(
-    "s09", start=.45, duration=2.0,
-    focus_x=.50, focus_y=.30, intensity=.78,
-)
+A Drive folder named `AgentCut_Director_4.0.0_Handoff` exists, but it is currently an empty placeholder. Until it contains a real source/package/validation handoff, **do not select it as latest and do not deploy from it**.
+
+## Important source-of-truth warning
+
+The GitHub `AgentCut/` directory currently contains the control/documentation layer and tool metadata, **not the complete installable 3.3.1 source tree**. The deployable 3.3.1 wheel/source/handoff is currently stored in Drive under:
+
+`SW-01_AgentCut_ACTIVE/AgentCut_v3.3.1_Handoff`
+
+Current package folder:
+https://drive.google.com/drive/folders/1uOdLQHuwjulgfOylcNRR-f8igtQB0DrL
+
+If that package is not available in the execution environment, stop and report the missing package path. **Never silently fall back to the 3.2.3 GitHub docs as though they were the latest source.**
+
+Synchronizing the current source tree back to GitHub is part of the deployment P0.
+
+## Why deployment is currently too heavy
+
+AgentCut itself can fall back to deterministic FFmpeg/Pillow rendering, but the preferred AgentCut + Remotion path crosses multiple runtime boundaries:
+
+- Python / AgentCut package;
+- FFmpeg / ffprobe;
+- Node.js + npm;
+- pinned Remotion / React dependencies;
+- Chromium used by Remotion rendering;
+- optional bundled Real-ESRGAN and optional whisper.cpp / RIFE.
+
+3.3.1 verified Remotion Bridge v2 generation and integrity, but its validation did **not** claim a fresh npm dependency installation + Chromium render in the isolated validation environment. Therefore a green AgentCut test suite does not prove low-friction Remotion deployment.
+
+This is now treated as a product bug, not as user setup work.
+
+## NEXT — v3.4 deployment-first iteration
+
+Do not add major editing features before closing this P0.
+
+Target experience:
+
+```text
+install AgentCut
+→ agentcut setup --remotion   # or equivalent single bootstrap command
+→ agentcut doctor
+→ agentcut render PROJECT --backend auto
 ```
 
-`direct_dialogue_coverage` builds restrained establish → speaker medium/close → alternate/reaction coverage → group reset paths from existing Cast-aware captions/dialogue and per-scene staging. It preserves source assets and subtitle timing.
+Acceptance criteria:
 
-`direct_attention_insert` gives objects/actions/details their own deterministic insert shot without pretending they are Cast characters.
+1. Fresh Windows and Linux environments require no manual editing of `package.json`, no manual Chromium hunting, and no ad-hoc PATH surgery.
+2. Node/Remotion/Chromium versions are pinned and reproducible.
+3. `agentcut doctor --fix` (or equivalent) can repair ordinary missing dependencies or return one actionable machine-readable failure.
+4. `--backend auto` selects Remotion when healthy and falls back deterministically when it is unavailable; the user should not rebuild the bridge manually.
+5. Release validation must include **real npm install + real Chromium/Remotion render**, not only bridge bundle generation/static integrity.
+6. One small real project must deploy and render end-to-end from a fresh environment before the release is called stable.
+7. Current 3.3.1 source/wheel/version manifest must be synchronized so GitHub has an unambiguous current source entry.
 
-Long multi-speaker `compose_dialogue_scene(..., direction="auto")` may choose coverage automatically; short or contemplative dialogue keeps continuous speaker tracking/stillness.
+## Durable references
 
-QA adds:
-- `LONG_SINGLE_COVERAGE` — long multi-line dialogue still uses one continuous reframe
-- `LONG_PRE_DIALOGUE_HOLD` — long action-only lead needs an insert/visual beat
-- `DENSE_SHOT_COVERAGE` — too many cuts in a short scene
-- `TIGHT_COVERAGE` — crop may need headroom/framing review
+Keep these current files only when relevant:
 
-These are editorial signals, not mandatory rewrites. Stillness remains a valid choice.
+- `README.md` — authoritative current release / deployment status.
+- `AGENT_PROTOCOL.md` — Agent editing protocol.
+- `agent_tools.json` — machine-readable capability metadata.
+- `THIRD_PARTY_AI.md` — third-party runtime/license boundary.
+- `LIBRARY_CATALOG.md` — reusable editing vocabulary.
+- `HISTORY.md` — compressed milestone history.
 
-## 3.2.2 foundations retained
-
-- Cast-aware SRT speaker recovery and scene-specific staging
-- structured bilingual subtitles + safe auto-fit
-- anonymous visual staging anchors with explicit role ordering
-- optional persistent whisper.cpp ASR installer/cache
-- Protocol v5 warm/upgrade resume capsules and schema deltas
-- true low-cost proxy rendering
-
-## Existing 3.x core
-
-- persistent Cast registry and character-aware performance recipes
-- speaker/beat-driven dynamicity and reaction shots
-- flexible MP4/MOV/MKV/WebM export; H.264/HEVC/AV1/VP9/ProRes
-- validated 4K60 delivery ceiling and runtime-tested NVENC fallback
-- bundled Real-ESRGAN AnimeVideo-v3 x2/x4; optional RIFE
-- semantic history, undo/redo/checkpoints/cache/QA
-
-## Important EP07 asset boundary
-
-The 3.2.3 practical validation uses images visibly marked **PROXY STORYBOARD**. They are diagnostic assets, not the user's prepared final generated EP07 art. Do not treat them as release footage. When the final image set becomes visible in the active runtime, replace scene assets while preserving the canonical subtitle/timeline/coverage logic and rerun visual staging + QA + proxy.
-
-Full frozen source/wheel/validation package: `AgentCut_v3.2.3_Handoff`.
+Detailed old per-version notes are intentionally removed from the current tree. Git history remains the archaeology layer.
