@@ -1,6 +1,7 @@
 {
   "name": "AgentCut",
-  "version": "3.2.3",
+  "version": "3.3.1",
+  "release_status": "current_usable_baseline",
   "protocol_version": 5,
   "canonical_state": "project.json",
   "preferred_agent_gateway": {
@@ -35,6 +36,13 @@
     "smart_srt_speaker_recovery": true,
     "editorial_coverage_qa": true
   },
+  "efficiency": {
+    "task_scoped_context": true,
+    "warm_bootstrap": true,
+    "local_render_scope_planning": true,
+    "local_telemetry_without_payload_retention": true,
+    "real_codex_billing_savings_claimed": false
+  },
   "performance": {
     "cast_registry": true,
     "dialogue_scene_recipe": true,
@@ -56,6 +64,15 @@
     "asr_one_command_windows_x64": true,
     "asr_default_model": "tiny-q5_1"
   },
+  "gen3": {
+    "enabled": true,
+    "semantic_scene_grammar": true,
+    "tile_extract_stitch": true,
+    "actor_card_matte": true,
+    "remotion_bridge_schema": "agentcut-gen3-remotion-v2",
+    "remotion_bridge_integrity_verified": true,
+    "fresh_npm_chromium_install_verified_in_release_validation": false
+  },
   "render": {
     "official_ceiling": "3840x2160@60fps",
     "flexible_export": true,
@@ -63,7 +80,8 @@
     "video_codecs": ["h264", "hevc", "av1", "vp9", "prores"],
     "runtime_nvenc_probe": true,
     "shot_path": true,
-    "shot_path_keyframe_limit": 24
+    "shot_path_keyframe_limit": 24,
+    "deterministic_ffmpeg_pillow_fallback": true
   },
   "enhancement": {
     "bundled_realesrgan_windows_linux": true,
@@ -71,9 +89,10 @@
     "rife_external_optional": true,
     "fallback_never_reported_as_ai": true
   },
-  "ep07_asset_boundary": {
-    "current_validation_art": "proxy_storyboard",
-    "treat_as_release_art": false,
-    "required_when_final_art_available": ["replace_scene_assets", "rerun_staging", "rerun_coverage", "rerun_qa", "render_proxy"]
+  "deployment": {
+    "priority": "P0",
+    "target_release": "3.4",
+    "problem": "Remotion path currently spans Python, FFmpeg, Node/npm and Chromium and is too environment-sensitive for production use",
+    "target": "single bootstrap + doctor/fix + backend auto + fresh-environment real Remotion E2E"
   }
 }
