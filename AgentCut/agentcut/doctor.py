@@ -137,7 +137,7 @@ def run_doctor(project_root=None, *, fix: bool = False) -> dict:
         "encoders": encoders,
         "gpu_runtime": {"nvenc": nvenc_runtime},
         "optional": {"ai_enhancement": ai, "subtitle_asr": asr},
-        "render_ceiling": {"official_max": "3840x2160@60fps", "uhd_4k60_ready": rendering_ready},
+        "render_ceiling": {"official_max": "3840x2160@60fps", "uhd_4k60_ready": rendering_ready and editing_ready},
         "font_probe": {"fc_match": fc_match, "noto_sans_cjk_sc": _first_line([fc_match, "Noto Sans CJK SC"]) if fc_match else None},
         "fix": {"requested": fix, "runtime_home": str(runtime_home), "changes": changes},
         "suggestions": suggestions,

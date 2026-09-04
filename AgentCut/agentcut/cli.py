@@ -5,11 +5,9 @@ import json
 import sys
 from pathlib import Path
 
-from .contact_sheet import make_contact_sheet
 from .director import choose_backend
 from .discovery import discover as discover_environment
 from .doctor import run_doctor
-from .editor import Editor
 from .errors import AgentCutError
 
 
@@ -324,6 +322,7 @@ def main(argv=None) -> int:
         if args.cmd == "backend":
             jprint(choose_backend(needs_react_ui=args.needs_react_ui, project_root=args.project_root)); return 0
         if args.cmd == "quickstart":
+            from .editor import Editor
             root = Path(args.root)
             created = False
             if not (root / "project.json").exists():
@@ -353,9 +352,11 @@ def main(argv=None) -> int:
             })
             return 0
         if args.cmd == "init":
+            from .editor import Editor
             e = Editor.create(args.root, width=args.width, height=args.height, fps=args.fps, name=args.name)
             jprint(e.get_project()); return 0
         if args.cmd == "contact-sheet":
+            from .contact_sheet import make_contact_sheet
             jprint(make_contact_sheet(Path(args.video), Path(args.output), interval=args.interval)); return 0
         if args.cmd == "serve":
             from .api import run_server
@@ -387,6 +388,7 @@ def main(argv=None) -> int:
             from .release_check import check_release
             result = check_release(args.root, strict=args.strict); jprint(result); return 0 if result["ok"] else 2
 
+        from .editor import Editor
         if args.cmd == "setup" and args.create and not (Path(args.root) / "project.json").exists():
             e = Editor.create(args.root, width=args.width, height=args.height, fps=args.fps, name=args.name)
         else:
@@ -508,6 +510,14 @@ def main(argv=None) -> int:
             print(str(exc), file=sys.stderr)
         else:
             print(json.dumps({"error": "INVALID_JSON", "message": str(exc)}, ensure_ascii=False), file=sys.stderr)
+        return 2
+    except ModuleNotFoundError as exc:
+        print(json.dumps({
+            "error": "MISSING_PYTHON_DEPENDENCY",
+            "dependency": exc.name,
+            "message": str(exc),
+            "fix": "python -m pip install -e AgentCut",
+        }, ensure_ascii=False), file=sys.stderr)
         return 2
 
 

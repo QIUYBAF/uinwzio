@@ -59,6 +59,6 @@ python run.py release-check . --strict
 python -m pytest -q
 ```
 
-Release validation for 1.0.1 completed with 163/163 tests passing. Optional real Chromium/Remotion rendering was not available in the validation environment and is not claimed.
+Release validation for 1.0.1 completed with 164/164 tests passing. Optional real Chromium/Remotion rendering was not available in the validation environment and is not claimed.
 
 SemVer policy: 1.0.x is for deployment, bug, reliability, and compatibility patches; 1.x adds compatible capability; 2.0 is reserved for breaking state/API changes.

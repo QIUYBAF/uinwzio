@@ -26,11 +26,19 @@ def discover() -> dict:
     cloud = os.getenv("AGENTCUT_CLOUD", "").lower() in {"1", "true", "yes"} or bool(
         os.getenv("CODEX_SANDBOX") or os.getenv("CHATGPT_WORK")
     )
+    if backend["selected"] == "ffmpeg/pillow":
+        status = "ready"
+    elif backend["selected"] == "pillow-only":
+        status = "ready_degraded"
+    elif backend["selected"] == "ffmpeg-only":
+        status = "needs_python_dependencies"
+    else:
+        status = "needs_core_runtime"
     return {
         "name": "AgentCut",
         "version": __version__,
         "release": "1.0.1-remaster",
-        "status": "ready" if backend["selected"] != "unavailable" else "needs_core_runtime",
+        "status": status,
         "canonical_state": "project.json",
         "agent_protocol": 5,
         "environment": {

@@ -27,7 +27,13 @@ def test_release_truth_and_full_lightweight_runtime_are_consistent():
 def test_discovery_does_not_require_a_project():
     result = discover()
     assert result["release"] == "1.0.1-remaster"
-    assert result["backend"]["selected"] in {"ffmpeg/pillow", "pillow-only", "unavailable"}
+    assert result["backend"]["selected"] in {"ffmpeg/pillow", "ffmpeg-only", "pillow-only", "unavailable"}
+
+
+def test_editor_public_import_is_lazy_until_requested():
+    import agentcut
+    assert "Editor" not in agentcut.__dict__
+    assert agentcut.Editor.__name__ == "Editor"
 
 
 def test_node_alone_is_not_reported_as_remotion(monkeypatch):

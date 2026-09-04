@@ -35,9 +35,12 @@ def choose_backend(*, needs_react_ui=False, project_root=None):
     if needs_react_ui and remotion and node:
         selected = "remotion"
         reason = "React/UI presentation requested and a local Remotion executable is available"
-    elif ffmpeg and ffprobe:
+    elif ffmpeg and ffprobe and pillow:
         selected = "ffmpeg/pillow"
         reason = "deterministic lightweight renderer is healthy"
+    elif ffmpeg and ffprobe:
+        selected = "ffmpeg-only"
+        reason = "FFmpeg is available; install Pillow and NumPy to enable project editing"
     elif pillow:
         selected = "pillow-only"
         reason = "editing and image operations are available; install FFmpeg to render video"

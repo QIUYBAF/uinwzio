@@ -59,7 +59,7 @@ Based on the verified 3.3.1 runtime, with a reset control surface for agents:
 - no major editing feature intentionally added.
 
 ## Validation status
-- Full regression: 163/163 passed in the current Linux cloud runtime.
+- Full regression: 164/164 passed in the current Linux cloud runtime.
 - Strict release/version/source check: passed.
 - Python compile check: passed.
 - Direct checkout `discover`, `doctor`, and `quickstart --create` smoke tests: passed.
