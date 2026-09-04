@@ -28,3 +28,14 @@ def stitch_2x2(output_path, tiles):
         return {"schema":"agentcut-image-tiles-v1","output":str(out),"size":list(canvas.size),"order":["r1c1","r1c2","r2c1","r2c2"]}
     finally:
         for im in ims: im.close()
+
+def normalize_uhd(input_path, output_path, *, target_w=3840, target_h=2160):
+    src=Path(input_path); out=Path(output_path); out.parent.mkdir(parents=True,exist_ok=True)
+    with Image.open(src) as im:
+        im.load(); original=im.size
+        if original==(target_w,target_h):
+            im.save(out); return {"output":str(out),"source_size":list(original),"target_size":[target_w,target_h],"action":"copy_exact","aspect_policy":"preserve"}
+        scale=max(target_w/im.width,target_h/im.height); nw=max(target_w,round(im.width*scale)); nh=max(target_h,round(im.height*scale))
+        resized=im.resize((nw,nh),Image.Resampling.LANCZOS); left=(nw-target_w)//2; top=(nh-target_h)//2
+        final=resized.crop((left,top,left+target_w,top+target_h)); final.save(out)
+        return {"output":str(out),"source_size":list(original),"scaled_size":[nw,nh],"target_size":[target_w,target_h],"action":"upscale_cover_center_crop","scale":scale,"aspect_policy":"preserve_no_stretch","note":"Prefer a healthy AI SR backend before this exact-UHD normalization when source is below UHD."}
