@@ -1,0 +1,16 @@
+{
+  "name": "AgentCut",
+  "version": "1.0.0",
+  "channel": "stable-remaster",
+  "latest": true,
+  "supersedes": ["3.3.1", "3.3.0", "3.2.x", "3.1.x", "3.0.x", "0.2-alpha"],
+  "director_4_0": {"status": "skipped", "policy": "May mine proven ideas later; never select as a release baseline."},
+  "entrypoints": {"human": "README.md", "agent": "AGENTS.md", "machine": "agentcut.manifest.json", "cli_discovery": "agentcut discover"},
+  "canonical_state": "project.json",
+  "protocol_version": 5,
+  "backend": {"default": "auto", "preferred": "remotion when healthy", "fallback": "ffmpeg/pillow", "remotion_required": false},
+  "compatibility": {"source_baseline": "AgentCut 3.3.1 verified source", "state_goal": "preserve 3.3.1 project semantics"},
+  "version_policy": {"patch": "bug/deployment/reliability only", "minor": "backward-compatible capability", "major": "breaking state/API change"},
+  "github_source_complete": false,
+  "next": "1.0.1 Quick Connect: finish lightweight source sync and harden fresh-environment bootstrap."
+}
