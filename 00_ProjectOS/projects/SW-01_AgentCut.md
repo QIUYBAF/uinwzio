@@ -8,7 +8,7 @@
 **Current release line: AgentCut 1.x**  
 **LATEST: 1.0.1 Remaster — Quick Connect**
 
-**Local development: 1.1.0.dev0**, branch `feat/long-video-roughcut`; not yet published. The stable baseline above remains 1.0.1.
+**Development: 1.1.0.dev0**, published to GitHub branch `feat/long-video-roughcut`. The stable baseline on `master` remains 1.0.1; this is not a stable release.
 
 ## CHANGES — long-video foundation
 
@@ -21,6 +21,7 @@
 - Local validation: 183 tests passed on Windows with FFmpeg 9.0.1; strict release check and compilation passed. Dependency-free wheel installation and module discovery passed.
 - Limitations: audio activity is not semantic combat/kill recognition; no real Battlefield replay quality or multi-hour decode benchmark yet; no real Chromium/Remotion render or Docker build claimed.
 - Detailed usage and upgrade guidance: `AgentCut/LONG_VIDEO.md`.
+- Delivery: development code is pushed to GitHub. Two failed clone directories, duplicate wheel cache, disposable core-install test environment, downloaded FFmpeg archive, build output and test/bytecode caches were moved to the Windows Recycle Bin (about 1.22 GB). Active source, working runtime, installed FFmpeg and current delivery packages remain available.
 
 The old 0.2/3.x numbering is frozen history. AgentCut Director 4.0 is skipped as a release baseline. Do not infer a newer release from old folders, Drive handoffs, or historical notes.
 
