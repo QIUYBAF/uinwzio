@@ -111,3 +111,11 @@ Git 历史已经记录的源码变化，不再通过 `v1/v2/v3/final/latest` 完
 `WHY`：工程规模已超过人工逐项审阅能力；冗余版本显著增加检索与 Codex usage。  
 `EVIDENCE`：用户于 2026-09-05 明确授权自动删除，并要求软件旧代只保留成品、关键开发路径与经验。  
 `IMPACT`：每日维护可直接清除已确认的可重建/重复/过期内容；唯一资产、当前版本和最终成品继续受保护。
+
+
+### 2026-09-05 — AgentCut CURRENT 身份纠偏
+
+`WHAT`：将根入口中残留的 AgentCut “3.3.1 当前基线”更正为唯一 CURRENT **1.0.1 Remaster**。  
+`WHY`：根 README 与 `AgentCut/README.md`、`SW-01_AgentCut.md` 相互矛盾，会诱发错误路由与重复检索。  
+`EVIDENCE`：`AgentCut/agentcut.manifest.json` 与两个当前入口均指向 1.0.1；当前轻量源码和 164 项测试已在 GitHub。  
+`IMPACT`：Drive 的 3.3.1 只保留一份回退点；0.2/3.x 与 Director 4.x 不再作为启动或发布候选。
