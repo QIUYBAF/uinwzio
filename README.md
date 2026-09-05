@@ -35,7 +35,7 @@
 | `90_Legacy/` | 明确归档的历史内容 | 否 |
 | 旧知识分类根目录 | Frozen Legacy | 否 |
 
-> AgentCut 特别规则：截至 2026-09-05，当前可用基线是 **3.3.1**。GitHub 的 `AgentCut/` 目前还没有完整 3.3.1 可安装源码树；部署包/source handoff 在 Drive。不得因为 GitHub 上存在旧 3.2.3 文档就把它误判为最新版。详见 `AgentCut/README.md`。
+> AgentCut 特别规则：截至 2026-09-05，唯一 CURRENT 是 **1.0.1 Remaster**；完整轻量源码与测试已在 `AgentCut/`，版本真源为 `AgentCut/agentcut.manifest.json`。旧 0.2/3.x 与 Director 4.x 仅属历史；Drive 中保留的 3.3.1 只作为回退点，不是启动候选。详见 `AgentCut/README.md`。
 
 旧知识分类根目录包括 `其他/`、`化学/`、`思想/`、`教育/`、`数学/`、`文学/`、`术数/`、`电脑/`、`templates/` 以及旧网页生成文件。它们不是当前项目入口；完整规则见 `00_ProjectOS/REPOSITORY_MAP.md`。
 
