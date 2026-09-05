@@ -1,12 +1,22 @@
-# AgentCut 1.0.1 Remaster — CURRENT
+# AgentCut 1.1.0.dev0 — Long-video development
 
-**LATEST / STABLE BASELINE: 1.0.1 Remaster**
+**Current checkout: 1.1.0.dev0 (development). Last stable release: 1.0.1 Remaster.**
+
+Long-recording rough cuts support bounded audio analysis, resumable chunks, external events, context-aware candidate merging, and preview export with selected source audio. This is a candidate screening foundation, not validated Battlefield combat recognition. See [长视频粗剪与模块化部署](LONG_VIDEO.md).
+
+```bash
+python AgentCut/run.py modules
+python AgentCut/run.py roughcut replay.mp4 cuts
+python AgentCut/run.py roughcut-export cuts/plan.json cuts/preview.mp4
+```
+
+Core and rough-cut commands use the Python standard library; media work needs external FFmpeg/ffprobe. Install `[render]` for the existing editor or `[api]` for the server. No GPU, models, Node, or Chromium are required for rough cuts.
 
 AgentCut is an agent-native semantic video editing runtime. Version 1.0.1 restores the complete lightweight 3.3.1 editing surface behind one current manifest and a low-friction Work/Codex entry.
 
 ## Run immediately after download
 
-From the repository root, no editable install is required:
+From the repository root, no editable install is required. Existing editor/quickstart commands need NumPy/Pillow (install the `[render]` extra):
 
 ```bash
 python AgentCut/run.py discover
@@ -16,7 +26,7 @@ python AgentCut/run.py quickstart PROJECT --create --task "Describe the edit"
 From inside `AgentCut/`, use `python run.py ...`. To install the `agentcut` command:
 
 ```bash
-python -m pip install -e AgentCut
+python -m pip install -e './AgentCut[render]'
 agentcut quickstart PROJECT --create --task "Describe the edit"
 ```
 

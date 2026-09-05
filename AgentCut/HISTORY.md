@@ -4,6 +4,9 @@ This file is the compact development path. It is not a second current-state docu
 
 ## Milestones
 
+### 1.1.0.dev0 — long-video foundation (local development)
+Added bounded/resumable audio activity detection, external event interfaces, context-preserving candidate plans and original-audio preview exports. Separated standard-library core, optional editor/render and API dependencies. Corrected Windows Remotion manifest paths and FFmpeg 9 enhancement extraction compatibility. This is not a stable release or a validated combat-recognition system; use `LONG_VIDEO.md` for constraints and real-replay acceptance work.
+
 ### 1.0.1 Remaster — Quick Connect
 Restored the complete lightweight 3.3.1 editing runtime into the current 1.x release line, added a direct checkout runner, one-command project bootstrap, actionable non-crashing diagnostics, and verified automatic backend fallback. Heavy optional binaries and model weights remain outside GitHub.
 

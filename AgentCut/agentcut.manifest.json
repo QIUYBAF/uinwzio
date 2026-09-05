@@ -1,18 +1,83 @@
 {
   "name": "AgentCut",
-  "version": "1.0.1",
-  "channel": "stable-remaster",
+  "version": "1.1.0.dev0",
+  "channel": "development",
   "latest": true,
-  "supersedes": ["3.3.1", "3.3.0", "3.2.x", "3.1.x", "3.0.x", "0.2-alpha"],
-  "director_4_0": {"status": "skipped", "policy": "May mine proven ideas later; never select as a release baseline."},
-  "entrypoints": {"human": "README.md", "agent": "AGENTS.md", "machine": "agentcut.manifest.json", "direct": "python AgentCut/run.py", "cli_discovery": "agentcut discover", "one_command": "agentcut quickstart PROJECT --create"},
+  "supersedes": [
+    "3.3.1",
+    "3.3.0",
+    "3.2.x",
+    "3.1.x",
+    "3.0.x",
+    "0.2-alpha"
+  ],
+  "director_4_0": {
+    "status": "skipped",
+    "policy": "May mine proven ideas later; never select as a release baseline."
+  },
+  "entrypoints": {
+    "human": "README.md",
+    "agent": "AGENTS.md",
+    "machine": "agentcut.manifest.json",
+    "direct": "python AgentCut/run.py",
+    "cli_discovery": "agentcut discover",
+    "one_command": "agentcut quickstart PROJECT --create"
+  },
   "canonical_state": "project.json",
   "protocol_version": 5,
-  "backend": {"default": "auto", "preferred": "remotion when healthy", "fallback": "ffmpeg/pillow", "remotion_required": false},
-  "compatibility": {"source_baseline": "AgentCut 3.3.1 verified source", "state_goal": "preserve 3.3.1 project semantics"},
-  "version_policy": {"patch": "bug/deployment/reliability only", "minor": "backward-compatible capability", "major": "breaking state/API change"},
+  "backend": {
+    "default": "auto",
+    "preferred": "remotion when healthy",
+    "fallback": "ffmpeg/pillow",
+    "remotion_required": false
+  },
+  "compatibility": {
+    "source_baseline": "AgentCut 3.3.1 verified source",
+    "state_goal": "preserve 3.3.1 project semantics"
+  },
+  "version_policy": {
+    "patch": "bug/deployment/reliability only",
+    "minor": "backward-compatible capability",
+    "major": "breaking state/API change"
+  },
   "github_source_complete": true,
-  "restored_features": ["canonical project state", "history/undo/diff/checkpoints", "agent preflight/apply", "render/export/QA", "subtitles/optional ASR", "Gen3", "optional Remotion bridge", "image tile tools"],
-  "excluded_heavy_runtime": ["Real-ESRGAN binaries", "AI model weights", "Chromium"],
-  "next": "1.0.x maintenance only; validate optional Remotion E2E in an environment where npm and Chromium are available."
+  "restored_features": [
+    "canonical project state",
+    "history/undo/diff/checkpoints",
+    "agent preflight/apply",
+    "render/export/QA",
+    "subtitles/optional ASR",
+    "Gen3",
+    "optional Remotion bridge",
+    "image tile tools"
+  ],
+  "excluded_heavy_runtime": [
+    "Real-ESRGAN binaries",
+    "AI model weights",
+    "Chromium"
+  ],
+  "next": "Validate Battlefield replay candidate quality on a representative real recording.",
+  "last_stable": "1.0.1",
+  "roughcut": {
+    "entry": "agentcut roughcut SOURCE JOB",
+    "export": "agentcut roughcut-export JOB/plan.json OUTPUT.mp4",
+    "state": "reviewable sidecar plan; project.json remains canonical after conform",
+    "default_context_seconds": {
+      "before": 12,
+      "after": 8
+    },
+    "default_chunk_seconds": 300,
+    "detectors": [
+      "audio_activity",
+      "external_events"
+    ],
+    "semantic_combat_recognition": false
+  },
+  "deployment": {
+    "core": "stdlib; no Python dependencies",
+    "roughcut": "core + external FFmpeg/ffprobe",
+    "editor": "install [render]",
+    "server": "install [api]",
+    "gpu_required": false
+  }
 }

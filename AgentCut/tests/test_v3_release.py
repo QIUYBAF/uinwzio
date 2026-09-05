@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -127,10 +128,21 @@ def make_tiny_video(path: Path, fps=12, duration=0.25, size="160x90"):
     ], check=True)
 
 
+def failing_backend(monkeypatch, variable):
+    """Exercise a real failed child process without requiring POSIX /bin/false."""
+    monkeypatch.setenv(variable, sys.executable)
+    original_run = subprocess.run
+    def run_failure(command, *args, **kwargs):
+        if command and str(command[0]) == sys.executable:
+            command = [sys.executable, "-c", "raise SystemExit(1)"]
+        return original_run(command, *args, **kwargs)
+    monkeypatch.setattr(subprocess, "run", run_failure)
+
+
 def test_auto_upscale_falls_back_if_detected_ai_runtime_fails(tmp_path, monkeypatch):
     from agentcut.enhance import upscale_video
     src = tmp_path / "src.mp4"; make_tiny_video(src)
-    monkeypatch.setenv("AGENTCUT_REALESRGAN", "/bin/false")
+    failing_backend(monkeypatch, "AGENTCUT_REALESRGAN")
     out = tmp_path / "up.mp4"
     result = upscale_video(src, out, width=320, height=180, backend="auto", model="anime")
     assert result["backend"] == "ffmpeg_lanczos"
@@ -142,7 +154,7 @@ def test_auto_upscale_falls_back_if_detected_ai_runtime_fails(tmp_path, monkeypa
 def test_auto_interpolation_falls_back_if_detected_ai_runtime_fails(tmp_path, monkeypatch):
     from agentcut.enhance import interpolate_video
     src = tmp_path / "src.mp4"; make_tiny_video(src)
-    monkeypatch.setenv("AGENTCUT_RIFE", "/bin/false")
+    failing_backend(monkeypatch, "AGENTCUT_RIFE")
     out = tmp_path / "fi.mp4"
     result = interpolate_video(src, out, target_fps=24, backend="auto", hard_cut_times=[])
     assert result["backend"] == "ffmpeg_minterpolate"

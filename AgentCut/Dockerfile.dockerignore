@@ -1,0 +1,11 @@
+**
+!AgentCut/
+!AgentCut/**
+AgentCut/tests/
+AgentCut/**/__pycache__/
+AgentCut/*.egg-info/
+AgentCut/.pytest_cache/
+AgentCut/.venv/
+AgentCut/.cache/
+AgentCut/build/
+AgentCut/dist/

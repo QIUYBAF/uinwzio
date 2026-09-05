@@ -22,6 +22,28 @@ def build_parser() -> argparse.ArgumentParser:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("discover")
+    sub.add_parser("modules")
+
+    s = sub.add_parser("roughcut", help="Plan a long-recording rough cut with resumable analysis")
+    s.add_argument("source")
+    s.add_argument("job")
+    s.add_argument("--events", help="External event JSON list; replaces automatic audio detection")
+    s.add_argument("--chunk-seconds", type=float, default=300)
+    s.add_argument("--before", type=float, default=12)
+    s.add_argument("--after", type=float, default=8)
+    s.add_argument("--merge-gap", type=float, default=5)
+    s.add_argument("--budget", type=float, help="Maximum total seconds; keep complete candidates")
+    s.add_argument("--audio-stream", type=int, default=0, help="Zero-based audio stream ordinal")
+    s.add_argument("--audio-threshold", type=float, default=-28, help="Audio RMS threshold in dBFS")
+
+    s = sub.add_parser("roughcut-export", help="Export reviewed candidates with original audio")
+    s.add_argument("plan")
+    s.add_argument("output")
+
+    s = sub.add_parser("roughcut-operations", help="Export visual-only operations for the existing editor")
+    s.add_argument("plan")
+    s.add_argument("output")
+    s.add_argument("--asset-id", default="roughcut_source")
 
     s = sub.add_parser("doctor")
     s.add_argument("--project-root")
@@ -137,6 +159,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     s = sub.add_parser("add-asset")
     s.add_argument("root"); s.add_argument("path"); s.add_argument("--id")
+    s.add_argument("--no-copy", action="store_true", help="Reference an existing recording without copying it")
 
     s = sub.add_parser("add-scene")
     s.add_argument("root"); s.add_argument("asset_id"); s.add_argument("duration", type=float); s.add_argument("--id"); s.add_argument("--after")
@@ -314,6 +337,34 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
     try:
+        if args.cmd == "modules":
+            from .modules import module_status
+            jprint(module_status()); return 0
+        if args.cmd in {"roughcut", "roughcut-export", "roughcut-operations"}:
+            from .roughcut import analyze_recording, export_recording, editor_operations, atomic_json
+            def progress(value):
+                print(json.dumps({"progress": value}), file=sys.stderr, flush=True)
+            if args.cmd == "roughcut":
+                events = json.loads(Path(args.events).read_text(encoding="utf-8-sig")) if args.events else None
+                if args.events and not isinstance(events, list):
+                    raise AgentCutError("INVALID_ROUGHCUT", "External event file must contain a JSON list")
+                result = analyze_recording(args.source, args.job, events=events, chunk_seconds=args.chunk_seconds,
+                                           before=args.before, after=args.after, merge_gap=args.merge_gap,
+                                           budget=args.budget, audio_stream=args.audio_stream,
+                                           audio_threshold=args.audio_threshold, progress=progress)
+                jprint({"plan": str(Path(args.job).resolve() / "plan.json"), "status": result["status"],
+                        "clips": len(result["clips"]), "selected_duration": result["selected_duration"],
+                        "chunks": result["chunks"], "warnings": result["warnings"]})
+            elif args.cmd == "roughcut-export":
+                jprint(export_recording(args.plan, args.output, progress=progress))
+            else:
+                output = Path(args.output).resolve()
+                if output.exists():
+                    raise AgentCutError("OUTPUT_EXISTS", "Choose a new operations path", path=str(output))
+                atomic_json(output, editor_operations(args.plan, args.asset_id))
+                jprint({"output": str(output), "asset_id": args.asset_id,
+                        "warning": "Register the plan source with add-asset --no-copy and this asset ID first. Visual-only conform; use roughcut-export to retain source audio."})
+            return 0
         if args.cmd == "discover":
             jprint(discover_environment()); return 0
         if args.cmd == "doctor":
@@ -478,7 +529,7 @@ def main(argv=None) -> int:
             ops = json.loads(Path(args.operations).read_text(encoding="utf-8")) if args.operations else []
             jprint(e.efficiency_measure(ops))
         elif args.cmd == "efficiency-report": jprint(e.efficiency_report())
-        elif args.cmd == "add-asset": jprint(e.add_asset(args.path, asset_id=args.id))
+        elif args.cmd == "add-asset": jprint(e.add_asset(args.path, asset_id=args.id, copy=not args.no_copy))
         elif args.cmd == "add-scene": jprint(e.add_scene(args.asset_id, args.duration, scene_id=args.id, after=args.after, source_in=args.source_in, playback_rate=args.playback_rate))
         elif args.cmd == "delete-scene": jprint(e.delete_scene(args.scene_id))
         elif args.cmd == "source": jprint(e.set_source(args.scene_id, source_in=args.source_in, playback_rate=args.playback_rate))
@@ -516,9 +567,15 @@ def main(argv=None) -> int:
             "error": "MISSING_PYTHON_DEPENDENCY",
             "dependency": exc.name,
             "message": str(exc),
-            "fix": "python -m pip install -e AgentCut",
+            "fix": "python -m pip install -e './AgentCut[render]' (use [api] for server dependencies)",
         }, ensure_ascii=False), file=sys.stderr)
         return 2
+    except OSError as exc:
+        print(json.dumps({"error": "FILESYSTEM_ERROR", "message": str(exc)}, ensure_ascii=False), file=sys.stderr)
+        return 2
+    except KeyboardInterrupt:
+        print(json.dumps({"error": "INTERRUPTED", "message": "Cancelled; rerun the same roughcut job to resume."}), file=sys.stderr)
+        return 130
 
 
 if __name__ == "__main__":

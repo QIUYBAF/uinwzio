@@ -1,12 +1,26 @@
 # SW-01 AgentCut — PROJECT_HOME
 
 **STATUS:** ACTIVE  
-**UPDATED:** 2026-09-04
+**UPDATED:** 2026-09-06
 
 ## Current truth
 
 **Current release line: AgentCut 1.x**  
 **LATEST: 1.0.1 Remaster — Quick Connect**
+
+**Local development: 1.1.0.dev0**, branch `feat/long-video-roughcut`; not yet published. The stable baseline above remains 1.0.1.
+
+## CHANGES — long-video foundation
+
+- Confirmed product direction: Battlefield game livestream replays, highlights plus context.
+- Added resumable 300-second audio analysis, external event markers, 12-second lead/8-second tail context, candidate merging and whole-candidate duration budgeting.
+- Sidecar plans require review; 720p30 rough-cut previews preserve the selected source audio. Existing project conform is visual-only and uses preflight/apply/history.
+- Core has no Python dependencies; FFmpeg/ffprobe power rough cuts; `[render]` enables the existing editor and `[api]` adds the server. Existing editor users upgrading from 1.0.1 need `[render]`.
+- Detector protocol permits independently deployed analyzers without bundling models. Container targets are provided but not built in this environment.
+- Fixed Windows Remotion manifest URL-to-path handling and replaced removed FFmpeg `-vsync` usage in optional enhancement extraction. Made Linux-only test stubs portable.
+- Local validation: 183 tests passed on Windows with FFmpeg 9.0.1; strict release check and compilation passed. Dependency-free wheel installation and module discovery passed.
+- Limitations: audio activity is not semantic combat/kill recognition; no real Battlefield replay quality or multi-hour decode benchmark yet; no real Chromium/Remotion render or Docker build claimed.
+- Detailed usage and upgrade guidance: `AgentCut/LONG_VIDEO.md`.
 
 The old 0.2/3.x numbering is frozen history. AgentCut Director 4.0 is skipped as a release baseline. Do not infer a newer release from old folders, Drive handoffs, or historical notes.
 
@@ -67,4 +81,4 @@ Based on the verified 3.3.1 runtime, with a reset control surface for agents:
 - Real npm + Chromium/Remotion E2E was not available in this environment and is not claimed.
 
 ## NEXT — exactly one
-**1.0.x maintenance:** keep deployment and compatibility stable; validate optional Remotion npm + Chromium E2E when an appropriate environment is available.
+Validate candidate recall, false positives, context retention, runtime and peak memory against a representative real Battlefield replay with human-highlight markers.

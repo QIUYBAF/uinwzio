@@ -18,7 +18,7 @@ def test_release_truth_and_full_lightweight_runtime_are_consistent():
     manifest = json.loads((ROOT / "agentcut.manifest.json").read_text(encoding="utf-8"))
     tools = json.loads((ROOT / "agent_tools.json").read_text(encoding="utf-8"))
     pyproject = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
-    assert __version__ == manifest["version"] == tools["version"] == pyproject["project"]["version"] == "1.0.1"
+    assert __version__ == manifest["version"] == tools["version"] == pyproject["project"]["version"] == "1.1.0.dev0"
     assert manifest["github_source_complete"] is True
     for name in ("editor.py", "render.py", "agent_reliability.py", "runtime.py", "subtitles.py", "gen3.py"):
         assert (ROOT / "agentcut" / name).is_file()
@@ -26,7 +26,7 @@ def test_release_truth_and_full_lightweight_runtime_are_consistent():
 
 def test_discovery_does_not_require_a_project():
     result = discover()
-    assert result["release"] == "1.0.1-remaster"
+    assert result["release"] == "1.1.0.dev0-remaster"
     assert result["backend"]["selected"] in {"ffmpeg/pillow", "ffmpeg-only", "pillow-only", "unavailable"}
 
 

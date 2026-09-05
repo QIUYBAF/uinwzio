@@ -1340,5 +1340,5 @@
       "additionalProperties": false
     }
   },
-  "x-agentcut-version": "1.0.1"
+  "x-agentcut-version": "1.1.0.dev0"
 }

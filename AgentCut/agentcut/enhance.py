@@ -213,7 +213,7 @@ def upscale_video(source: Path, output: Path, *, width: int, height: int, backen
         td = Path(td); frames = td / "in"; enhanced = td / "out"
         frames.mkdir(); enhanced.mkdir()
         ffmpeg = ensure_binary("ffmpeg")
-        run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(source), "-vsync", "0", str(frames / "%08d.png")])
+        run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-i", str(source), "-fps_mode", "passthrough", str(frames / "%08d.png")])
         cmd = [exe, "-i", str(frames), "-o", str(enhanced)]
         if models_dir:
             cmd += ["-m", str(models_dir)]
@@ -272,7 +272,7 @@ def interpolate_video(source: Path, output: Path, *, target_fps: float, backend:
                 continue
             seg_in = td / f"seg_{si:03d}_in"; seg_out = td / f"seg_{si:03d}_out"
             seg_in.mkdir(); seg_out.mkdir()
-            run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{start:.6f}", "-t", f"{seg_dur:.6f}", "-i", str(source), "-an", "-vsync", "0", str(seg_in / "%08d.png")])
+            run([ffmpeg, "-hide_banner", "-loglevel", "error", "-y", "-ss", f"{start:.6f}", "-t", f"{seg_dur:.6f}", "-i", str(source), "-an", "-fps_mode", "passthrough", str(seg_in / "%08d.png")])
             input_frames = sorted(seg_in.glob("*.png"))
             if len(input_frames) < 2:
                 for p in input_frames:

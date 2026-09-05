@@ -3,7 +3,7 @@
 from typing import TYPE_CHECKING
 
 __all__ = ["Editor"]
-__version__ = "1.0.1"
+__version__ = "1.1.0.dev0"
 
 if TYPE_CHECKING:
     from .editor import Editor

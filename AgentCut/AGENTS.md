@@ -1,6 +1,8 @@
-# AGENTS.md — AgentCut 1.0.1 Remaster
+# AGENTS.md — AgentCut 1.1.0.dev0
 
 Default entry for Codex, ChatGPT Work, and other agent runtimes.
+
+For long-recording rough cuts, read `LONG_VIDEO.md`; start with `python AgentCut/run.py modules`, then `roughcut SOURCE JOB`. Review `JOB/plan.json` before `roughcut-export`. Audio activity is only a candidate signal. Core is dependency-free; install `[render]` for the existing editor/quickstart or `[api]` for the server. This checkout is a development build; last stable release is 1.0.1.
 
 ## Zero-search rule
 

@@ -1,7 +1,7 @@
 {
   "name": "AgentCut",
-  "version": "1.0.1",
-  "release_status": "stable_remaster",
+  "version": "1.1.0.dev0",
+  "release_status": "development",
   "protocol_version": 5,
   "canonical_state": "project.json",
   "preferred_agent_gateway": {
@@ -76,8 +76,19 @@
   "render": {
     "official_ceiling": "3840x2160@60fps",
     "flexible_export": true,
-    "containers": ["mp4", "mov", "mkv", "webm"],
-    "video_codecs": ["h264", "hevc", "av1", "vp9", "prores"],
+    "containers": [
+      "mp4",
+      "mov",
+      "mkv",
+      "webm"
+    ],
+    "video_codecs": [
+      "h264",
+      "hevc",
+      "av1",
+      "vp9",
+      "prores"
+    ],
     "runtime_nvenc_probe": true,
     "shot_path": true,
     "shot_path_keyframe_limit": 24,
@@ -91,11 +102,18 @@
   },
   "deployment": {
     "priority": "P0",
-    "target_release": "1.0.1",
+    "target_release": "1.1.0.dev0",
     "direct_checkout_runner": "python AgentCut/run.py",
     "one_command": "agentcut quickstart PROJECT --create",
     "github_source_complete": true,
     "backend_auto": true,
     "optional_heavy_dependencies_bundled": false
+  },
+  "roughcut_cli": {
+    "plan": "agentcut roughcut SOURCE JOB [--events EVENTS.json]",
+    "preview": "agentcut roughcut-export JOB/plan.json OUTPUT.mp4",
+    "conform": "register source with add-asset --no-copy, then roughcut-operations and preflight/apply",
+    "modules": "agentcut modules",
+    "audio_signal_is_semantic_recognition": false
   }
 }

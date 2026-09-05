@@ -8,6 +8,7 @@ import sys
 
 from . import __version__
 from .director import choose_backend
+from .modules import module_status
 
 def _version(cmd):
     try:
@@ -37,7 +38,8 @@ def discover() -> dict:
     return {
         "name": "AgentCut",
         "version": __version__,
-        "release": "1.0.1-remaster",
+        "release": f"{__version__}-remaster",
+        "modules": module_status(),
         "status": status,
         "canonical_state": "project.json",
         "agent_protocol": 5,

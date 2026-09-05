@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
+import sys
 import wave
 from pathlib import Path
 
@@ -32,7 +34,7 @@ def seed(tmp_path: Path):
     return e
 
 
-def fake_whisper(path: Path):
+def fake_whisper(path: Path, monkeypatch):
     path.write_text(r'''#!/usr/bin/env python3
 import json, sys
 args=sys.argv[1:]
@@ -53,6 +55,14 @@ else:
 json.dump({'result': {'language': lang}, 'transcription': rows}, open(out,'w',encoding='utf-8'), ensure_ascii=False)
 ''', encoding="utf-8")
     path.chmod(0o755)
+    # Windows cannot execute a Unix shebang. Keep the real subprocess/JSON
+    # round-trip, but explicitly launch this test-only Python stub.
+    original_run = subprocess.run
+    def run_stub(command, *args, **kwargs):
+        if command and str(command[0]) == str(path):
+            command = [sys.executable, *command]
+        return original_run(command, *args, **kwargs)
+    monkeypatch.setattr(subprocess, "run", run_stub)
 
 
 def test_bilingual_caption_is_structured_and_ass_renders_secondary_line(tmp_path):
@@ -85,7 +95,7 @@ def test_parse_and_import_srt(tmp_path):
 
 def test_whisper_adapter_converts_audio_and_requires_real_json_product(tmp_path, monkeypatch):
     wav = tmp_path / "in.wav"; make_wav(wav)
-    exe = tmp_path / "whisper-cli"; fake_whisper(exe)
+    exe = tmp_path / "whisper-cli"; fake_whisper(exe, monkeypatch)
     model = tmp_path / "ggml-tiny.bin"; model.write_bytes(b"fake")
     result = transcribe_media(wav, executable=str(exe), model=str(model), language="auto")
     assert result["language"] == "zh"
@@ -96,7 +106,7 @@ def test_auto_subtitles_can_create_bilingual_cues_with_overlap_alignment(tmp_pat
     e = seed(tmp_path)
     wav = tmp_path / "voice.wav"; make_wav(wav)
     e.add_asset(wav, asset_id="voice")
-    exe = tmp_path / "whisper-cli"; fake_whisper(exe)
+    exe = tmp_path / "whisper-cli"; fake_whisper(exe, monkeypatch)
     model = tmp_path / "ggml-tiny.bin"; model.write_bytes(b"fake")
     monkeypatch.setenv("AGENTCUT_WHISPER", str(exe))
     monkeypatch.setenv("AGENTCUT_WHISPER_MODEL", str(model))
@@ -156,7 +166,7 @@ def test_auto_subtitles_repeat_is_idempotent_and_uses_cache(tmp_path, monkeypatc
     e = seed(tmp_path)
     wav = tmp_path / "voice_repeat.wav"; make_wav(wav)
     e.add_asset(wav, asset_id="voice_repeat")
-    exe = tmp_path / "whisper-cli"; fake_whisper(exe)
+    exe = tmp_path / "whisper-cli"; fake_whisper(exe, monkeypatch)
     model = tmp_path / "ggml-tiny.bin"; model.write_bytes(b"fake")
     monkeypatch.setenv("AGENTCUT_WHISPER", str(exe))
     monkeypatch.setenv("AGENTCUT_WHISPER_MODEL", str(model))

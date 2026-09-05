@@ -9,6 +9,7 @@ from pathlib import Path
 
 from . import __version__
 from .director import choose_backend
+from .modules import module_status
 
 
 def _first_line(cmd: list[str], timeout: int = 8) -> str | None:
@@ -107,7 +108,7 @@ def run_doctor(project_root=None, *, fix: bool = False) -> dict:
 
     suggestions = []
     if not editing_ready:
-        suggestions.append("Install Python dependencies: python -m pip install -e AgentCut")
+        suggestions.append("For the editor, install: python -m pip install -e './AgentCut[render]'. Rough-cut planning needs no Python packages.")
     if not (ffmpeg and ffprobe):
         suggestions.append(_install_hint())
     elif not rendering_ready:
@@ -119,6 +120,7 @@ def run_doctor(project_root=None, *, fix: bool = False) -> dict:
     npm = shutil.which("npm")
     return {
         "status": status,
+        "modules": module_status(),
         "version": __version__,
         "editing_ready": editing_ready,
         "rendering_ready": rendering_ready,

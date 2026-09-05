@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "AgentCut Agent API",
-    "version": "1.0.1"
+    "version": "1.1.0.dev0"
   },
   "paths": {
     "/health": {
