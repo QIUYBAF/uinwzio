@@ -16,7 +16,7 @@
 
 | ID | 项目 | 状态 | PROJECT_HOME |
 |---|---|---|---|
-| SW-01 | AgentCut | ACTIVE | `projects/SW-01_AgentCut.md` |
+| SW-01 | AgentCut | WAITING | `projects/SW-01_AgentCut.md` |
 | SW-02 | RNGtuber | ACTIVE | `projects/SW-02_RNGtuber.md` |
 
 ## 运营
