@@ -59,7 +59,7 @@
 
 ## 8. 文件真源
 - **GitHub:** 程序代码、资产协议、QA/构建脚本、ProjectOS
-- **Drive:** `01_进行中/SW-02_RNGtuber_ACTIVE`，approved 资产和 Windows 交付
+- **Drive:** `01_进行中/SW-02_RNGtuber_ACTIVE`；运行真源位于 `QFT_CURRENT`，当前宣传片工程位于 `PROMO_CURRENT_V3`，approved 资产和 Windows 交付均不得散落到根目录
 - **Library:** `20_软件项目/SW-02_RNGtuber` 的短摘要/参考
 
 ## 9. HANDOFF
