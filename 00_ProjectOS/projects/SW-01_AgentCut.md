@@ -1,20 +1,42 @@
 # SW-01 AgentCut — PROJECT_HOME
 
-**STATUS:** ACTIVE  
-**UPDATED:** 2026-09-04
+**STATUS:** WAITING  
+**UPDATED:** 2026-09-07
 
-## Current truth
+## 1. 一句话目标
+构建 Agent-native 剪辑运行时，让 Codex / ChatGPT Work 以最少上下文定位、启动、编辑和渲染项目，同时保留结构化状态、本地编辑、撤销 / diff / 历史与确定性回退。
 
-**Current release line: AgentCut 1.x**  
-**LATEST: 1.0.1 Remaster — Quick Connect**
+## 2. 项目身份 / PROJECT IDENTITY
+### 核心体验
+Agent 能沿唯一入口迅速发现能力、项目状态和可用后端，执行可审计的非破坏编辑；可选运行时缺失时仍能明确降级，不把环境搜索当成剪辑工作。
 
-The old 0.2/3.x numbering is frozen history. AgentCut Director 4.0 is skipped as a release baseline. Do not infer a newer release from old folders, Drive handoffs, or historical notes.
+### 识别特征
+- `agentcut.manifest.json` 是唯一版本真源，`AGENTS.md` 是默认入口。
+- `project.json` 或等价 canonical state 是项目真源。
+- 语义 / API 操作优先；保留 history、undo、diff 与非破坏资产。
+- 先预览 / 本地渲染，再进行昂贵最终渲染。
+- Remotion 是可选呈现后端；FFmpeg / Pillow 提供确定性回退。
+- 已知 manifest、任务、项目和后端后停止搜索，直接执行。
 
-## One-line goal
-Build an Agent-native editing runtime that Codex and ChatGPT Work can locate, understand and start with minimal context/setup while preserving structured state, local edits, undo/diff/history and deterministic rendering.
+### 可变化区
+- 可增加向后兼容的语义操作、可选后端、诊断与工作流。
+- `1.0.x` 只做部署、缺陷、可靠性与兼容性；`1.x.0` 承载兼容新能力；破坏状态 / API 才进入 `2.0.0`。
 
-## Unique startup route
+### 不可无声变化
+- 不能从 manifest 之外推断“最新版”，也不能复活旧 0.2 / 3.x 编号。
+- 不能把 GUI 点击变成唯一控制面，或因 Remotion 缺失而让项目不可编辑。
+- 不能破坏 canonical state、历史 / 撤销 / diff、非破坏资产与确定性回退。
+- 状态格式、API 或版本线变化必须记录迁移依据与影响。
 
+## 3. 用户承诺
+用户或 Agent 能从下载后的 checkout 直接发现能力、诊断环境、打开 / 创建项目并完成可回退编辑；环境不满足时得到明确的降级路径。
+
+## 4. 当前真源与状态
+**Current release line:** AgentCut 1.x  
+**LATEST:** 1.0.1 Remaster — Quick Connect  
+旧 0.2 / 3.x 为冻结历史；AgentCut Director 4.0 不作为发布基线。
+
+唯一启动路线：
 ```text
 AgentCut/agentcut.manifest.json
 → AgentCut/AGENTS.md
@@ -23,48 +45,28 @@ AgentCut/agentcut.manifest.json
 → scoped context / preflight / apply
 ```
 
-Do not scan release history before executing a normal task.
+1.0.1 已验证：
+- full regression 164 / 164；
+- 严格 release / version / source 检查；
+- Python compile；
+- 直接 checkout 的 discover / doctor / quickstart smoke；
+- 自动选择 FFmpeg / Pillow，未把仅有 Node / npm 误判为 Remotion。
+- 未完成真实 npm + Chromium / Remotion E2E，因此不作相关声明。
 
-## Product invariants
-- `project.json` / equivalent canonical state is truth.
-- API/semantic operations over GUI clicking.
-- Non-destructive assets; history/undo/diff retained.
-- Preview/local render before expensive final render.
-- Remotion is an optional presentation backend, not a prerequisite for project state/editing.
-- FFmpeg/Pillow deterministic fallback keeps the project operable when cloud/local optional runtimes are missing.
-- Codex/Work should stop searching once manifest, task, project and backend availability are known.
+## 5. 当前唯一交付物
+当前 release 已稳定，转入 WAITING；不开发新功能。待出现合适 npm + Chromium 环境时，只补一次可选 Remotion E2E 证据。
 
-## Platform boundary
-- GitHub: current lightweight source + manifest + agent entry + ProjectOS truth.
-- Drive: large binaries/models/media/handoffs when needed; not the version selector.
-- Codex/local: execution/build environment.
-- ChatGPT Work/cloud: may lack persistent Node/Chromium/GPU/system privileges; discover first and degrade gracefully.
+## 6. 文件真源
+- **GitHub:** `AgentCut/` + `00_ProjectOS/projects/SW-01_AgentCut.md`
+- **Drive:** 大型二进制 / handoff 按需进入；已无进行中源工程入口。
+- **Git history:** 代码版本、旧实现和 release 演进。
 
-## Version policy
-- `1.0.x`: deployment, bugs, reliability, compatibility.
-- `1.x.0`: backward-compatible new capability.
-- `2.0.0`: breaking API/state change only.
-- Never revive 3.x numbering.
+## 7. HANDOFF
+**DONE:** 1.0.1 Remaster 已通过 164 / 164 回归及直接 checkout smoke；本周没有阻断使用的故障。  
+**NEXT:** 仅在具备真实 npm + Chromium 的适当环境中验证一次 Remotion E2E；在此之前保持 WAITING。  
+**BLOCKERS:** 当前环境不具备真实 Remotion E2E 条件。  
+**CHANGES:** **WHAT** ACTIVE → WAITING；**WHY** 当前 release 已稳定且本周频道创作负荷更高；**EVIDENCE** 回归、版本检查、编译与 smoke 均通过；**IMPACT** 不再占用主动开发位，GitHub 仍是代码真源。
 
-## Current release — 1.0.1 Remaster
-Based on the verified 3.3.1 runtime, with a reset control surface for agents:
-- machine-readable `agentcut.manifest.json` is the unique version truth;
-- `AGENTS.md` is the default Codex/Work entry;
-- the full lightweight editing runtime and test suite are present in GitHub;
-- `run.py` works directly from a downloaded checkout without editable installation;
-- `discover`, actionable non-crashing `doctor`, and verified `backend` auto-selection are project-free;
-- `quickstart` combines project create/open, runtime setup, discovery, diagnosis, backend choice, and agent bootstrap;
-- explicit cloud/Work fallback policy;
-- optional heavy AI runtimes are not part of the lightweight GitHub checkout;
-- no major editing feature intentionally added.
-
-## Validation status
-- Full regression: 164/164 passed in the current Linux cloud runtime.
-- Strict release/version/source check: passed.
-- Python compile check: passed.
-- Direct checkout `discover`, `doctor`, and `quickstart --create` smoke tests: passed.
-- Backend auto selected FFmpeg/Pillow and did not mistake Node/npm alone for Remotion.
-- Real npm + Chromium/Remotion E2E was not available in this environment and is not claimed.
-
-## NEXT — exactly one
-**1.0.x maintenance:** keep deployment and compatibility stable; validate optional Remotion npm + Chromium E2E when an appropriate environment is available.
+## 8. 决策记录
+- 2026-09-04 — 1.0.1 Remaster / Quick Connect 成为唯一当前版本。
+- 2026-09-07 — 完成身份四项补齐并转 WAITING；可选 Remotion E2E 保留为唯一未来 NEXT。
