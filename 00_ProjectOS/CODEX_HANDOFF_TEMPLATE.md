@@ -6,6 +6,7 @@
 ## 0. Identity
 - Project ID: <CT/SW/OP-xx>
 - Project name: <name>
+- Track / business branch: <EP / subproject / track>
 - Handoff version: <YYYY-MM-DD HH:mm>
 - Source: ChatGPT cloud project
 - Target: Codex/local desktop execution
@@ -79,14 +80,26 @@ If a referenced asset is missing, first search the listed canonical location. Do
 5. Test/preview the result where possible.
 6. Fix regressions introduced by this session.
 7. Do not create parallel “final/final2/latest/new” versions. Maintain one ACTIVE output.
-8. Before handoff, extract the minimum historical sufficient set and remove verified obsolete builds, duplicate exports, stale previews/checkpoints/handoffs, caches, dependency folders and reproducible intermediates.
+8. Before any formal upload or delivery, apply `00_ProjectOS/FILE_NAMING_AND_ROUTING.md`:
+   - determine Project ID;
+   - determine TRACK (business branch, not Git branch);
+   - determine MODULE;
+   - determine ROLE;
+   - rename locally to `<PROJECT_ID>__<TRACK>__<MODULE>__<ROLE>[__<SPEC>].<ext>`;
+   - only then upload to the canonical platform.
+9. Route software source/config/tests/docs/history to GitHub. Do not upload repo/source ZIP snapshots to Drive when GitHub is the canonical source.
+10. Route large irreplaceable media, editable creative projects, masters and final media deliverables to Drive.
+11. If a file's project/track/module cannot be determined confidently, do not guess. Use `UNASSIGNED__...` in `99_待整理` and report NEEDS-HUMAN.
+12. Before handoff, extract the minimum historical sufficient set and remove verified obsolete builds, duplicate exports, stale previews/checkpoints/handoffs, caches, dependency folders and reproducible intermediates.
 
 ## 8. Acceptance criteria
 The task is complete only when:
 - [ ] <observable criterion>
 - [ ] <observable criterion>
 - [ ] Existing verified behavior still works.
-- [ ] Output is placed in the canonical location.
+- [ ] Every new formal deliverable has a canonical filename carrying Project / Track / Module / Role.
+- [ ] Output is placed in the correct canonical platform and location.
+- [ ] Large content/media outputs are not misfiled into software projects merely because a tool such as AgentCut/Remotion was used.
 - [ ] No unnecessary duplicate versions are left behind.
 - [ ] Current runnable source, current release/final output, irreplaceable assets and any required rollback point remain intact.
 - [ ] Cleanup performed or unresolved ownership/reference risk is listed under OPEN / NEEDS-HUMAN.
@@ -98,15 +111,16 @@ At the end, report only:
 3. TEST — what was actually tested and result.
 4. OPEN — remaining known issues, if any.
 5. NEXT — one recommended next action.
-6. SYNC_BACK — concise facts ChatGPT cloud must know to update PROJECT_HOME.
+6. SYNC_BACK — concise facts ChatGPT cloud must know to update PROJECT_HOME, including canonical output filenames and exact GitHub/Drive locations.
 
-If code was changed, commit/push it to the canonical repository when authorized and appropriate. If a large binary deliverable was produced, place it in the canonical Drive ACTIVE/delivery folder rather than GitHub.
+If code was changed, commit/push it to the canonical GitHub repository when authorized and appropriate. If a large media deliverable was produced, place it in the canonical Drive ACTIVE/delivery folder. Software source or repo snapshots must not be duplicated to Drive merely for handoff.
 
 ## 10. Stop conditions
 Stop and report instead of guessing if:
 - a required canonical input cannot be found;
 - continuing would destroy or replace a verified baseline;
 - the task requires a major design decision not specified here;
+- the project/track/module identity of a deliverable cannot be determined reliably;
 - an external credential/permission is genuinely required.
 
 Otherwise, make reasonable implementation decisions independently and continue.
