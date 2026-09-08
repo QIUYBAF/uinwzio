@@ -1,26 +1,31 @@
-# Project OS v1.2 — 统一工作制度
+# Project OS v1.3 — 统一工作制度
 
 > 目标：让 ChatGPT / Codex / 本地 / Google Drive / Library / GitHub / B站之间只传递最小必要信息，避免重复搜索、重复解释、记忆断裂和版本混乱。执行效率优先于“把所有资料都读一遍”的形式完整性。
 
 ## 1. 平台唯一职责
 
 - **GitHub = 控制面 + 代码真源**：项目编号、PROJECT_HOME、工作流、决策记录；软件代码与技术版本历史也只认 GitHub。
-- **Google Drive = 大文件真源**：原始素材、PSD/Procreate 导出、音视频、模型、可执行文件、最终交付。Drive 根目录不得堆版本。
+- **Google Drive = 大文件真源**：无法重建原始素材、大型可编辑创作工程、音视频/模型母版、最终交付和必要大型发布包。不得作为源码仓库。
 - **ChatGPT Library = AI 快速工作区**：当前项目卡、短摘要、提示词、参考资料。不是大文件仓库，也不是长期版本库。
-- **Codex / 本地 = 执行现场**：允许缓存和中间产物，但任何关键决定必须回写 PROJECT_HOME；本地不是长期真源。
+- **Codex / 本地 = 执行现场**：允许缓存和中间产物，但任何关键决定、状态变化和交付物位置必须显式同步；本地不是长期真源。
 - **B站 = 发布终点 + 数据反馈**：发布文件与数据结论回流到 OPS-01，不作为素材仓库。
+
+平台详细路由与文件命名以 `FILE_NAMING_AND_ROUTING.md` 和 `STORAGE_AND_RETENTION.md` 为准。
 
 ## 2. 记忆边界：默认不共享
 
 ChatGPT 云端项目/个人上下文与 Codex 的项目线程、repo 和本地会话默认视为**不同记忆域**。制度上禁止假设“另一个端已经知道我们聊过什么”。
 
-跨端连续性依靠显式外部记忆层：
+跨端连续性依靠显式外部状态层：
 1. `PROJECT_HOME`：长期项目事实、固定规则与当前状态；
 2. 本轮 `DELTA + TASK + acceptance criteria`：执行增量；
-3. `SYNC_BACK`：Codex → ChatGPT 的结果增量；
-4. Git / Drive：代码与大型文件的实际真源。
+3. `SYNC_BACK`：Codex / 本地 / Agent → 控制面的结果增量；
+4. canonical filename：文件本身携带 Project / Track / Module / Role；
+5. Git / Drive：代码与大型文件的实际真源。
 
 只有 PROJECT_HOME 缺失、不可访问或首次建立项目时才需要较完整 HANDOFF。正常后续会话不要重复整个聊天历史。
+
+**聊天记忆不是项目状态真源。** 每日整理器、Codex、新对话和其他 Agent 不得只根据聊天历史、时间戳或“看起来像最终版”来推断状态。
 
 ## 3. 项目编号与跨端命名
 
@@ -33,16 +38,27 @@ ChatGPT 云端项目/个人上下文与 Codex 的项目线程、repo 和本地�
 
 ChatGPT group、Codex 本地目录、Drive 文件夹、GitHub 项目卡都以同一编号开头。编号稳定优先于项目显示名稳定。
 
+正式上传文件使用：
+`<PROJECT_ID>__<TRACK>__<MODULE>__<ROLE>[__<SPEC>].<ext>`
+
+TRACK 表示业务分支/期数/子项目，不是 Git branch。上传前必须先完成 canonical rename；未能确定归属的文件只能进入 `99_待整理` 并标 `UNASSIGNED / NEEDS-HUMAN`。
+
 ## 4. 状态机
 
-项目只有四种状态：`ACTIVE / WAITING / DONE / ARCHIVE`。
+项目业务状态：`ACTIVE / WAITING / DONE / ARCHIVE`。
 
 - ACTIVE：本周真的会推进；每周重制作主项目最多 3 个。
 - WAITING：保留但不主动消耗算力。
 - DONE：已完成，等待发布/复盘/收尾。
 - ARCHIVE：停止搜索，除非明确恢复。
 
-任何项目不得用版本号代替 ACTIVE；版本进入 Git 历史或归档。
+同步状态：`SYNCED / UNSYNCED / NEEDS-HUMAN`。
+
+- SYNCED：关键状态、产物和位置已经写入 canonical 真源。
+- UNSYNCED：某端已经产生实际变化，但尚未完成跨端落盘。
+- NEEDS-HUMAN：唯一性、归属或引用关系确实无法可靠自动判断。
+
+`UNSYNCED` 项目不得自动归档、删除关键资产或宣告交付完成。
 
 ## 5. 项目入口文件
 
@@ -51,14 +67,14 @@ ChatGPT group、Codex 本地目录、Drive 文件夹、GitHub 项目卡都以同
 PROJECT_HOME 控制在约 100 行以内，只记录：
 1. 项目目标与观众/用户承诺
 2. 固定风格或不可破坏约束
-3. 当前状态
+3. 当前业务状态与必要同步状态
 4. 当前唯一 ACTIVE / NEXT
 5. 标准工作流
 6. 完成定义（DoD）
 7. 文件真源位置
-8. 最新交接摘要
-9. 最近关键决定
-10. CHANGES
+8. 当前交付物/母版位置
+9. 最新交接摘要
+10. 最近关键决定与 CHANGES
 
 详细聊天史、长日志、旧方案不塞进 PROJECT_HOME，只链接到日志或归档。
 
@@ -70,7 +86,7 @@ PROJECT_HOME 控制在约 100 行以内，只记录：
 - `TASK`
 - `ACCEPTANCE`：验收标准
 
-Codex → ChatGPT 使用：
+Codex / 本地 → 控制面使用：
 - `RESULT`
 - `CHANGED`
 - `TEST`
@@ -78,17 +94,27 @@ Codex → ChatGPT 使用：
 - `NEXT`
 - `SYNC_BACK`
 
-只同步稳定增量，不复制完整执行日志。项目长期身份没有变化时，不要重复写一遍固定设定。
+### Write-before-exit
+只要一次执行**改变了项目状态、生成/替换了关键资产或交付物**，结束前必须：
+1. 确认 Project ID / Track / Module / Role；
+2. 在本地先改成 canonical filename；
+3. 按平台路由上传到 GitHub / Drive 的 canonical 位置；
+4. 验证关键最终文件真实存在；
+5. 回写 SYNC_BACK，记录最终文件名、实际位置、测试结果与唯一 NEXT；
+6. STATUS / NEXT / 固定规则改变时同步 PROJECT_HOME。
+
+若上传、权限或连接失败，则明确标记 `UNSYNCED`；不得只在聊天里说“已经完成”。
 
 ## 7. 文件生命周期
 
 `INBOX -> ACTIVE -> DELIVERY -> KEEP / DELETE`
 
 - 临时文件先进 `99_待整理/99_收件箱`。
-- 进入项目后改成语义化文件名。
+- 正式上传前必须按 `FILE_NAMING_AND_ROUTING.md` 重命名。
 - 中间文件只保留能继续工作的最小集合。
-- 发布后长期保留：源/母版、最终成片、封面、字幕/脚本、PROJECT_HOME、必要授权/素材说明。
-- 可再生成缓存、重复导出、旧 Handoff、无意义 AI 中间图可以删除；不确定是否有价值的先归档。
+- 发布后长期保留：必要源/母版、最终成片、封面、字幕/脚本、PROJECT_HOME、必要授权/素材说明。
+- 可再生成缓存、重复导出、旧 Handoff、无意义 AI 中间图可以删除；不确定项进入 NEEDS-HUMAN。
+- 软件项目的源码/文档/测试/Git 历史只认 GitHub；Drive 中 GitHub 已覆盖的源码快照应清理。
 
 ## 8. Codex 最小路由（Usage 防浪费）
 
@@ -98,7 +124,8 @@ Codex → ChatGPT 使用：
 1. 读取唯一 PROJECT_HOME；
 2. 读取 TASK 直接相关的代码/文件；
 3. 执行与最小相关测试；
-4. 回传 SYNC_BACK。
+4. 按 canonical naming + platform routing 落盘；
+5. 回传 SYNC_BACK。
 
 不默认读取：根 README、完整 ProjectOS README、ACTIVE_INDEX、其他 PROJECT_HOME、历史 notes。
 
@@ -122,9 +149,10 @@ AI 接手已有项目时：
 3. 不因为换模型/线程/平台就重做已验证成功的风格或架构；
 4. 先完成最小可靠交付，再升级；
 5. 先跑最小相关测试，再按风险扩大回归；
-6. 发现混乱优先修入口、索引和真源，不进行无依据的大规模搬家；
+6. 发现混乱优先修入口、索引、文件名和真源，不进行无依据的大规模搬家；
 7. 新创意默认进入 INBOX/WAITING，不自动抢占 ACTIVE；
-8. 同一会话已读取且未变化的控制文档不重复读取。
+8. 同一会话已读取且未变化的控制文档不重复读取；
+9. 不依赖自身对另一个 Agent/线程的记忆；冲突时以 PROJECT_HOME + canonical 文件 + Git/Drive 实物为准。
 
 ## 10. 系列连续性规则
 
@@ -137,11 +165,14 @@ AI 接手已有项目时：
 每日进行最近 7 天的增量清理，每逢周日做全量结构检查；B站周决策会继续负责项目优先级。维护任务：
 - 检查重制作主项目是否超过 3 个；
 - 每个 ACTIVE 是否有唯一 NEXT；
+- 检查最近新增文件是否符合 canonical filename；
+- 优先按文件名 + PROJECT_HOME 判断归属，不用聊天记忆猜测；
 - Drive/GitHub 是否出现多个“最新版”；
+- GitHub 已覆盖的软件源码/文档是否仍冗余留在 Drive；
 - DONE/旧版本是否应提取代表性成品与经验后删除完整副本；
 - 是否存在重复存储或无意义中间产物；
-- 是否出现新的重复入口、重复规则或无意义必读文档；
-- 证据充分时可直接删除可重建、重复、过期且无引用的内容；唯一资产、当前版本与最终成品不得自动删除。
+- UNSYNCED 项目只报告并收敛，不自动归档/删关键文件；
+- 证据充分时可直接删除可重建、重复、过期且无引用的内容；唯一资产、当前版本和最终成品不得自动删除。
 - 无实质问题只报告 `healthy`，不为维护制造文件。
 
 ## 12. 当前物理结构
@@ -157,6 +188,6 @@ Library 根目录历史散件按 Legacy 处理，不参与正常检索。
 ### GitHub
 常规执行逻辑入口：`CODEX_ROUTER.md -> PROJECT_HOME -> task files`。
 
-仓库治理入口：`README.md / AGENTS.md -> 00_ProjectOS/README.md / REPOSITORY_MAP.md`。
+仓库治理入口：`README.md / AGENTS.md -> 00_ProjectOS/README.md / FILE_NAMING_AND_ROUTING.md / REPOSITORY_MAP.md`。
 
 历史根目录文件默认 Frozen Legacy，除非任务明确要求恢复。
