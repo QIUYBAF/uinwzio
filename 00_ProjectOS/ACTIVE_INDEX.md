@@ -8,7 +8,7 @@
 | ID | 项目 | 状态 | PROJECT_HOME |
 |---|---|---|---|
 | CT-01 | 她们仍在旅行 | ACTIVE | `projects/CT-01_她们仍在旅行.md` |
-| CT-02 | 结束乐队×Minecraft | ACTIVE | `projects/CT-02_结束乐队xMinecraft.md` |
+| CT-02 | 结束乐队×Minecraft | WAITING | `projects/CT-02_结束乐队xMinecraft.md` |
 | CT-03 | 纯手绘 / 插画 | ACTIVE | `projects/CT-03_纯手绘插画.md` |
 | IP-01 | 异象研究 | WAITING | `projects/IP-01_异象研究.md` |
 
