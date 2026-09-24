@@ -21,7 +21,7 @@
 - Publishing package: [publishing package](https://drive.google.com/file/d/15ZXwBABiE2wik-41_IGfTzQ5w8vJBpCb/view)
   - bytes: 8942690.
 - Canonical delivery folder: [CT-01__FILM-HISTORY__V003__CURRENT](https://drive.google.com/drive/folders/1-Q_a97Jcwf2sIEvNU2Q-rIXtdqBPfjBt).
-- Source archive folder: [2026-09-24 local-space archive](https://drive.google.com/drive/folders/1CDgH1KBosniAXu_Aj6v65GAQ-D27XbNQ).
+- Source archive folder: [CT-01__FILM-HISTORY__SOURCE__V003-ARCHIVE](https://drive.google.com/drive/folders/1CDgH1KBosniAXu_Aj6v65GAQ-D27XbNQ).
 
 ## Rebuild evidence
 
