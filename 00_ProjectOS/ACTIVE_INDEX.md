@@ -7,10 +7,10 @@
 
 | ID | 项目 | 状态 | PROJECT_HOME |
 |---|---|---|---|
-| CT-01 | 她们仍在旅行 | WAITING | `projects/CT-01_她们仍在旅行.md` |
-| CT-02 | 结束乐队×Minecraft | WAITING | `projects/CT-02_结束乐队xMinecraft.md` |
-| CT-03 | 纯手绘 / 插画 | ACTIVE（轻量备选） | `projects/CT-03_纯手绘插画.md` |
-| CT-05 | AI拟人百合 | ACTIVE（本周主交付） | `projects/CT-05_AI拟人百合.md` |
+| CT-01 | 她们仍在旅行 | ACTIVE（本周主交付） | `projects/CT-01_她们仍在旅行.md` |
+| CT-02 | 结束乐队×Minecraft | WAITING（至 2026-10-17） | `projects/CT-02_结束乐队xMinecraft.md` |
+| CT-03 | 纯手绘 / 插画 | ACTIVE（条件式轻量备选） | `projects/CT-03_纯手绘插画.md` |
+| CT-05 | AI拟人百合 | WAITING | `projects/CT-05_AI拟人百合.md` |
 | IP-01 | 异象研究 | WAITING | `projects/IP-01_异象研究.md` |
 
 ## 软件 / 工具
@@ -18,7 +18,7 @@
 | ID | 项目 | 状态 | PROJECT_HOME |
 |---|---|---|---|
 | SW-01 | AgentCut | WAITING | `projects/SW-01_AgentCut.md` |
-| SW-02 | RNGtuber | WAITING | `projects/SW-02_RNGtuber.md` |
+| SW-02 | 直播角色应用（RNGtuber Legacy） | WAITING | `projects/SW-02_RNGtuber.md` |
 
 ## 运营
 
