@@ -7,17 +7,17 @@
 
 | ID | 项目 | 状态 | PROJECT_HOME |
 |---|---|---|---|
-| CT-01 | 她们仍在旅行 | ACTIVE（低负担备选） | `projects/CT-01_她们仍在旅行.md` |
+| CT-01 | 她们仍在旅行 | ACTIVE（本周主交付：热学包终检） | `projects/CT-01_她们仍在旅行.md` |
 | CT-02 | 结束乐队×Minecraft | WAITING（恢复评审已完成） | `projects/CT-02_结束乐队xMinecraft.md` |
-| CT-03 | 纯手绘 / 插画 | WAITING（无已确认完成图） | `projects/CT-03_纯手绘插画.md` |
-| CT-05 | AI拟人百合 | WAITING（S1E02已成片，待发布决定） | `projects/CT-05_AI拟人百合.md` |
+| CT-03 | 纯手绘 / 插画 | ACTIVE（低负担备选：真实完成图） | `projects/CT-03_纯手绘插画.md` |
+| CT-05 | AI拟人百合 | ACTIVE（只做数据跟踪，不占本周重制作位） | `projects/CT-05_AI拟人百合.md` |
 | IP-01 | 异象研究 | WAITING | `projects/IP-01_异象研究.md` |
 
 ## 未分配 ID 的当前工作
 
 | 临时入口 | 状态 | 证据 |
 |---|---|---|
-| Backrooms 跨作品动态漫 | ACTIVE（本周主交付；仅收尾 v05，不扩写） / NEEDS-HUMAN（Project ID 未决） | Drive `01_进行中/Backrooms_跨作品动态漫_ACTIVE`；v05 84秒720p评审版与源工程已存在 |
+| Backrooms 跨作品动态漫 | WAITING / NEEDS-HUMAN（Project ID 与10分30秒v06去留未决） | Drive `90_归档/Backrooms_跨作品动态漫_WAITING`；私有v06审片与源工程保留 |
 
 > 该条只暴露当前真实工作，不构成新长期栏目登记。分配 Project ID 与长期身份前，不复制母项目规则、不新建第二 ACTIVE 入口。
 
