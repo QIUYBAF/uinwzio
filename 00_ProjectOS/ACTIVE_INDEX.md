@@ -10,7 +10,7 @@
 | CT-01 | 她们仍在旅行 | ACTIVE（本周主交付：热学包终检） | `projects/CT-01_她们仍在旅行.md` |
 | CT-02 | 结束乐队×Minecraft | WAITING（恢复评审已完成） | `projects/CT-02_结束乐队xMinecraft.md` |
 | CT-03 | 纯手绘 / 插画 | ACTIVE（低负担备选：真实完成图） | `projects/CT-03_纯手绘插画.md` |
-| CT-05 | AI拟人百合 | ACTIVE（只做数据跟踪，不占本周重制作位） | `projects/CT-05_AI拟人百合.md` |
+| CT-05 | AI拟人百合 | WAITING（仅按台账回采72小时节点） | `projects/CT-05_AI拟人百合.md` |
 | IP-01 | 异象研究 | WAITING | `projects/IP-01_异象研究.md` |
 
 ## 未分配 ID 的当前工作
