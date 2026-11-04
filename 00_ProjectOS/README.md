@@ -1,4 +1,4 @@
-# Project OS v1.3 — 统一工作制度
+# Project OS v1.4 — 统一工作制度
 
 > 目标：让 ChatGPT / Codex / 本地 / Google Drive / Library / GitHub / B站之间只传递最小必要信息，避免重复搜索、重复解释、记忆断裂和版本混乱。执行效率优先于“把所有资料都读一遍”的形式完整性。
 
@@ -153,6 +153,18 @@ AI 接手已有项目时：
 7. 新创意默认进入 INBOX/WAITING，不自动抢占 ACTIVE；
 8. 同一会话已读取且未变化的控制文档不重复读取；
 9. 不依赖自身对另一个 Agent/线程的记忆；冲突时以 PROJECT_HOME + canonical 文件 + Git/Drive 实物为准。
+
+### 9.1 Agent 自主执行契约（v1.4 增量）
+
+`AGENT_EXECUTION_CONTRACT.md` 是 ProjectOS 对 Agent 自主执行、重复确认与授权边界的统一规则真源。它补充而不取代原有的文件命名、存储保留、项目身份与项目专属限制：
+
+- `AGENTS.md` 只保留简短的默认执行边界和按需入口，避免每轮加载长制度。
+- `PROJECT_HOME` 可按需记录 `ACTION_SCOPE`（AUTO / REVIEW / BLOCK / BASIS），项目明确限制优先于一般默认值；旧项目不强制批量补写。
+- 只有任务含外部写入、授权模糊或持续重复确认时，才需要加载详细契约。
+- 连接器权限、平台强制审批、dots 自定义规则、Codex 本地配置各自独立；ProjectOS 不产生新的账号访问权。
+- 本次升级不改变任何项目既有发布审批关口，也不放宽 `STORAGE_AND_RETENTION.md` 对唯一资产与 UNSYNCED 文件的保护。
+
+其余 v1.3 模块规范保持有效；v1.4 是增加执行契约层，不是重构现有存储或项目结构。
 
 ## 10. 系列连续性规则
 

@@ -94,6 +94,14 @@ Do not redesign visual language, editing grammar, character behavior, architectu
 
 Meaningful changes require evidence/reason and must be recorded under `CHANGES`. Prefer local experiments over silently changing the whole project.
 
+## Autonomy and approval boundary
+
+- A clear request to build, modify, repair, maintain, or deliver authorizes ordinary in-scope steps through implementation, relevant validation, and the explicitly authorized handoff; do not ask separately for each routine step or stop after the first draft without reason.
+- Pure explanation, review, or diagnosis remains read-only unless a change is also requested.
+- Use project-specific restrictions in PROJECT_HOME. Existing authorized accounts, destinations, and workflows may be reused only within their recorded scope; do not infer new external permissions from broad preference statements.
+- Required platform approvals, new charges, new recipients/publication scope, protected-asset deletion, and material scope expansion remain approval boundaries. On an explicit denial, do not route around it.
+- Read `00_ProjectOS/AGENT_EXECUTION_CONTRACT.md` only when a task involves external actions, repeated approvals, ambiguous authority, or updating these rules; do not load it for routine local edits.
+
 ## Work policy
 
 - Prefer the smallest reliable deliverable first.
