@@ -1,5 +1,7 @@
 # ACTIVE INDEX — 跨项目状态板
 
+**UPDATED:** 2026-11-05
+
 > **用途：调度与跨项目状态查看，不是已知项目任务的必读启动文件。**
 > 已知 Project ID 时直接读取对应 PROJECT_HOME；不知道 ID 时先用 `CODEX_ROUTER.md`。
 
@@ -9,7 +11,7 @@
 |---|---|---|---|
 | CT-01 | 她们仍在旅行 | ACTIVE（本周主交付：热学包终检） | `projects/CT-01_她们仍在旅行.md` |
 | CT-02 | 结束乐队×Minecraft | WAITING（恢复评审已完成） | `projects/CT-02_结束乐队xMinecraft.md` |
-| CT-03 | 纯手绘 / 插画 | ACTIVE（低负担备选：真实完成图） | `projects/CT-03_纯手绘插画.md` |
+| CT-03 | 纯手绘 / 插画 | ACTIVE（杰西11/03已发布；按台账跟踪72h，不重复制作） | `projects/CT-03_纯手绘插画.md` |
 | CT-05 | AI拟人百合 | WAITING（仅按台账回采72小时节点） | `projects/CT-05_AI拟人百合.md` |
 | IP-01 | 异象研究 | WAITING | `projects/IP-01_异象研究.md` |
 

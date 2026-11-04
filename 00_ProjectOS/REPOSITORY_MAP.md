@@ -1,6 +1,6 @@
 # Repository Map — GitHub 目录地图
 
-**UPDATED:** 2026-09-05
+**UPDATED:** 2026-11-05
 
 本文件回答一个问题：**这个仓库里什么是当前工作区，什么只是历史遗留？**
 
@@ -75,11 +75,15 @@ Codex / AI 的仓库级执行规则。
 
 ## 5. AI / Codex 默认搜索边界
 
-正常任务默认搜索范围：
+正常任务已知 Project ID 时，直接读取对应 PROJECT_HOME，再进入任务相关文件；未知 ID 时先用 `CODEX_ROUTER.md` 映射，只有归属确实不清楚才读 `ACTIVE_INDEX.md`。完整规则见 `CODEX_ROUTER.md`，不再要求每轮串行读完全局控制面。
 
-`README.md -> AGENTS.md -> 00_ProjectOS/ -> 对应 PROJECT_HOME -> 已知代码目录`
+`PROJECT_HOME -> TASK 相关文件 -> 执行/验证 -> SYNC_BACK`
 
-除非前述路径不足，**禁止递归扫描 Frozen Legacy 根目录**。
+下列路径只用于 ProjectOS 治理、跨项目冲突或恢复任务，不是普通项目的必读链：
+
+`README.md / AGENTS.md -> 00_ProjectOS/README.md / REPOSITORY_MAP.md -> 相关 PROJECT_HOME`
+
+**禁止在正常任务中递归扫描 Frozen Legacy 根目录**；只有明确的历史恢复或依赖审计任务才按范围进入。
 
 ## 6. 当前推荐视觉结构
 

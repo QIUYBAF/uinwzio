@@ -1,5 +1,7 @@
 # AGENTS.md — ProjectOS execution rules
 
+**UPDATED:** 2026-11-05
+
 This repository is used by both ChatGPT and Codex. Treat ChatGPT cloud context and Codex/local session history as separate memory domains. Never assume another session already knows the current project state.
 
 ## Minimal startup route
@@ -114,11 +116,11 @@ Meaningful changes require evidence/reason and must be recorded under `CHANGES`.
 
 ## File lifecycle
 
-`INBOX -> ACTIVE -> DELIVERY -> ARCHIVE`
+`INBOX -> ACTIVE -> DELIVERY -> KEEP / DELETE`
 
 At completion, keep the minimum historical sufficient set: the current runnable source, current release/final deliverable, one rollback point only when needed, representative milestone output, concise development lessons, and irreplaceable source/licensing material. After verifying no ACTIVE reference, directly delete obsolete full-version copies, old builds/installers, duplicate archives/exports, stale previews/checkpoints/handoffs, caches, dependency directories, virtual environments, rejected outputs without reuse value, and reproducible intermediates. Archive only material with explicit historical, display, legal, or reproducibility value; uncertainty alone goes to NEEDS-HUMAN, not permanent hoarding.
 
-Daily maintenance may perform verified low-risk deletions without per-file approval. It must not automatically delete the only irreplaceable source asset, the only final deliverable, current ACTIVE/CURRENT RELEASE dependencies, current runnable source, default branch/current release tag, or material whose ownership/reference status cannot be established. See `00_ProjectOS/STORAGE_AND_RETENTION.md`.
+Maintenance tasks may perform verified low-risk deletions without per-file approval. It must not automatically delete the only irreplaceable source asset, the only final deliverable, current ACTIVE/CURRENT RELEASE dependencies, current runnable source, default branch/current release tag, or material whose ownership/reference status cannot be established. See `00_ProjectOS/STORAGE_AND_RETENTION.md`.
 
 ## End-of-session protocol
 

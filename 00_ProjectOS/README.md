@@ -1,5 +1,7 @@
 # Project OS v1.4 — 统一工作制度
 
+**UPDATED:** 2026-11-05
+
 > 目标：让 ChatGPT / Codex / 本地 / Google Drive / Library / GitHub / B站之间只传递最小必要信息，避免重复搜索、重复解释、记忆断裂和版本混乱。执行效率优先于“把所有资料都读一遍”的形式完整性。
 
 ## 1. 平台唯一职责
@@ -11,6 +13,15 @@
 - **B站 = 发布终点 + 数据反馈**：发布文件与数据结论回流到 OPS-01，不作为素材仓库。
 
 平台详细路由与文件命名以 `FILE_NAMING_AND_ROUTING.md` 和 `STORAGE_AND_RETENTION.md` 为准。
+
+### 固定入口（2026-11-05 已核实，不复制动态状态）
+
+- [GitHub ProjectOS / PROJECT_HOME](https://github.com/QIUYBAF/uinwzio/tree/master/00_ProjectOS) — 制度、状态与版本真源。
+- [Drive `00_项目管理` 原入口](https://docs.google.com/document/d/1wrZrRe_GXP7NxmqMgzMuZeK_16dBy6fvLv6paMZ4bK8/edit) — 大型交付的薄路由入口；它不另存规则全文。
+- [Library `00_START_HERE`](https://chatgpt.com/library?file_id=libfile_4869920654f48191a751954787f03736&account_id=personal) — AI 快速入口；动态状态以 GitHub 为准。
+- [Drive OPS-01 唯一数据台账](https://drive.google.com/file/d/1sj-g2T_yjGA7ErlBJb4VJN2tNhoHZflG/view) — B站已发布作品、阶段快照与待采队列；不要在入口摘要造第二份台账。
+
+维护时只在这些固定身份实际变化时更新链接。客户端本机资产、Drive 交付、Library 摘要、GitHub 状态不得因名称相近而互相覆盖。
 
 ## 2. 记忆边界：默认不共享
 
@@ -47,7 +58,7 @@ TRACK 表示业务分支/期数/子项目，不是 Git branch。上传前必须�
 
 项目业务状态：`ACTIVE / WAITING / DONE / ARCHIVE`。
 
-- ACTIVE：本周真的会推进；每周重制作主项目最多 3 个。
+- ACTIVE：本周真的会推进；本周候选主项目最多 3 个，同时只开 1 个重制作，另可有 1 个轻量手绘备选。
 - WAITING：保留但不主动消耗算力。
 - DONE：已完成，等待发布/复盘/收尾。
 - ARCHIVE：停止搜索，除非明确恢复。
@@ -172,10 +183,16 @@ AI 接手已有项目时：
 
 改变这些规则必须写入 `CHANGES`，说明原因和预期收益；实验优先局部 A/B，而不是整期突然换体系。
 
-## 11. 每日维护
+## 11. 增量维护与现有排程
 
-每日进行最近 7 天的增量清理，每逢周日做全量结构检查；B站周决策会继续负责项目优先级。维护任务：
-- 检查重制作主项目是否超过 3 个；
+“每日增量”是检查最近 7 天新增/修改内容的操作方式，不代表已经存在独立的每日自动任务。实际执行以现有启用排程或用户明确的维护请求为准，详细规则见 `STORAGE_AND_RETENTION.md` 第 8 节。
+
+当前排程（Asia/Shanghai）：
+- 每周一 11:00「B站周决策会」：项目优先级决策，并在同一轮完成 ProjectOS 完整周维护与结构检查。
+- 每周四 19:00「周中存储整理」：轻量跨平台增量整理。
+
+不另设周日全检或重复的每日维护任务；文档更新不等于创建或修改自动化。维护检查项：
+- 检查候选主项目是否超过 3 个、同时重制作是否超过 1 个；
 - 每个 ACTIVE 是否有唯一 NEXT；
 - 检查最近新增文件是否符合 canonical filename；
 - 优先按文件名 + PROJECT_HOME 判断归属，不用聊天记忆猜测；

@@ -1,26 +1,54 @@
 # CODEX_HANDOFF_TEMPLATE
 
-> Purpose: bridge a ChatGPT cloud project into a Codex/local execution session without relying on shared chat history.
-> Rule: this file must be self-contained. Codex should be able to start work after reading only this file plus the referenced project files.
+**UPDATED:** 2026-11-05
 
-## 0. Identity
-- Project ID: <CT/SW/OP-xx>
+> Purpose: bridge a ChatGPT cloud project into a Codex/local execution session without relying on shared chat history.
+> Default: use the compact handoff below with the canonical PROJECT_HOME. The full recovery template is only for first setup or when PROJECT_HOME is missing or inaccessible.
+
+## A. Normal handoff — default
+
+```text
+PROJECT_ID: <existing project ID>
+DELTA: <only new or changed facts; otherwise none>
+TASK: <one concrete in-scope objective>
+ACCEPTANCE: <observable completion and validation criteria>
+```
+
+Read the matching PROJECT_HOME and task-specific files; do not copy its unchanged identity, constraints, history, or source map into every handoff.
+
+For external actions, add one sentence only when relevant:
+
+```text
+AUTH_SCOPE: <already authorized platform/account, objects, actions/destinations, and review gates that still apply>
+```
+
+AUTH_SCOPE records existing authority; it does not grant new access or remove platform approval. Reuse clear current authorization and project restrictions without reconfirming every routine step. Consult `00_ProjectOS/AGENT_EXECUTION_CONTRACT.md` when authority is ambiguous or external actions require it.
+
+Finish with `RESULT / CHANGED / TEST / OPEN / NEXT / SYNC_BACK`; sync only durable new facts to the canonical project entry.
+
+## B. Full recovery handoff — first setup or unavailable PROJECT_HOME only
+
+Keep this section self-contained enough to recover the project; do not make it the default form for normal follow-up work.
+
+### 0. Identity
+- Project ID: <CT-xx / IP-xx / SW-xx / OPS-xx / LAB-xx>
 - Project name: <name>
 - Track / business branch: <EP / subproject / track>
 - Handoff version: <YYYY-MM-DD HH:mm>
 - Source: ChatGPT cloud project
 - Target: Codex/local desktop execution
-- Current status: ACTIVE / PAUSED / QA / RELEASE
+- Business status: ACTIVE / WAITING / DONE / ARCHIVE
+- Sync status (when relevant): SYNCED / UNSYNCED / NEEDS-HUMAN
 
-## 1. One-sentence mission
+### 1. One-sentence mission
 <What this project is trying to achieve.>
 
-## 2. Why this project exists
+### 2. Why this project exists
 - Audience/user value:
 - Core experience/result:
 - What must remain recognizable across iterations:
 
-## 3. Immutable constraints (DO NOT BREAK)
+### 3. Immutable constraints (DO NOT BREAK)
 These are established project invariants. Do not change them merely because another implementation seems cleaner.
 1. <visual / narrative / technical invariant>
 2. <style / architecture / naming invariant>
@@ -28,23 +56,23 @@ These are established project invariants. Do not change them merely because anot
 
 If a constraint seems genuinely harmful, do not silently replace it. Record the conflict and propose a change separately.
 
-## 4. Current project state
-### Completed
+### 4. Current project state
+#### Completed
 - <done item>
 
-### Working / verified baseline
+#### Working / verified baseline
 - <what currently works and should be preserved>
 
-### Known problems
+#### Known problems
 - <problem + evidence>
 
-### Current ACTIVE version
+#### Current ACTIVE version
 - <single active version / branch / folder>
 
-### Current NEXT
+#### Current NEXT
 - <exactly one next task>
 
-## 5. This Codex session: objective
+### 5. This Codex session: objective
 Complete the following task in this session:
 
 <clear task statement>
@@ -56,24 +84,24 @@ Priority order:
 
 Do not broaden scope unless required to finish the objective.
 
-## 6. Inputs and locations
-### Local
+### 6. Inputs and locations
+#### Local
 - <path>
 
-### GitHub
+#### GitHub
 - Repository: <owner/repo>
 - Relevant path/branch: <path>
 
-### Google Drive
+#### Google Drive
 - <folder/file reference>
 
-### Library / reference material
+#### Library / reference material
 - <project home / style guide / notes>
 
 If a referenced asset is missing, first search the listed canonical location. Do not create duplicate substitute assets unless necessary.
 
-## 7. Execution instructions
-1. Read PROJECT_HOME / project rules first.
+### 7. Execution instructions
+1. Read PROJECT_HOME / project rules if available; when unavailable, use this full recovery handoff and record the missing canonical entry under OPEN.
 2. Inspect the existing implementation before changing anything.
 3. Preserve verified working parts.
 4. Make the smallest coherent change that satisfies the objective.
@@ -92,7 +120,7 @@ If a referenced asset is missing, first search the listed canonical location. Do
 11. If a file's project/track/module cannot be determined confidently, do not guess. Use `UNASSIGNED__...` in `99_待整理` and report NEEDS-HUMAN.
 12. Before handoff, extract the minimum historical sufficient set and remove verified obsolete builds, duplicate exports, stale previews/checkpoints/handoffs, caches, dependency folders and reproducible intermediates.
 
-## 8. Acceptance criteria
+### 8. Acceptance criteria
 The task is complete only when:
 - [ ] <observable criterion>
 - [ ] <observable criterion>
@@ -104,7 +132,7 @@ The task is complete only when:
 - [ ] Current runnable source, current release/final output, irreplaceable assets and any required rollback point remain intact.
 - [ ] Cleanup performed or unresolved ownership/reference risk is listed under OPEN / NEEDS-HUMAN.
 
-## 9. Output protocol
+### 9. Output protocol
 At the end, report only:
 1. RESULT — what was completed.
 2. CHANGED — files/components changed.
@@ -115,10 +143,10 @@ At the end, report only:
 
 If code was changed, commit/push it to the canonical GitHub repository when authorized and appropriate. If a large media deliverable was produced, place it in the canonical Drive ACTIVE/delivery folder. Software source or repo snapshots must not be duplicated to Drive merely for handoff.
 
-## 10. Stop conditions
+### 10. Stop conditions
 Stop and report instead of guessing if:
 - a required canonical input cannot be found;
-- continuing would destroy or replace a verified baseline;
+- continuing would irreversibly destroy or replace a protected verified baseline without authorization; authorized revisions should preserve any required rollback point;
 - the task requires a major design decision not specified here;
 - the project/track/module identity of a deliverable cannot be determined reliably;
 - an external credential/permission is genuinely required.

@@ -1,5 +1,7 @@
 # CODEX ROUTER — 最小启动路由
 
+**UPDATED:** 2026-11-05
+
 **目标：** 让 Codex 用最少必要上下文进入正确项目。这里是执行路由，不是另一份制度手册。
 
 ## 0. 核心原则
@@ -17,6 +19,7 @@
 | CT-01 | `00_ProjectOS/projects/CT-01_她们仍在旅行.md` | PROJECT_HOME 指定的 Drive / Library 当前路径 |
 | CT-02 | `00_ProjectOS/projects/CT-02_结束乐队xMinecraft.md` | PROJECT_HOME 指定的 Drive 当前分集 |
 | CT-03 | `00_ProjectOS/projects/CT-03_纯手绘插画.md` | PROJECT_HOME 指定的素材/交付路径 |
+| CT-05 | `00_ProjectOS/projects/CT-05_AI拟人百合.md` | PROJECT_HOME 指定的 Drive / Library 当前路径 |
 | IP-01 | `00_ProjectOS/projects/IP-01_异象研究.md` | PROJECT_HOME 指定路径 |
 | OPS-01 | `00_ProjectOS/projects/OPS-01_B站运营发布.md` | ProjectOS + Drive 发布交付 |
 | SW-01 | `00_ProjectOS/projects/SW-01_AgentCut.md` | `AgentCut/` |
