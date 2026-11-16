@@ -42,3 +42,10 @@
 - 新想法默认 WAITING / INBOX；每个 ACTIVE 项目只有一个 NEXT。
 - 每周决策会负责继续 / 改版 / 暂停 / 归档；不因旧计划或文件时间戳自动恢复项目。
 - 版本号属于 Git 历史、release 或 archive，不创建新的平级“最新版”入口。
+
+## 2026-11-17 入口一致性核查（不改变制作优先级）
+
+- **CT-01 / NEEDS-HUMAN：** 本页与 PROJECT_HOME 顶部写《世界终末的余温》45–60秒候选，但 PROJECT_HOME 第5、6、10节仍指热学EP01 v05/v07短化。两项不是同一交付，当前条目不能作为启动、合并或清理任一项目的充分依据。NEXT：核对对应原对话与当前交付记录后统一指向，不凭名称近似替换工程。
+- **CT-05 / UNSYNCED：** PROJECT_HOME 当前状态停留在11月7–8日两稿与11月11日数据节点；Drive 实际存在海滩篇 v06 目录及 v07 QA/S38交接记录，尚未被 PROJECT_HOME 收录。定位：[现有海滩目录](https://drive.google.com/drive/folders/1toxpwuI3zO6v2SeNl3x8BitYJ-bGlBle)。本轮只核实目录与文件元数据，未重新审片，不表示已验收或已发布。NEXT：读取最新交接/验收证据，回写真实阶段与唯一母版，不能按 WAITING 目录名删除。
+
+证据范围：本轮实际读取 GitHub ACTIVE_INDEX、CT-01、CT-05 与 Drive 海滩目录清单；未重分类本地对话、未删除、未改 skill 或访问权限。
