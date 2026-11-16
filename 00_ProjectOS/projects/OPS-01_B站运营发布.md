@@ -1,7 +1,7 @@
 # OPS-01 B站运营与发布 — PROJECT_HOME
 
 **STATUS:** ACTIVE  
-**UPDATED:** 2026-11-09
+**UPDATED:** 2026-11-16
 
 ## 1. 一句话目标
 用真实数据和有限产能决定下一周最值得做什么，把制作、包装、发布、复盘和规则更新连成闭环。
@@ -47,7 +47,7 @@ CT-01热学EP01只用现有资产锁定45–60秒发布候选；CT-02只允许�
 - **Drive:** `01_进行中/OPS-01_B站运营发布_ACTIVE` + `02_发布交付`
 - **Library:** `30_运营/OPS-01_B站运营发布`
 - **运营数据真源:** Drive `OPS-01__CHANNEL-HISTORY__DATA__CURRENT.json`（ID `1sj-g2T_yjGA7ErlBJb4VJN2tNhoHZflG`）
-- **最新证据:** `OPS-01__WEEKLY__20261109T113000__EVIDENCE.json`（ID `1TmctN7W6n3Vim9b14__j7KBl_8pbRZDN`）
+- **最新证据:** `OPS-01__WEEKLY__20261116T112100__EVIDENCE.json`（ID `1VA-xwNbvAPUeUARUSLWikwhZ01lO5OZ6`）
 - **Page摘要:** `page_3e39675cbd608191af3d359289f430af`
 
 ## 10. HANDOFF
